@@ -46,7 +46,7 @@ if __name__=="__main__":
     #with open(f"saved/{datetime.strftime(datetime.now(), '%m-%d-%Y')}_CRYPTO.csv",'w+') as f:
     #    f.write(df.to_csv(index=True))
     sqlite_conn.close()
-    send_email(messages='Information Collected', subject=date_as, password='<<password here>>')
+    send_email(messages='Information Collected', subject=date_as, password='Haxx0r001')
 
 
 
