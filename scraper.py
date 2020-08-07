@@ -3,6 +3,7 @@ from datetime import datetime
 
 import pandas as pd
 from bs4 import BeautifulSoup as BS
+from db import sqlite_conn, sqlite_table
 
 from connection.var import ConnectionVar, agent_desktop, parser, URL
 
@@ -27,8 +28,9 @@ if __name__=="__main__":
     all_circulation = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['CIRCULATION'])]
     all_percent = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['PERCENT_CHG'])]
 
-    df = pd.DataFrame(index=all_name, columns=['PRICE','PRICE_CAP', 'VOLUME24','CIRCULATION', 'PERCENT_chg'])
+    df = pd.DataFrame(index=all_name, columns=['DATE','PRICE','PRICE_CAP', 'VOLUME24','CIRCULATION', 'PERCENT_chg'])
 
+    df['DATE'] = datetime.strftime(datetime.now(), '%m-%d-%Y, %H:%M')
     df['PRICE'] = all_price
     df['PRICE_CAP'] = all_pricecap
     df['VOLUME24'] = all_volume24
@@ -36,9 +38,11 @@ if __name__=="__main__":
     df['PERCENT_chg'] = all_percent
 
 
-    with open(f"saved/{datetime.strftime(datetime.now(), '%m-%d-%Y')}_CRYPTO.csv",'w+') as f:
-        f.write(df.to_csv(index=True))
+    df.to_sql(sqlite_table, sqlite_conn, if_exists='append')
 
+    #with open(f"saved/{datetime.strftime(datetime.now(), '%m-%d-%Y')}_CRYPTO.csv",'w+') as f:
+    #    f.write(df.to_csv(index=True))
+    sqlite_conn.close()
 
 
 
