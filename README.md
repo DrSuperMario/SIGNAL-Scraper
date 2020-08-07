@@ -1,2 +1,2 @@
-##STOCK SIGNAL SCRAPER
+## Crypto price scraper
 
