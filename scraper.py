@@ -12,7 +12,7 @@ from smtp import send_email
 
 header = {'User-Agent': agent_desktop}
 TIME_LOOP = True
-time_passage = 3600
+time_passage = 36
 
 def get_html(url, header):
     #get data from sources
@@ -31,7 +31,7 @@ if __name__=="__main__":
 
             all_name = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['NAME'])]
             all_price = [x.get_text() for x in soup.find_all('td',class_=ConnectionVar['PRICE'])]
-            all_pricecap = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['PRICE'])]
+            all_pricecap = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['PRICE_CAP'])]
             all_volume24 = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['VOLUME_24'])]
             all_circulation = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['CIRCULATION'])]
             all_percent = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['PERCENT_CHG'])]
