@@ -10,7 +10,7 @@ from db import sqlite_conn, sqlite_table
 df_columns = ['DATE','PRICE','PRICE_CAP', 'VOLUME_24','CIRCULATION', 'PERCENT_CHG']
 data_columns = ['NAME','PRICE','PRICE_CAP', 'VOLUME_24','CIRCULATION', 'PERCENT_CHG']
 tag_names = ['a','td']
-
+ 
 
 def get_html(url, header):
     #get data from sources
