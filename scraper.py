@@ -6,9 +6,11 @@ import pandas as pd
 from bs4 import BeautifulSoup as BS
 from db import sqlite_conn, sqlite_table
 
-from connection.var import ConnectionVar, agent_desktop, parser, URL
+from connection.var import ConnectionVar_crypto, HEADERS, PARSER, URL
 from smtp import send_email
 
+parser = PARSER
+agent_desktop = HEADERS['agent_desktop']
 
 header = {'User-Agent': agent_desktop}
 TIME_LOOP = True
@@ -29,12 +31,12 @@ if __name__=="__main__":
 
             date_as = datetime.strftime(datetime.now(), '%m-%d-%Y, %H:%M')
 
-            all_name = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['NAME'])]
-            all_price = [x.get_text() for x in soup.find_all('td',class_=ConnectionVar['PRICE'])]
-            all_pricecap = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['PRICE_CAP'])]
-            all_volume24 = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['VOLUME_24'])]
-            all_circulation = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['CIRCULATION'])]
-            all_percent = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar['PERCENT_CHG'])]
+            all_name = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar_crypto['NAME'])]
+            all_price = [x.get_text() for x in soup.find_all('td',class_=ConnectionVar_crypto['PRICE'])]
+            all_pricecap = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar_crypto['PRICE_CAP'])]
+            all_volume24 = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar_crypto['VOLUME_24'])]
+            all_circulation = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar_crypto['CIRCULATION'])]
+            all_percent = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar_crypto['PERCENT_CHG'])]
 
             df = pd.DataFrame(index=all_name, columns=['DATE','PRICE','PRICE_CAP', 'VOLUME24','CIRCULATION', 'PERCENT_chg'])
 
@@ -50,7 +52,9 @@ if __name__=="__main__":
 
             #with open(f"saved/{datetime.strftime(datetime.now(), '%m-%d-%Y')}_CRYPTO.csv",'w+') as f:
             #    f.write(df.to_csv(index=True))
-            send_email(messages='Information Collected', subject=date_as, password='Haxx0r001')
+            #Remove password :D
+            
+            send_email(messages='Information Collected', subject=date_as, password='<BLANK>')
             time.sleep(time_passage)
         except KeyboardInterrupt:
             print(f'Run canceled on {datetime.now()}')
