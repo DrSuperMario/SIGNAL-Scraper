@@ -45,15 +45,29 @@ class Connect():
         makeSoup = soup(data, PARSER)
 
         try:
+            #creating a table for crypto prices    
             df = pd.DataFrame(index=[x.get_text() for x in makeSoup.find_all('p', {'class':ConnectionVar_crypto['NAME']})],
-             columns=['DATE','PRICE','PRICE_CAP', 'VOLUME24','CIRCULATION', 'PERCENT_chg'])
+             columns=['DATE','PRICE','PRICE_CAP', 'VOLUME24','CIRCULATION'])
             df['DATE'] = datetime.strftime(datetime.now(), '%m-%d-%Y, %H:%M')
-            df['PRICE'] = [x.get_text() for x in makeSoup.find_all('td',{'class':'rc-table-cell font_weight_500___2Lmmi'})[:100]]
-            df['PRICE_CAP'] = [x.get_text() for x in makeSoup.find_all('p',{'class':ConnectionVar_crypto['PRICE_CAP']})[:100]]
-            df['VOLUME24'] = [x.get_text() for x in makeSoup.find_all('p',{'class':ConnectionVar_crypto['VOLUME_24']})[:100]]
-            df['CIRCULATION'] = [x.get_text() for x in makeSoup.find_all('p',{'class':ConnectionVar_crypto['CIRCULATION']})[:100]]
-            df['PERCENT_chg'] = [x.get_text() for x in makeSoup.find_all('p',{'class':ConnectionVar_crypto['PERCENT_CHG']})[:100]]
+            try:
+                assert(df.index == fixedCoinList)#scraping prices, names etcc from coinmartketcap
+                df['PRICE'] = [makeSoup.find('a',{'href':f"/currencies/{x}/markets/"}).get_text() for x in fixedCoinList] 
+                #using a coin list from coinmarketcap
+                df['PRICE_CAP'] = [x.get_text() for x in makeSoup.find_all('p',{'class':ConnectionVar_crypto['PRICE_CAP']})[1:101]]
+                df['VOLUME24'] = [x.get_text() for x in makeSoup.find_all('p',{'class':ConnectionVar_crypto['VOLUME_24']})[:100]]
+                df['CIRCULATION'] = [x.get_text() for x in makeSoup.find_all('p',{'class':ConnectionVar_crypto['CIRCULATION']})[:100]]
+                #df['PERCENT_chg'] = [x.get_text() for x in makeSoup.find_all('p',{'class':ConnectionVar_crypto['PERCENT_CHG']})[:100]]
+                #checking if everything is correct
+                assert(len(df['PRICE']) == len(df))
+                assert(len(df) == 100)
+
+            except AssertionError:
+                #if encounters assertion error then it will automaticly senda a notice
+                send_email(messages='Information not Collected from coinmarketcap.com', subject="Something went BOOM", password='<BLaNK>')
+                return "BOOB"
+
             return df
+
         except ValueError:
             return 0
 
@@ -71,7 +85,7 @@ class Connect():
             df['www'] = [x.get('href') for x in makeSoup.find_all('a', {'class':'nn-tab-link'})[1:90]]
         #Check if data is excact and if not then send an email
         except ValueError:
-            send_email(messages='Dafaframe valueError', subject="Dataframe ValueError", password='<BLaNK>')
+            send_email(messages='Dafaframe valueError information not collected ftom finviz', subject="Dataframe ValueError", password='<BLaNK>')
             return "Values dont match with eachother"
 
         return df
