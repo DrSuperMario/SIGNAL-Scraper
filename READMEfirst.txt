@@ -15,3 +15,5 @@ Stock Scraper
 
 12) make fixedCoinList dynamic so it gets a new list evvery time it updates
 	make shure it replaces not found coins
+	
+13) finish the function for updateing coinlist and check for errors
