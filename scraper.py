@@ -21,11 +21,11 @@ if __name__=="__main__":
             time.sleep(time_passage)
             #news connection
             newsConnection = Connect.news(url=URL[4], header=HEADERS['agent_smartphone'])
-            newsConnection.to_sql(sqliteTableForex, sqlite_conn2, if_exists='append')
+            newsConnection.to_sql(sqliteTableNews, sqlite_conn3, if_exists='append')
             time.sleep(time_passage)
             #Forex connection
             thirdConnection = Connect.forex(url=URL[6], header=HEADERS['agent_desktop'])
-            thirdConnection.to_sql(sqliteTableNews, sqlite_conn3, if_exists='append')
+            thirdConnection.to_sql(sqliteTableForex, sqlite_conn2, if_exists='append')
             time.sleep(time_passage)
             #with open(f"saved/{datetime.strftime(datetime.now(), '%m-%d-%Y')}_CRYPTO.csv",'w+') as f:
             #    f.write(df.to_csv(index=True))
