@@ -1,63 +1,40 @@
-import requests as req 
-from datetime import datetime
 import time
 
 import pandas as pd
-from bs4 import BeautifulSoup as BS
-from db import sqlite_conn, sqlite_table
 
-from connection.var import ConnectionVar_crypto, HEADERS, PARSER, URL
+from db import *
 from smtp import send_email
+from connection.var import *
+from modules.dataCollector import Connect
 
-parser = PARSER
-agent_desktop = HEADERS['agent_desktop']
-
-header = {'User-Agent': agent_desktop}
 TIME_LOOP = True
-time_passage = 36
+time_passage = 12000
 
-def get_html(url, header):
-    #get data from sources
-    #url for various sources
-    connect = req.get(url, header)
-    data = connect.content
-    return data
 
 if __name__=="__main__":
+
     while True:
         try:
-            conn = get_html(URL[1], header=agent_desktop)
-            soup = BS(conn, parser)
-
-            date_as = datetime.strftime(datetime.now(), '%m-%d-%Y, %H:%M')
-
-            all_name = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar_crypto['NAME'])]
-            all_price = [x.get_text() for x in soup.find_all('td',class_=ConnectionVar_crypto['PRICE'])]
-            all_pricecap = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar_crypto['PRICE_CAP'])]
-            all_volume24 = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar_crypto['VOLUME_24'])]
-            all_circulation = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar_crypto['CIRCULATION'])]
-            all_percent = [x.get_text() for x in soup.find_all('td', class_=ConnectionVar_crypto['PERCENT_CHG'])]
-
-            df = pd.DataFrame(index=all_name, columns=['DATE','PRICE','PRICE_CAP', 'VOLUME24','CIRCULATION', 'PERCENT_chg'])
-
-            df['DATE'] = date_as
-            df['PRICE'] = all_price
-            df['PRICE_CAP'] = all_pricecap
-            df['VOLUME24'] = all_volume24
-            df['CIRCULATION'] = all_circulation
-            df['PERCENT_chg'] = all_percent
-
-
-            df.to_sql(sqlite_table, sqlite_conn, if_exists='append')
-
+            #Crypto Connection
+            cryptoConnection = Connect.crypto(url=URL[1],header=HEADERS['agent_desktop'])
+            cryptoConnection.to_sql(sqliteTableCrypto, sqlite_conn1, if_exists='append')
+            time.sleep(time_passage)
+            #news connection
+            newsConnection = Connect.news(url=URL[4], header=HEADERS['agent_smartphone'])
+            newsConnection.to_sql(sqliteTableForex, sqlite_conn2, if_exists='append')
+            time.sleep(time_passage)
+            #Forex connection
+            thirdConnection = Connect.forex(url=URL[6], header=HEADERS['agent_desktop'])
+            thirdConnection.to_sql(sqliteTableNews, sqlite_conn3, if_exists='append')
+            time.sleep(time_passage)
             #with open(f"saved/{datetime.strftime(datetime.now(), '%m-%d-%Y')}_CRYPTO.csv",'w+') as f:
             #    f.write(df.to_csv(index=True))
             #Remove password :D
             
-            send_email(messages='Information Collected', subject=date_as, password='<BLANK>')
+            #send_email(messages='Information Collected', subject=date_as, password='<BLANK>')
             time.sleep(time_passage)
         except KeyboardInterrupt:
-            print(f'Run canceled on {datetime.now()}')
+            #print(f'Run canceled on {datetime.now()}')
             TIME_LOOP = False
             sqlite_conn.close()
             break
