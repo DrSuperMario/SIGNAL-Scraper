@@ -1,16 +1,11 @@
 from sqlalchemy import create_engine
 
-engineCrypto = create_engine('sqlite:///saved/crypto_data.db', echo=True)
-sqlite_conn1 = engineCrypto.connect()
 
-sqliteTableCrypto = 'Scraped Crypto Data'
+def createDb(nameID):
 
-engineForex = create_engine('sqlite:///saved/forex_data.db', echo=True)
-sqlite_conn2 = engineForex.connect()
+    nameID = create_engine(f"sqlite:///saved/{nameID}_data.db", echo=True)
+    sqlite_conn = nameID.connect()
 
-sqliteTableForex = 'Scraped Forex Data'
+    return sqlite_conn, f"Scraped {nameID} data"
 
-engineNews = create_engine('sqlite:///saved/news_data.db', echo=True)
-sqlite_conn3 = engineNews.connect()
 
-sqliteTableNews = 'Scraped News Data'
