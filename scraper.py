@@ -8,7 +8,7 @@ from connection.var import *
 from modules.dataCollector import Connect
 
 TIME_LOOP = True
-time_passage = 12000
+time_passage = 120
 
 
 if __name__=="__main__":
@@ -27,7 +27,7 @@ if __name__=="__main__":
             time.sleep(time_passage)
             #Forex connection
             forexConnection = Connect.forex(url=URL[6], header=HEADERS['agent_desktop'])
-            forexConn, dbName = createDb("newsTable")  
+            forexConn, dbName = createDb("forexTable")  
             forexConnection.to_sql(dbName, forexConn, if_exists='append')
             time.sleep(time_passage)
             #with open(f"saved/{datetime.strftime(datetime.now(), '%m-%d-%Y')}_CRYPTO.csv",'w+') as f:
