@@ -1,6 +1,8 @@
 import asyncio
+import smtplib
 from datetime import datetime
 
+import pandas as pd
 
 from modules.dataCollector import Connect
 from connection.var import *
@@ -9,7 +11,7 @@ from smtp import send_email
 
 
 TIME_LOOP = True
-time_passage = 12000
+time_passage = 1
 date_as = str(datetime.now())
 passwd = '<BLANK>'
 
@@ -28,6 +30,7 @@ async def cryptoConnection(delay):
     except EnvironmentError:
         print("Error occured with SMTP authentication")
 
+    cryptoConn.close()
     await asyncio.sleep(delay)
 
 
@@ -44,7 +47,8 @@ async def newsConnection(delay):
     except EnvironmentError:
         print("Error occured with SMTP authentication")
 
-        await asyncio.sleep(delay)
+    newsConn.close()
+    await asyncio.sleep(delay)
 
 async def forexConnection(delay):
 
@@ -60,13 +64,14 @@ async def forexConnection(delay):
     except EnvironmentError:
         print("Error occured with SMTP authentication")
 
-        await asyncio.sleep(delay)
+    forexConn.close()
+    await asyncio.sleep(delay)
 
 async def main():
 
     await cryptoConnection(time_passage)
     await newsConnection(time_passage)
-    await forexConnection(3600)
+    await forexConnection(3)
 
 
 if __name__=="__main__":
@@ -80,5 +85,9 @@ if __name__=="__main__":
         except KeyboardInterrupt:
             #print(f'Run canceled on {datetime.now()}')
             TIME_LOOP = False
-            send_email(messages='Program finished', 
-                    subject=date_as, password=passwd)
+
+            try:
+                send_email(messages='Program finished', 
+                        subject=date_as, password=passwd)
+            except smtplib.SMTPAuthenticationError:
+                print("Authentication error")
