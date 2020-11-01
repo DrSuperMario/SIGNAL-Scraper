@@ -1,2 +1,11 @@
 venv/
 __pycache__/
+.ipynb_checkpoints/FinViz-checkpoint.ipynb
+saved/08-04-2020_CRYPTO.csv
+saved/crypto_data.db
+saved/CryptoTable_data.db
+saved/08-04-2020_CRYPTO.csv
+saved/crypto_data.db
+saved/forex_data.db
+saved/forexTable_data.db
+saved/newsTable_data.db

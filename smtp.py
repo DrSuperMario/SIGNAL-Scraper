@@ -5,9 +5,9 @@ from email.mime.text import MIMEText
 
 def send_email(messages, subject, password):
     port = 465
-    smtp_server = 'pythonslack.com'
-    sender_mail = 'brine@pythonslack.com'
-    reciver_mail = 'mario@pythonslack.com'
+    smtp_server = 'smtp.gmail.com'
+    sender_mail = '<BLANK>'
+    reciver_mail = '<BLANK>'
     
     message = MIMEMultipart()
     message['From'] = sender_mail

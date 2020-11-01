@@ -1,4 +1,5 @@
 import time
+from datetime import datetime
 
 import pandas as pd
 
@@ -8,8 +9,8 @@ from connection.var import *
 from modules.dataCollector import Connect
 
 TIME_LOOP = True
-time_passage = 120
-
+time_passage = 1
+date_as = str(datetime.now())
 
 if __name__=="__main__":
 
@@ -20,11 +21,15 @@ if __name__=="__main__":
             cryptoConn, dbName = createDb("CryptoTable")  
             cryptoConnection.to_sql(dbName, cryptoConn, if_exists='append')
             time.sleep(time_passage)
+            send_email(messages='Information Collected Crypto', subject=date_as, password='<BLANK>)
+            
             #news connection
             newsConnection = Connect.news(url=URL[4], header=HEADERS['agent_smartphone'])
             newsConn, dbName = createDb("newsTable")  
             newsConnection.to_sql(dbName, newsConn, if_exists='append')
             time.sleep(time_passage)
+            send_email(messages='Information Collected news', subject=date_as, password='<BKANK>')
+
             #Forex connection
             forexConnection = Connect.forex(url=URL[6], header=HEADERS['agent_desktop'])
             forexConn, dbName = createDb("forexTable")  
@@ -34,7 +39,7 @@ if __name__=="__main__":
             #    f.write(df.to_csv(index=True))
             #Remove password :D
             
-            #send_email(messages='Information Collected', subject=date_as, password='<BLANK>')
+            send_email(messages='Information Collected forex', subject=date_as, password='<BLANK>')
             time.sleep(time_passage)
 
         except KeyboardInterrupt:
