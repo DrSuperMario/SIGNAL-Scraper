@@ -1,5 +1,6 @@
 import asyncio
 import smtplib
+import logging
 from datetime import datetime
 
 import pandas as pd
@@ -14,7 +15,7 @@ TIME_LOOP = True
 time_passage = 1
 date_as = str(datetime.now())
 passwd = '<BLANK>'
-
+logging.basicConfig(filename="log/scraper.log")
 
 async def cryptoConnection(delay):
 
@@ -28,9 +29,12 @@ async def cryptoConnection(delay):
                      subject=date_as, password=passwd)
     
     except EnvironmentError:
+        logging.error("Mail not sent , error 40000")
         print("Error occured with SMTP authentication")
 
     cryptoConn.close()
+    logging.info("Crypto collected")
+
     await asyncio.sleep(delay)
 
 
@@ -45,9 +49,12 @@ async def newsConnection(delay):
                     subject=date_as, password=passwd)
 
     except EnvironmentError:
+        logging.error("Mail not sent , error 40000")
         print("Error occured with SMTP authentication")
 
     newsConn.close()
+    logging.info("News collected")
+
     await asyncio.sleep(delay)
 
 async def forexConnection(delay):
@@ -62,9 +69,12 @@ async def forexConnection(delay):
                     subject=date_as, password=passwd)
 
     except EnvironmentError:
+        logging.error("Mail not sent , error 40000")
         print("Error occured with SMTP authentication")
 
     forexConn.close()
+    logging.info("Forex collected")
+
     await asyncio.sleep(delay)
 
 async def main():
@@ -85,7 +95,7 @@ if __name__=="__main__":
         except KeyboardInterrupt:
             #print(f'Run canceled on {datetime.now()}')
             TIME_LOOP = False
-
+            logging.info("Progrm terminated")
             try:
                 send_email(messages='Program finished', 
                         subject=date_as, password=passwd)
