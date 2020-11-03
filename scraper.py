@@ -12,7 +12,7 @@ from smtp import send_email
 
 
 TIME_LOOP = True
-time_passage = 1
+time_passage = 12000
 date_as = str(datetime.now())
 passwd = '<BLANK>'
 logging.basicConfig(filename="log/scraper.log")
@@ -32,7 +32,6 @@ async def cryptoConnection(delay):
         logging.error("Mail not sent , error 40000")
         print("Error occured with SMTP authentication")
 
-    cryptoConn.close()
     logging.info("Crypto collected")
 
     await asyncio.sleep(delay)
@@ -52,7 +51,6 @@ async def newsConnection(delay):
         logging.error("Mail not sent , error 40000")
         print("Error occured with SMTP authentication")
 
-    newsConn.close()
     logging.info("News collected")
 
     await asyncio.sleep(delay)
@@ -65,14 +63,13 @@ async def forexConnection(delay):
     conn.to_sql(dbName, forexConn, if_exists='append')
     try:
 
-        send_email(messages='Information Collected from News sources', 
+        send_email(messages='Information Collected from Forex sources', 
                     subject=date_as, password=passwd)
 
     except EnvironmentError:
         logging.error("Mail not sent , error 40000")
         print("Error occured with SMTP authentication")
 
-    forexConn.close()
     logging.info("Forex collected")
 
     await asyncio.sleep(delay)
@@ -81,7 +78,7 @@ async def main():
 
     await cryptoConnection(time_passage)
     await newsConnection(time_passage)
-    await forexConnection(3)
+    await forexConnection(6400)
 
 
 if __name__=="__main__":
