@@ -32,7 +32,7 @@ async def cryptoConnection(delay):
         print("Error occured with SMTP authentication")
 
     logging.info("Crypto collected")
-
+    cryptoConn.close()
     await asyncio.sleep(delay)
 
 
@@ -51,7 +51,7 @@ async def newsConnection(delay):
         print("Error occured with SMTP authentication")
 
     logging.info("News collected")
-
+    newsConn.close()
     await asyncio.sleep(delay)
 
 async def forexConnection(delay):
@@ -70,7 +70,7 @@ async def forexConnection(delay):
         print("Error occured with SMTP authentication")
 
     logging.info("Forex collected")
-
+    forexConn.close()
     await asyncio.sleep(delay)
 
 async def main():
