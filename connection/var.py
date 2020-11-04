@@ -4,9 +4,12 @@ URL = ("https://www.tradingview.com/markets/currencies/rates-all/",
        "https://www.ft.com/news-feed",
        "https://finviz.com/news.ashx",
        "https://www.coingecko.com/en/coins/all",
-       "https://uk.advfn.com/forex/live-prices")
+       "https://uk.advfn.com/forex/live-prices",
+       "https://goldprice.org/cryptocurrency-price")
 
 PARSER = "html.parser"
+
+PASSWD = "<blank>"
 
 HEADERS = {
     'agent_desktop':
@@ -27,7 +30,7 @@ ConnectionVar_crypto = {
     "NAME": "Text-sc-1eb5slv-0 iTmTiC",
     "PRICE": "no-wrap",
     "PRICE_CAP": "Text-sc-1eb5slv-0 hVAibX",
-                 "VOLUME_24": "Text-sc-1eb5slv-0 iOrfwG font_weight_500___2Lmmi",
+                 "VOLUME_24": "Box-sc-16r8icm-0 sc-1anvaoh-0 gxonsA",
                  "CIRCULATION": "Text-sc-1eb5slv-0 kqPMfR",
                  "PERCENT_CHG": "Text-sc-1eb5slv-0 PercentageChange__ChangeText-sc-1siv958-1 jRHnTF"
 }

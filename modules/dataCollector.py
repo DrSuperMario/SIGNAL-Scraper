@@ -1,15 +1,20 @@
 from datetime import datetime 
-import pandas as pd 
 import requests
+import re
+import logging
+
+import pandas as pd 
 from bs4 import BeautifulSoup as soup 
+
+
 from connection.var import *
 from smtp import send_email
-import re
+
 
 #
 # make use of a class structure
 #
-
+logging.basicConfig(filename="log\dataCollector.log")
 
 class Connect():
 
@@ -19,6 +24,7 @@ class Connect():
         try:
             conn = requests.get(url,headers={'User-Agent':header})
         except requests.exceptions.ConnectionError:
+            logging.error("Invalid URL")
             return "Invalid URL", 404
         #checking id the status code is 200
         if conn.status_code == requests.codes.ok:
@@ -31,7 +37,8 @@ class Connect():
             #just if someting goes horribly wrong
             except requests.exceptions.HTTPError:
                 #send an email to let me know if there was OOPS
-                send_email(messages='Information not Collected', subject="Something went BOOM", password='<BLaNK>')
+                logging.error("HTTP Connection not made")
+                send_email(messages='Information not Collected', subject="Something went BOOM", password=PASSWD)
                 return "Something made OOPS", 404
 
     #connection function for forex
@@ -51,7 +58,8 @@ class Connect():
             df['Open'] = [makeSoup.find('td', {"id":f"6_{x+1}"}).get_text() for x in range(0,18)]
             
         except ValueError:
-            send_email(messages='Dafaframe valueError information not collected ftom forex', subject="Dataframe ValueError", password='<BLaNK>')
+            logging.error("ValueERROR in forex scraping")
+            send_email(messages='Dafaframe valueError information not collected ftom forex', subject="Dataframe ValueError", password=PASSWD)
             return "Values dont match with eachother"
 
         return df
@@ -63,6 +71,28 @@ class Connect():
         #not good repeating code  somebody call police 
         data = Connect.makeConnection(url, header)
         makeSoup = soup(data, PARSER)
+
+        #if the first site fails automaticly scrape from anathor
+        def backupCoinList():
+            try:    
+                data = Connect.makeConnection(url=URL[7], header=HEADERS['agent_desktop'])
+                makeSoup = soup(data, PARSER)
+                df = pd.DataFrame(index=[x.get_text().replace("\n","").replace("\xa0","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-proper-name'})],
+                                    columns=['DATE','PRICE','PRICE_CAP', 'VOLUME24','CIRCULATION'])
+
+                df['DATE'] = datetime.strftime(datetime.now(), '%m-%d-%Y, %H:%M')
+                df['PRICE'] = [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-price views-align-right'})]
+                df['PRICE_CAP'] = [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-market-cap views-align-right hidden-xs'})]
+                df['VOLUME24'] =  [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-volume views-align-right hidden-xs'})]
+                df['CIRCULATION'] = [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-circulating-supply views-align-right'})]
+
+                send_email(messages='Information Collected from backupCoinList', subject="Something went BOOM", password=PASSWD)
+
+                return df
+
+            except ValueError:
+                logging.error("Backup info not collected from coinlist")
+                return "BackUp information not collected"
 
         #Function for checking and rearrenging coinlist
         def getCoinListNames(parsedData):
@@ -105,7 +135,7 @@ class Connect():
                 df['PRICE'] = [makeSoup.find('a',{'href':f"/currencies/{x}/markets/"}).get_text() for x in fixedCoinList] 
                 #using a coin list from coinmarketcap
                 df['PRICE_CAP'] = [x.get_text() for x in makeSoup.find_all('p',{'class':ConnectionVar_crypto['PRICE_CAP']})[1:101]]
-                df['VOLUME24'] = [x.get_text() for x in makeSoup.find_all('p',{'class':ConnectionVar_crypto['VOLUME_24']})[:100]]
+                df['VOLUME24'] = [x.get_text() for x in makeSoup.find_all('div',{'class':ConnectionVar_crypto['VOLUME_24']})[:100]]
                 df['CIRCULATION'] = [x.get_text() for x in makeSoup.find_all('p',{'class':ConnectionVar_crypto['CIRCULATION']})[:100]]
                 #df['PERCENT_chg'] = [x.get_text() for x in makeSoup.find_all('p',{'class':ConnectionVar_crypto['PERCENT_CHG']})[:100]]
                 #checking if everything is correct
@@ -114,13 +144,15 @@ class Connect():
 
             except AssertionError:
                 #if encounters assertion error then it will automaticly senda a notice
-                send_email(messages='Information not Collected from coinmarketcap.com', subject="Something went BOOM", password='<BLaNK>')
+                logging.error("Assertion error from coinlist")
+                send_email(messages='Information not Collected from coinmarketcap.com', subject="Something went BOOM", password=PASSWD)
                 return "BOOB"
 
             return df
 
         except ValueError:
-            return 0
+            logging.error("Valueerror from coinlist")
+            return backupCoinList()
 
     
     #Connectionfunction for news markets
@@ -136,7 +168,8 @@ class Connect():
             df['www'] = [x.get('href') for x in makeSoup.find_all('a', {'class':'nn-tab-link'})[1:90]]
         #Check if data is excact and if not then send an email
         except ValueError:
-            send_email(messages='Dafaframe valueError information not collected ftom finviz', subject="Dataframe ValueError", password='<BLaNK>')
+            logging.error("Value error from newsSource")
+            send_email(messages='Dafaframe valueError information not collected ftom finviz', subject="Dataframe ValueError", password=PASSWD)
             return "Values dont match with eachother"
 
         return df
