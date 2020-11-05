@@ -2,6 +2,7 @@ from datetime import datetime
 import requests
 import re
 import logging
+import os
 
 import pandas as pd 
 from bs4 import BeautifulSoup as soup 
@@ -14,7 +15,7 @@ from smtp import send_email
 #
 # make use of a class structure
 #
-logging.basicConfig(filename="log\dataCollector.log")
+logging.basicConfig(filename=os.path.normpath('log/dataCollector.log'))
 
 class Connect():
 

@@ -2,6 +2,7 @@ import asyncio
 import smtplib
 import logging
 from datetime import datetime
+import os
 
 import pandas as pd
 
@@ -14,7 +15,7 @@ from smtp import send_email
 TIME_LOOP = True
 time_passage = 1
 date_as = str(datetime.now())
-logging.basicConfig(filename="log/scraper.log")
+logging.basicConfig(filename=os.path.normpath('log/scraper.log.log'))
 
 async def cryptoConnection(delay):
 
