@@ -1,3 +1,14 @@
+from enum import Enum
+
+
+
+class Constnts(Enum):
+
+    LOOP_TIME = 12000
+    LOOP_END_TIME = 6400
+
+
+
 URL = ("https://www.tradingview.com/markets/currencies/rates-all/",
        "https://coinmarketcap.com/",
        "https://www.hl.co.uk/shares/stock-market-news",

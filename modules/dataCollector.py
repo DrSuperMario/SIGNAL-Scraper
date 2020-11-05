@@ -39,7 +39,8 @@ class Connect():
             except requests.exceptions.HTTPError:
                 #send an email to let me know if there was OOPS
                 logging.error("HTTP Connection not made")
-                send_email(messages='Information not Collected', subject="Something went BOOM", password=PASSWD)
+                send_email(messages=f"Information not Collected time: {str(datetime.now())}", 
+                            subject="Something went BOOM", password=PASSWD)
                 return "Something made OOPS", 404
 
     #connection function for forex
@@ -60,7 +61,8 @@ class Connect():
             
         except ValueError:
             logging.error("ValueERROR in forex scraping")
-            send_email(messages='Dafaframe valueError information not collected ftom forex', subject="Dataframe ValueError", password=PASSWD)
+            send_email(messages=f"Dafaframe valueError information not collected ftom forex time: {str(datetime.now())}", 
+                        subject="Dataframe ValueError", password=PASSWD)
             return "Values dont match with eachother"
 
         return df
@@ -87,7 +89,8 @@ class Connect():
                 df['VOLUME24'] =  [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-volume views-align-right hidden-xs'})]
                 df['CIRCULATION'] = [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-circulating-supply views-align-right'})]
 
-                send_email(messages='Information Collected from backupCoinList', subject="Something went BOOM", password=PASSWD)
+                send_email(messages=f"Information Collected from backupCoinList time: {str(datetime.now())}",
+                             subject="Something went BOOM", password=PASSWD)
 
                 return df
 
@@ -146,7 +149,8 @@ class Connect():
             except AssertionError:
                 #if encounters assertion error then it will automaticly senda a notice
                 logging.error("Assertion error from coinlist")
-                send_email(messages='Information not Collected from coinmarketcap.com', subject="Something went BOOM", password=PASSWD)
+                send_email(messages=f"Information not Collected from coinmarketcap.com time: {str(datetime.now())}",
+                             subject="Something went BOOM", password=PASSWD)
                 return "BOOB"
 
             return df
@@ -170,7 +174,8 @@ class Connect():
         #Check if data is excact and if not then send an email
         except ValueError:
             logging.error("Value error from newsSource")
-            send_email(messages='Dafaframe valueError information not collected ftom finviz', subject="Dataframe ValueError", password=PASSWD)
+            send_email(messages=f"Dafaframe valueError information not collected ftom finviz time: {str(datetime.now())}", 
+                        subject="Dataframe ValueError", password=PASSWD)
             return "Values dont match with eachother"
 
         return df

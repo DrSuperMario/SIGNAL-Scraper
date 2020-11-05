@@ -13,8 +13,7 @@ from smtp import send_email
 
 
 TIME_LOOP = True
-time_passage = 1
-date_as = str(datetime.now())
+time_passage = Constnts.LOOP_TIME.value
 logging.basicConfig(filename=os.path.normpath('log/scraper.log.log'))
 
 async def cryptoConnection(delay):
@@ -26,7 +25,7 @@ async def cryptoConnection(delay):
     try:
 
         send_email(messages='Information Collected from Crypto Source',
-                     subject=date_as, password=PASSWD)
+                     subject=str(datetime.now()), password=PASSWD)
     
     except EnvironmentError:
         logging.error("Mail not sent , error 40000")
@@ -45,7 +44,7 @@ async def newsConnection(delay):
     try:
 
         send_email(messages='Information Collected from News sources', 
-                    subject=date_as, password=PASSWD)
+                    subject=str(datetime.now()), password=PASSWD)
 
     except EnvironmentError:
         logging.error("Mail not sent , error 40000")
@@ -64,7 +63,7 @@ async def forexConnection(delay):
     try:
 
         send_email(messages='Information Collected from Forex sources', 
-                    subject=date_as, password=PASSWD)
+                    subject=str(datetime.now()), password=PASSWD)
 
     except EnvironmentError:
         logging.error("Mail not sent , error 40000")
@@ -78,7 +77,7 @@ async def main():
 
     await cryptoConnection(time_passage)
     await newsConnection(time_passage)
-    await forexConnection(2)
+    await forexConnection(Constnts.LOOP_END_TIME.value)
 
 
 if __name__=="__main__":
@@ -95,6 +94,6 @@ if __name__=="__main__":
             logging.info("Progrm terminated")
             try:
                 send_email(messages='Program finished', 
-                        subject=date_as, password=PASSWD)
+                        subject=str(datetime.now()), password=PASSWD)
             except smtplib.SMTPAuthenticationError:
                 print("Authentication error")

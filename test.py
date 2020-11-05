@@ -13,6 +13,4 @@ time_passage = 12000
 date_as = str(datetime.now())
 passwd = '<BLANK>'
 
-conn = Connect.crypto(url=URL[1],header=HEADERS['agent_desktop'])
-
-print(conn)
+#conn = Connect.crypto(url=URL[1],header=HEADERS['agent_desktop'])
