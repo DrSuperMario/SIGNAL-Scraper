@@ -2,10 +2,11 @@ from enum import Enum
 
 
 
-class Constnts(Enum):
+class Constants(Enum):
 
     LOOP_TIME = 12000
     LOOP_END_TIME = 6400
+    API_ADDRESS = "127.0.0.1:5050"
 
 
 
@@ -16,7 +17,8 @@ URL = ("https://www.tradingview.com/markets/currencies/rates-all/",
        "https://finviz.com/news.ashx",
        "https://www.coingecko.com/en/coins/all",
        "https://uk.advfn.com/forex/live-prices",
-       "https://goldprice.org/cryptocurrency-price")
+       "https://goldprice.org/cryptocurrency-price",
+       "https://www.kitco.com/market/")
 
 PARSER = "html.parser"
 

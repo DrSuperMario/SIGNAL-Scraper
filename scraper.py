@@ -13,7 +13,7 @@ from smtp import send_email
 
 
 TIME_LOOP = True
-time_passage = Constnts.LOOP_TIME.value
+time_passage = Constants.LOOP_TIME.value
 logging.basicConfig(filename=os.path.normpath('log/scraper.log.log'))
 
 async def cryptoConnection(delay):
@@ -77,7 +77,7 @@ async def main():
 
     await cryptoConnection(time_passage)
     await newsConnection(time_passage)
-    await forexConnection(Constnts.LOOP_END_TIME.value)
+    await forexConnection(Constants.LOOP_END_TIME.value)
 
 
 if __name__=="__main__":

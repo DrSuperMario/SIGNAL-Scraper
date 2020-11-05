@@ -10,11 +10,14 @@ from bs4 import BeautifulSoup as soup
 
 from connection.var import *
 from smtp import send_email
+from modules.apiRequests import RequestAPI
 
 
 #
 # make use of a class structure
 #
+
+#start logging
 logging.basicConfig(filename=os.path.normpath('log/dataCollector.log'))
 
 class Connect():
@@ -161,7 +164,7 @@ class Connect():
 
     
     #Connectionfunction for news markets
-    def news(url, header):
+    def news(url, header, reqToSend=False):
 
         data = Connect.makeConnection(url, header)
         makeSoup = soup(data, PARSER)
@@ -177,6 +180,20 @@ class Connect():
             send_email(messages=f"Dafaframe valueError information not collected ftom finviz time: {str(datetime.now())}", 
                         subject="Dataframe ValueError", password=PASSWD)
             return "Values dont match with eachother"
-
+        
+        if(reqToSend):
+            req = RequestAPI(data=df)
+            return req.analyseData()
         return df
+
+    #Collect metal prices
+    def preciousMetals(url, header):
+
+        data = Connect.makeConnection(url, header)
+        makseSoup = soup(data, PARSER)
+
+    try:
+        pass
+    except ValueError:
+        pass
 
