@@ -1,0 +1,40 @@
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/CryptoTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/CryptoTable_data.db) data" ("index", "DATE", "PRICE", "PRICE_CAP", "VOLUME24", "CIRCULATION") VALUES (?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('Bitcoin', '11-08-2020, 22:18', '$15,417.81', '$285,809,137,422', '$27,261,865,9891,768,206 BTC', '18,537,600 BTC'), ('Ethereum', '11-08-2020, 22:18', '$451.70', '$51,198,426,777', '$11,375,905,93725,184,523 ETH', '113,345,517 ETH'), ('Tether', '11-08-2020, 22:18', '$1.00', '$17,207,263,929', '$37,764,075,97037,738,894,618 USDT', '17,195,790,004 USDT'), ('XRP', '11-08-2020, 22:18', '$0.254911', '$11,550,672,676', '$2,412,267,6489,463,158,898 XRP', '45,312,488,850 XRP'), ('Bitcoin Cash', '11-08-2020, 22:18', '$268.80', '$4,990,673,274', '$1,963,946,4827,306,460 BCH', '18,566,775 BCH'), ('Chainlink', '11-08-2020, 22:18', '$12.70', '$4,970,508,453', '$1,703,752,130134,198,593 LINK', '391,509,556 LINK'), ('Binance Coin', '11-08-2020, 22:18', '$28.41', '$4,102,640,774', '$315,181,52111,093,898 BNB', '144,406,561 BNB'), ('Litecoin', '11-08-2020, 22:18', '$61.15', '$4,025,800,743', '$2,664,510,65943,576,132 LTC', '65,839,040 LTC')  ... displaying 10 of 100 total bound parameter sets ...  ('Numeraire', '11-08-2020, 22:18', '$23.14', '$85,191,151', '$3,068,799132,629 NMR', '3,681,838 NMR'), ('Orchid', '11-08-2020, 22:18', '$0.227899', '$83,772,095', '$6,262,65727,479,972 OXT', '367,584,352 OXT'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:E-Mail no sent, logging error
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/newsTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/newsTable_data.db) data" ("index", "headLine", www) VALUES (?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('02:39PM', 'What a Joe Biden Presidency Will Mean for Markets', 'https://www.wsj.com/articles/what-a-joe-biden-presidency-will-mean-for-markets-11604865470'), ('02:29PM', "'Trump can still win': The President's supporters remain defiant after Biden's victory", 'https://www.cnn.com/2020/11/08/politics/trump-voters-react-to-election/index.html'), ('02:24PM', 'UPDATE 3-Turkish finance minister resigns in second surprise departure after lira slide', 'https://www.reuters.com/article/turkey-economy-minister/update-3-turkish-finance-minister-resigns-in-second-surprise-departure-after-lira-slide-idUSL8N2HU0NL'), ('02:11PM', "Iran's Zarif calls on neighbours to cooperate following Trump's defeat", 'https://www.reuters.com/article/usa-election-iran-zarif/irans-zarif-calls-on-neighbours-to-cooperate-following-trumps-defeat-idUSL8N2HU0R8'), ('01:33PM', 'Dealmakers see divided US government favoring mergers and acquisitions', 'https://www.foxbusiness.com/markets/dealmakers-see-divided-us-government-favoring-mergers-and-acquisitions'), ('12:41PM', "UPDATE 2-Turkey's Albayrak resigning in second surprise after lira skid", 'https://www.reuters.com/article/turkey-economy-minister/update-2-turkeys-albayrak-resigning-in-second-surprise-after-lira-skid-idUSL8N2HU0NL'), ('12:01PM', 'Alex Trebek, Longtime Host of ‘Jeopardy!,’ Dies at 80', 'https://www.nytimes.com/2020/11/08/arts/television/alex-trebek-dead.html'), ('12:00PM', 'Market-Cap Index Funds vs. Equal-Weight Index Funds: How They Compare', 'https://www.wsj.com/articles/market-cap-index-funds-vs-equal-weight-index-funds-how-they-compare-11604854873')  ... displaying 10 of 89 total bound parameter sets ...  ('Nov-07', 'Berkshire Buys Back Another $9 Billion of Stock in Record Year', 'https://www.bloomberg.com/news/articles/2020-11-07/berkshire-buys-back-another-9-billion-of-stock-in-record-year?srnd=markets-vp'), ('Nov-07', 'Irrational Gamblers Fooled Financial Markets on Election Night', 'https://www.bloomberg.com/news/articles/2020-11-07/irrational-gamblers-fooled-financial-markets-on-election-night?srnd=markets-vp'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:E-Mail no sent, logging error
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/forexTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/forexTable_data.db) data" ("index", "LongName", "CHG%", "High", "Bid", "Low", "Open") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('EURGBP', 'Euro vs British Pound', '0.00%', '0.9023', '0.9023', '0.9038', '0.9038'), ('EURJPY', 'Euro vs Japanese Yen', '0.00%', '122.7262', '122.7262', '122.7097', '122.7416'), ('EURUSD', 'Euro vs US Dollar', '0.00%', '1.1872', '1.1872', '1.1873', '1.1873'), ('GBPAUD', 'British Pound vs Australian Dollar', '0.06%', '1.8105', '1.8105', '1.8102', '1.8102'), ('GBPCAD', 'British Pound vs Canadian Dollar', '-0.08%', '1.6985', '1.6985', '1.7155', '1.7155'), ('GBPCHF', 'British Pound vs Swiss Franc', '0.01%', '1.1830', '1.1830', '1.1834', '1.1834'), ('GBPEUR', 'British Pound vs Euro', '0.00%', '1.1072', '1.1072', '1.1079', '1.1079'), ('GBPJPY', 'British Pound vs Japanese Yen', '0.00%', '135.7898', '135.7898', '135.8069', '135.8069')  ... displaying 10 of 18 total bound parameter sets ...  ('USDGBP', 'US Dollar vs British Pound', '0.02%', '0.7599', '0.7599', '0.7600', '0.7600'), ('USDJPY', 'US Dollar vs Japanese Yen', '0.00%', '103.3260', '103.3260', '103.3475', '103.3475'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:E-Mail no sent, logging error
+ERROR:root:E-Mail no sent, logging error

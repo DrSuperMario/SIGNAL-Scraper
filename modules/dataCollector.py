@@ -1,8 +1,8 @@
-from datetime import datetime 
+from datetime import datetime
 import requests
 import re
 import logging
-import os
+#import os
 
 import pandas as pd 
 from bs4 import BeautifulSoup as soup 
@@ -18,7 +18,7 @@ from modules.apiRequests import RequestAPI
 #
 
 #start logging
-logging.basicConfig(filename=os.path.normpath('log/dataCollector.log'))
+#logging.basicConfig(filename=os.path.normpath('log/dataCollector.log'))
 
 class Connect():
 
@@ -91,9 +91,10 @@ class Connect():
                 df['PRICE_CAP'] = [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-market-cap views-align-right hidden-xs'})]
                 df['VOLUME24'] =  [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-volume views-align-right hidden-xs'})]
                 df['CIRCULATION'] = [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-circulating-supply views-align-right'})]
-
+                
+                
                 send_email(messages=f"Information Collected from backupCoinList time: {str(datetime.now())}",
-                             subject="Something went BOOM", password=PASSWD)
+                            subject="Something went BOOM", password=PASSWD)
 
                 return df
 
@@ -114,18 +115,17 @@ class Connect():
             count = -1
             countTwo = -1
             names = getCoinListNames(makeSoup)
-            words = ["polkadot","dai","omg-network","terra","elrond","golem"]
             #coins to be rearranged
             for x in names:
 
                 count += 1
 
-                for l in words:
+                for l in fixedCoinListVar:
 
                     search = re.fullmatch(l,x)
                     if search:
                         countTwo += 1
-                        names[count] = coinsToBeFixed[countTwo]
+                        names[count] = coinsToArrange[countTwo]
 
             return names
 
@@ -151,15 +151,15 @@ class Connect():
 
             except AssertionError:
                 #if encounters assertion error then it will automaticly senda a notice
-                logging.error("Assertion error from coinlist")
+                logging.error(f"{str(datetime.now())} Assertion error from coinlist")
                 send_email(messages=f"Information not Collected from coinmarketcap.com time: {str(datetime.now())}",
                              subject="Something went BOOM", password=PASSWD)
-                return "BOOB"
+                return "Assertion Error From CryptoCoinList"
 
             return df
 
-        except ValueError:
-            logging.error("Valueerror from coinlist")
+        except ValueError or NoneType:
+            logging.error(f"{str(datetime.now())} Valueerror from cryptocoinlist")
             return backupCoinList()
 
     

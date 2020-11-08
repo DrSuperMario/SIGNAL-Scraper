@@ -2,7 +2,7 @@ import asyncio
 import smtplib
 import logging
 from datetime import datetime
-import os
+#import os
 
 import pandas as pd
 
@@ -14,7 +14,7 @@ from smtp import send_email
 
 TIME_LOOP = True
 time_passage = Constants.LOOP_TIME.value
-logging.basicConfig(filename=os.path.normpath('log/scraper.log.log'))
+#logging.basicConfig(filename=os.path.normpath('log/scraper.log.log'))
 
 async def cryptoConnection(delay):
 
@@ -28,7 +28,7 @@ async def cryptoConnection(delay):
                      subject=str(datetime.now()), password=PASSWD)
     
     except EnvironmentError:
-        logging.error("Mail not sent , error 40000")
+        logging.error(f"{str(datetime.now())}Mail not sent , error 40000 from CryptoConnectionr")
         print("Error occured with SMTP authentication")
 
     logging.info("Crypto collected")
@@ -47,7 +47,7 @@ async def newsConnection(delay):
                     subject=str(datetime.now()), password=PASSWD)
 
     except EnvironmentError:
-        logging.error("Mail not sent , error 40000")
+        logging.error(f"{str(datetime.now())} Mail not sent , error 40000 from newsConnection")
         print("Error occured with SMTP authentication")
 
     logging.info("News collected")
@@ -66,7 +66,7 @@ async def forexConnection(delay):
                     subject=str(datetime.now()), password=PASSWD)
 
     except EnvironmentError:
-        logging.error("Mail not sent , error 40000")
+        logging.error(f"{str(datetime.now())} Mail not sent , error 40000 from ForexConnection")
         print("Error occured with SMTP authentication")
 
     logging.info("Forex collected")
@@ -91,9 +91,9 @@ if __name__=="__main__":
         except KeyboardInterrupt:
             #print(f'Run canceled on {datetime.now()}')
             TIME_LOOP = False
-            logging.info("Progrm terminated")
-            try:
-                send_email(messages='Program finished', 
-                        subject=str(datetime.now()), password=PASSWD)
-            except smtplib.SMTPAuthenticationError:
-                print("Authentication error")
+
+            logging.info(f"{str(datetime.now())} Progrm terminated")
+
+            send_email(messages='Program finished', 
+                    subject=str(datetime.now()), password=PASSWD)
+        

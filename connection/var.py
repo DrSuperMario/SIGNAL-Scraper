@@ -4,8 +4,8 @@ from enum import Enum
 
 class Constants(Enum):
 
-    LOOP_TIME = 12000
-    LOOP_END_TIME = 6400
+    LOOP_TIME = 1
+    LOOP_END_TIME = 2
     API_ADDRESS = "127.0.0.1:5050"
 
 
@@ -59,6 +59,6 @@ connectionVar_news = {
     "td": "nn-date"
 }
 
-fixedCoinList = ["polkadot","dai","omg-network","terra","elrond","golem"]
+fixedCoinListVar = ["polkadot","dai","omg-network","terra","elrond","golem","synthetix"]
 coinsToBeFixed = ["polkadot-new","multi-collateral-dai","omg","terra-luna",
-                   "elrond-egld","golem-network-tokens"]
+                   "elrond-egld","golem-network-tokens","synthetix-network-token"]
