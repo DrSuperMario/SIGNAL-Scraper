@@ -182,8 +182,8 @@ class Connect():
             return "Values dont match with eachother"
         
         if(reqToSend):
-            req = RequestAPI()
-            return req.sendPost(data=df)
+            RequestAPI().sendPost(data=df)
+        
         return df
 
     #Collect metal prices

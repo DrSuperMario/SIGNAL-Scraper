@@ -6,7 +6,7 @@ class Constants(Enum):
 
     LOOP_TIME = 1
     LOOP_END_TIME = 2
-    API_ADDRESS = "127.0.0.1:5050"
+    API_ADDRESS = "127.0.0.1:5000"
 
 
 

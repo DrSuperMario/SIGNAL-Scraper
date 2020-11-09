@@ -1,7 +1,9 @@
 import asyncio
 import logging
 from datetime import datetime
-#import os
+import os
+
+logging.basicConfig(filename=os.path.normpath('log/scraper.log'))
 
 import pandas as pd
 
@@ -13,7 +15,7 @@ from smtp import send_email
 
 TIME_LOOP = True
 time_passage = Constants.LOOP_TIME.value
-#logging.basicConfig(filename=os.path.normpath('log/scraper.log.log'))
+
 
 async def cryptoConnection(delay):
 
@@ -37,7 +39,7 @@ async def cryptoConnection(delay):
 
 async def newsConnection(delay):
 
-    conn = Connect.news(url=URL[4], header=HEADERS['agent_smartphone'])
+    conn = Connect.news(url=URL[4], header=HEADERS['agent_smartphone'], reqToSend=True)
     newsConn, dbName = createDb("newsTable")  
     conn.to_sql(dbName, newsConn, if_exists='append')
     try:

@@ -38,3 +38,154 @@ INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='ta
 INFO:sqlalchemy.engine.base.Engine:()
 ERROR:root:E-Mail no sent, logging error
 ERROR:root:E-Mail no sent, logging error
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/CryptoTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/CryptoTable_data.db) data" ("index", "DATE", "PRICE", "PRICE_CAP", "VOLUME24", "CIRCULATION") VALUES (?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('Bitcoin', '11-09-2020, 21:04', '$15,279.14', '$283,250,362,705', '$33,135,975,4082,168,707 BTC', '18,538,368 BTC'), ('Ethereum', '11-09-2020, 21:04', '$444.33', '$50,368,644,495', '$12,372,329,25527,844,750 ETH', '113,357,984 ETH'), ('Tether', '11-09-2020, 21:04', '$1.00', '$17,273,543,503', '$44,272,176,05744,239,488,777 USDT', '17,260,790,004 USDT'), ('XRP', '11-09-2020, 21:04', '$0.250257', '$11,339,772,901', '$3,067,467,37312,257,263,207 XRP', '45,312,488,850 XRP'), ('Chainlink', '11-09-2020, 21:04', '$12.58', '$4,925,381,301', '$1,614,017,583128,295,307 LINK', '391,509,556 LINK'), ('Bitcoin Cash', '11-09-2020, 21:04', '$264.16', '$4,904,753,363', '$2,034,827,6477,703,149 BCH', '18,567,688 BCH'), ('Binance Coin', '11-09-2020, 21:04', '$27.95', '$4,036,733,067', '$354,668,14012,687,588 BNB', '144,406,561 BNB'), ('Litecoin', '11-09-2020, 21:04', '$59.19', '$3,897,679,675', '$2,791,258,78947,154,256 LTC', '65,845,628 LTC')  ... displaying 10 of 100 total bound parameter sets ...  ('Numeraire', '11-09-2020, 21:04', '$22.74', '$83,732,243', '$4,178,633183,741 NMR', '3,681,838 NMR'), ('Avalanche', '11-09-2020, 21:04', '$3.39', '$83,144,413', '$25,833,6277,612,344 AVAX', '24,500,000 AVAX'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-11-09 21:04:50.579028 E-Mail not sent, logging error
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/CryptoTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/CryptoTable_data.db) data" ("index", "DATE", "PRICE", "PRICE_CAP", "VOLUME24", "CIRCULATION") VALUES (?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('Bitcoin', '11-09-2020, 21:06', '$15,279.14', '$283,250,362,705', '$33,135,975,4082,168,707 BTC', '18,538,368 BTC'), ('Ethereum', '11-09-2020, 21:06', '$444.33', '$50,368,644,495', '$12,372,329,25527,844,750 ETH', '113,357,984 ETH'), ('Tether', '11-09-2020, 21:06', '$1.00', '$17,273,543,503', '$44,272,176,05744,239,488,777 USDT', '17,260,790,004 USDT'), ('XRP', '11-09-2020, 21:06', '$0.250257', '$11,339,772,901', '$3,067,467,37312,257,263,207 XRP', '45,312,488,850 XRP'), ('Chainlink', '11-09-2020, 21:06', '$12.58', '$4,925,381,301', '$1,614,017,583128,295,307 LINK', '391,509,556 LINK'), ('Bitcoin Cash', '11-09-2020, 21:06', '$264.16', '$4,904,753,363', '$2,034,827,6477,703,149 BCH', '18,567,688 BCH'), ('Binance Coin', '11-09-2020, 21:06', '$27.95', '$4,036,733,067', '$354,668,14012,687,588 BNB', '144,406,561 BNB'), ('Litecoin', '11-09-2020, 21:06', '$59.19', '$3,897,679,675', '$2,791,258,78947,154,256 LTC', '65,845,628 LTC')  ... displaying 10 of 100 total bound parameter sets ...  ('Numeraire', '11-09-2020, 21:06', '$22.74', '$83,732,243', '$4,178,633183,741 NMR', '3,681,838 NMR'), ('Avalanche', '11-09-2020, 21:06', '$3.39', '$83,144,413', '$25,833,6277,612,344 AVAX', '24,500,000 AVAX'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-11-09 21:06:30.470310 E-Mail not sent, logging error
+ERROR:root:2020-11-09 21:06:33.104849 error sending news data to API
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/CryptoTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/CryptoTable_data.db) data" ("index", "DATE", "PRICE", "PRICE_CAP", "VOLUME24", "CIRCULATION") VALUES (?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('Bitcoin', '11-09-2020, 21:08', '$15,299.16', '$283,621,438,279', '$33,117,805,7422,164,681 BTC', '18,538,368 BTC'), ('Ethereum', '11-09-2020, 21:08', '$444.78', '$50,419,213,767', '$13,496,018,13730,343,222 ETH', '113,357,984 ETH'), ('Tether', '11-09-2020, 21:08', '$1.00', '$17,272,580,977', '$45,347,857,29345,316,900,984 USDT', '17,260,790,004 USDT'), ('XRP', '11-09-2020, 21:08', '$0.250509', '$11,351,171,554', '$3,071,002,59512,259,066,845 XRP', '45,312,488,850 XRP'), ('Chainlink', '11-09-2020, 21:08', '$12.60', '$4,933,918,952', '$1,606,295,633127,460,564 LINK', '391,509,556 LINK'), ('Bitcoin Cash', '11-09-2020, 21:08', '$264.42', '$4,909,627,538', '$2,037,064,4417,703,960 BCH', '18,567,688 BCH'), ('Binance Coin', '11-09-2020, 21:08', '$27.96', '$4,037,730,791', '$355,316,59012,707,644 BNB', '144,406,561 BNB'), ('Litecoin', '11-09-2020, 21:08', '$59.24', '$3,900,771,429', '$2,790,432,49347,102,934 LTC', '65,845,628 LTC')  ... displaying 10 of 100 total bound parameter sets ...  ('Numeraire', '11-09-2020, 21:08', '$22.71', '$83,626,968', '$4,176,599183,883 NMR', '3,681,838 NMR'), ('Avalanche', '11-09-2020, 21:08', '$3.39', '$83,032,398', '$25,928,1837,650,513 AVAX', '24,500,000 AVAX'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-11-09 21:08:39.380372 E-Mail not sent, logging error
+ERROR:root:2020-11-09 21:08:42.271245 error sending news data to API
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/newsTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/newsTable_data.db) data" ("index", "headLine", www) VALUES (?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:((0, 'UPDATE 1-U.S. refining shares soar on vaccine news, hopes for renewed fuel demand', 'https://www.reuters.com/article/usa-refiners-demand-shares/update-1-u-s-refining-shares-soar-on-vaccine-news-hopes-for-renewed-fuel-demand-idUSL1N2HV2B6'), (1, "UPDATE 2-Vaccine news catapults investors' economic-recovery bets", 'https://www.reuters.com/article/health-coronavirus-vaccine-markets/update-2-vaccine-news-catapults-investors-economic-recovery-bets-idUSL1N2HV1MN'), (2, 'US passes 10 million cases, the fastest the nation has added a million new cases', 'https://edition.cnn.com/world/live-news/coronavirus-pandemic-11-09-20-intl/h_4cf908fc0569ac8d05444b0b5f4b6620'), (3, 'Gun stocks tumble after upbeat vaccine news, lack of civil unrest', 'https://www.reuters.com/article/usa-stocks-guns/gun-stocks-tumble-after-upbeat-vaccine-news-lack-of-civil-unrest-idUSL1N2HV2B4'), (4, 'Stocks of residential, retail REITs enjoy historic gains from hopes of COVID-19 vaccine', 'http://feeds.marketwatch.com/~r/marketwatch/marketpulse/~3/HmmeaM5PlTs/story.aspx'), (5, 'Fear is in the air, but here’s why stock market investors could be looking at an ‘historic’ buying opportunity', 'https://www.marketwatch.com/story/fear-is-in-the-air-but-heres-why-investors-could-be-looking-at-an-historic-buying-opportunity-11604864265'), (6, 'HIGHLIGHTS-Pfizer COVID-19 vaccine news delivers hope around the globe', 'https://www.reuters.com/article/health-coronavirus-vaccine-highlights/highlights-pfizer-covid-19-vaccine-news-delivers-hope-around-the-globe-idUSL1N2HV2AO'), (7, 'UPDATE 2-Britain pursues Brexit finance plan, door open to EU firms', 'https://www.reuters.com/article/britain-eu-banks/update-2-britain-pursues-brexit-finance-plan-door-open-to-eu-firms-idUSL8N2HV6KS')  ... displaying 10 of 89 total bound parameter sets ...  (87, 'Bond Exodus Vindicated After $1.2 Billion Flow From Treasury ETF', 'https://www.bloomberg.com/news/articles/2020-11-09/bond-exodus-vindicated-after-1-2-billion-flow-from-treasury-etf?srnd=markets-vp'), (88, 'UPDATE 3-Vans owner VF Corp to buy streetwear brand Supreme for about $2.1 bln', 'https://www.reuters.com/article/vf-ma-supreme/update-3-vans-owner-vf-corp-to-buy-streetwear-brand-supreme-for-about-2-1-bln-idUSL4N2HV370'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-11-09 21:08:43.007025 E-Mail not sent, logging error
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/forexTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/forexTable_data.db) data" ("index", "LongName", "CHG%", "High", "Bid", "Low", "Open") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('EURGBP', 'Euro vs British Pound', '-0.47%', '0.8995', '0.8995', '0.8986', '0.9024'), ('EURJPY', 'Euro vs Japanese Yen', '1.52%', '124.6070', '124.6070', '122.8850', '122.8175'), ('EURUSD', 'Euro vs US Dollar', '-0.53%', '1.1809', '1.1809', '1.1795', '1.1892'), ('GBPAUD', 'British Pound vs Australian Dollar', '-0.24%', '1.8057', '1.8057', '1.7938', '1.8089'), ('GBPCAD', 'British Pound vs Canadian Dollar', '-0.56%', '1.7058', '1.7058', '1.7023', '1.7164'), ('GBPCHF', 'British Pound vs Swiss Franc', '1.29%', '1.1986', '1.1986', '1.1807', '1.1853'), ('GBPEUR', 'British Pound vs Euro', '0.33%', '1.1115', '1.1115', '1.1051', '1.1082'), ('GBPJPY', 'British Pound vs Japanese Yen', '2.00%', '138.5100', '138.5100', '135.9983', '136.1015')  ... displaying 10 of 18 total bound parameter sets ...  ('USDGBP', 'US Dollar vs British Pound', '0.23%', '0.7617', '0.7617', '0.7571', '0.7588'), ('USDJPY', 'US Dollar vs Japanese Yen', '2.10%', '105.5150', '105.5150', '103.4145', '103.2790'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-11-09 21:08:45.673859 E-Mail not sent, logging error
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/CryptoTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/CryptoTable_data.db) data" ("index", "DATE", "PRICE", "PRICE_CAP", "VOLUME24", "CIRCULATION") VALUES (?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('Bitcoin', '11-09-2020, 21:11', '$15,299.16', '$283,621,438,279', '$33,117,805,7422,164,681 BTC', '18,538,368 BTC'), ('Ethereum', '11-09-2020, 21:11', '$444.78', '$50,419,213,767', '$13,496,018,13730,343,222 ETH', '113,357,984 ETH'), ('Tether', '11-09-2020, 21:11', '$1.00', '$17,272,580,977', '$45,347,857,29345,316,900,984 USDT', '17,260,790,004 USDT'), ('XRP', '11-09-2020, 21:11', '$0.250509', '$11,351,171,554', '$3,071,002,59512,259,066,845 XRP', '45,312,488,850 XRP'), ('Chainlink', '11-09-2020, 21:11', '$12.60', '$4,933,918,952', '$1,606,295,633127,460,564 LINK', '391,509,556 LINK'), ('Bitcoin Cash', '11-09-2020, 21:11', '$264.42', '$4,909,627,538', '$2,037,064,4417,703,960 BCH', '18,567,688 BCH'), ('Binance Coin', '11-09-2020, 21:11', '$27.96', '$4,037,730,791', '$355,316,59012,707,644 BNB', '144,406,561 BNB'), ('Litecoin', '11-09-2020, 21:11', '$59.24', '$3,900,771,429', '$2,790,432,49347,102,934 LTC', '65,845,628 LTC')  ... displaying 10 of 100 total bound parameter sets ...  ('Numeraire', '11-09-2020, 21:11', '$22.71', '$83,626,968', '$4,176,599183,883 NMR', '3,681,838 NMR'), ('Avalanche', '11-09-2020, 21:11', '$3.39', '$83,032,398', '$25,928,1837,650,513 AVAX', '24,500,000 AVAX'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-11-09 21:11:39.249253 E-Mail not sent, logging error
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/newsTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/newsTable_data.db) data" ("index", "headLine", www) VALUES (?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:((0, 'UPDATE 1-U.S. refining shares soar on vaccine news, hopes for renewed fuel demand', 'https://www.reuters.com/article/usa-refiners-demand-shares/update-1-u-s-refining-shares-soar-on-vaccine-news-hopes-for-renewed-fuel-demand-idUSL1N2HV2B6'), (1, "UPDATE 2-Vaccine news catapults investors' economic-recovery bets", 'https://www.reuters.com/article/health-coronavirus-vaccine-markets/update-2-vaccine-news-catapults-investors-economic-recovery-bets-idUSL1N2HV1MN'), (2, 'US passes 10 million cases, the fastest the nation has added a million new cases', 'https://edition.cnn.com/world/live-news/coronavirus-pandemic-11-09-20-intl/h_4cf908fc0569ac8d05444b0b5f4b6620'), (3, 'Gun stocks tumble after upbeat vaccine news, lack of civil unrest', 'https://www.reuters.com/article/usa-stocks-guns/gun-stocks-tumble-after-upbeat-vaccine-news-lack-of-civil-unrest-idUSL1N2HV2B4'), (4, 'Stocks of residential, retail REITs enjoy historic gains from hopes of COVID-19 vaccine', 'http://feeds.marketwatch.com/~r/marketwatch/marketpulse/~3/HmmeaM5PlTs/story.aspx'), (5, 'Fear is in the air, but here’s why stock market investors could be looking at an ‘historic’ buying opportunity', 'https://www.marketwatch.com/story/fear-is-in-the-air-but-heres-why-investors-could-be-looking-at-an-historic-buying-opportunity-11604864265'), (6, 'HIGHLIGHTS-Pfizer COVID-19 vaccine news delivers hope around the globe', 'https://www.reuters.com/article/health-coronavirus-vaccine-highlights/highlights-pfizer-covid-19-vaccine-news-delivers-hope-around-the-globe-idUSL1N2HV2AO'), (7, 'UPDATE 2-Britain pursues Brexit finance plan, door open to EU firms', 'https://www.reuters.com/article/britain-eu-banks/update-2-britain-pursues-brexit-finance-plan-door-open-to-eu-firms-idUSL8N2HV6KS')  ... displaying 10 of 89 total bound parameter sets ...  (87, 'Bond Exodus Vindicated After $1.2 Billion Flow From Treasury ETF', 'https://www.bloomberg.com/news/articles/2020-11-09/bond-exodus-vindicated-after-1-2-billion-flow-from-treasury-etf?srnd=markets-vp'), (88, 'UPDATE 3-Vans owner VF Corp to buy streetwear brand Supreme for about $2.1 bln', 'https://www.reuters.com/article/vf-ma-supreme/update-3-vans-owner-vf-corp-to-buy-streetwear-brand-supreme-for-about-2-1-bln-idUSL4N2HV370'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-11-09 21:11:45.773429 E-Mail not sent, logging error
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/forexTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/forexTable_data.db) data" ("index", "LongName", "CHG%", "High", "Bid", "Low", "Open") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('EURGBP', 'Euro vs British Pound', '-0.48%', '0.8994', '0.8994', '0.8986', '0.9024'), ('EURJPY', 'Euro vs Japanese Yen', '1.54%', '124.6250', '124.6250', '122.8850', '122.8175'), ('EURUSD', 'Euro vs US Dollar', '-0.51%', '1.1812', '1.1812', '1.1795', '1.1892'), ('GBPAUD', 'British Pound vs Australian Dollar', '-0.22%', '1.8060', '1.8060', '1.7938', '1.8089'), ('GBPCAD', 'British Pound vs Canadian Dollar', '-0.54%', '1.7060', '1.7060', '1.7023', '1.7164'), ('GBPCHF', 'British Pound vs Swiss Franc', '1.32%', '1.1989', '1.1989', '1.1807', '1.1853'), ('GBPEUR', 'British Pound vs Euro', '0.35%', '1.1117', '1.1117', '1.1051', '1.1082'), ('GBPJPY', 'British Pound vs Japanese Yen', '2.03%', '138.5538', '138.5538', '135.9983', '136.1015')  ... displaying 10 of 18 total bound parameter sets ...  ('USDGBP', 'US Dollar vs British Pound', '0.19%', '0.7614', '0.7614', '0.7571', '0.7588'), ('USDJPY', 'US Dollar vs Japanese Yen', '2.09%', '105.5080', '105.5080', '103.4145', '103.2790'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-11-09 21:11:48.195001 E-Mail not sent, logging error
+ERROR:root:2020-11-09 21:11:48.844382 E-Mail not sent, logging error
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/CryptoTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/CryptoTable_data.db) data" ("index", "DATE", "PRICE", "PRICE_CAP", "VOLUME24", "CIRCULATION") VALUES (?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('Bitcoin', '11-09-2020, 21:13', '$15,301.19', '$283,659,071,667', '$33,103,910,9652,163,486 BTC', '18,538,368 BTC'), ('Ethereum', '11-09-2020, 21:13', '$444.73', '$50,413,519,818', '$13,493,652,03330,341,329 ETH', '113,357,984 ETH'), ('Tether', '11-09-2020, 21:13', '$1.00', '$17,272,918,105', '$45,387,781,08745,355,912,264 USDT', '17,260,790,004 USDT'), ('XRP', '11-09-2020, 21:13', '$0.250432', '$11,347,689,420', '$3,069,985,39712,258,766,865 XRP', '45,312,488,850 XRP'), ('Chainlink', '11-09-2020, 21:13', '$12.62', '$4,940,640,395', '$1,604,735,914127,163,565 LINK', '391,509,556 LINK'), ('Bitcoin Cash', '11-09-2020, 21:13', '$264.35', '$4,908,406,306', '$2,032,381,2787,688,162 BCH', '18,567,688 BCH'), ('Binance Coin', '11-09-2020, 21:13', '$27.96', '$4,037,969,133', '$354,784,64712,687,871 BNB', '144,406,561 BNB'), ('Litecoin', '11-09-2020, 21:13', '$59.24', '$3,900,475,169', '$2,792,508,97347,141,566 LTC', '65,845,628 LTC')  ... displaying 10 of 100 total bound parameter sets ...  ('Numeraire', '11-09-2020, 21:13', '$22.73', '$83,687,668', '$4,168,770183,405 NMR', '3,681,838 NMR'), ('Avalanche', '11-09-2020, 21:13', '$3.38', '$82,759,312', '$25,979,2847,690,886 AVAX', '24,500,000 AVAX'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-11-09 21:13:13.383339 E-Mail not sent, logging error
+ERROR:root:2020-11-09 21:13:16.150112 error sending news data to API
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/newsTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/newsTable_data.db) data" ("index", "headLine", www) VALUES (?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:((0, 'UPDATE 1-U.S. refining shares soar on vaccine news, hopes for renewed fuel demand', 'https://www.reuters.com/article/usa-refiners-demand-shares/update-1-u-s-refining-shares-soar-on-vaccine-news-hopes-for-renewed-fuel-demand-idUSL1N2HV2B6'), (1, "UPDATE 2-Vaccine news catapults investors' economic-recovery bets", 'https://www.reuters.com/article/health-coronavirus-vaccine-markets/update-2-vaccine-news-catapults-investors-economic-recovery-bets-idUSL1N2HV1MN'), (2, 'US passes 10 million cases, the fastest the nation has added a million new cases', 'https://edition.cnn.com/world/live-news/coronavirus-pandemic-11-09-20-intl/h_4cf908fc0569ac8d05444b0b5f4b6620'), (3, 'Gun stocks tumble after upbeat vaccine news, lack of civil unrest', 'https://www.reuters.com/article/usa-stocks-guns/gun-stocks-tumble-after-upbeat-vaccine-news-lack-of-civil-unrest-idUSL1N2HV2B4'), (4, 'Stocks of residential, retail REITs enjoy historic gains from hopes of COVID-19 vaccine', 'http://feeds.marketwatch.com/~r/marketwatch/marketpulse/~3/HmmeaM5PlTs/story.aspx'), (5, 'Fear is in the air, but here’s why stock market investors could be looking at an ‘historic’ buying opportunity', 'https://www.marketwatch.com/story/fear-is-in-the-air-but-heres-why-investors-could-be-looking-at-an-historic-buying-opportunity-11604864265'), (6, 'HIGHLIGHTS-Pfizer COVID-19 vaccine news delivers hope around the globe', 'https://www.reuters.com/article/health-coronavirus-vaccine-highlights/highlights-pfizer-covid-19-vaccine-news-delivers-hope-around-the-globe-idUSL1N2HV2AO'), (7, 'UPDATE 2-Britain pursues Brexit finance plan, door open to EU firms', 'https://www.reuters.com/article/britain-eu-banks/update-2-britain-pursues-brexit-finance-plan-door-open-to-eu-firms-idUSL8N2HV6KS')  ... displaying 10 of 89 total bound parameter sets ...  (87, 'Bond Exodus Vindicated After $1.2 Billion Flow From Treasury ETF', 'https://www.bloomberg.com/news/articles/2020-11-09/bond-exodus-vindicated-after-1-2-billion-flow-from-treasury-etf?srnd=markets-vp'), (88, 'UPDATE 3-Vans owner VF Corp to buy streetwear brand Supreme for about $2.1 bln', 'https://www.reuters.com/article/vf-ma-supreme/update-3-vans-owner-vf-corp-to-buy-streetwear-brand-supreme-for-about-2-1-bln-idUSL4N2HV370'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-11-09 21:13:16.906944 E-Mail not sent, logging error
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/forexTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/forexTable_data.db) data" ("index", "LongName", "CHG%", "High", "Bid", "Low", "Open") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('EURGBP', 'Euro vs British Pound', '-0.50%', '0.8993', '0.8993', '0.8986', '0.9024'), ('EURJPY', 'Euro vs Japanese Yen', '1.55%', '124.6480', '124.6480', '122.8850', '122.8175'), ('EURUSD', 'Euro vs US Dollar', '-0.49%', '1.1815', '1.1815', '1.1795', '1.1892'), ('GBPAUD', 'British Pound vs Australian Dollar', '-0.22%', '1.8061', '1.8061', '1.7938', '1.8089'), ('GBPCAD', 'British Pound vs Canadian Dollar', '-0.52%', '1.7064', '1.7064', '1.7023', '1.7164'), ('GBPCHF', 'British Pound vs Swiss Franc', '1.34%', '1.1991', '1.1991', '1.1807', '1.1853'), ('GBPEUR', 'British Pound vs Euro', '0.37%', '1.1119', '1.1119', '1.1051', '1.1082'), ('GBPJPY', 'British Pound vs Japanese Yen', '2.06%', '138.5970', '138.5970', '135.9983', '136.1015')  ... displaying 10 of 18 total bound parameter sets ...  ('USDGBP', 'US Dollar vs British Pound', '0.15%', '0.7611', '0.7611', '0.7571', '0.7588'), ('USDJPY', 'US Dollar vs Japanese Yen', '2.08%', '105.4970', '105.4970', '103.4145', '103.2790'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-11-09 21:13:19.334462 E-Mail not sent, logging error

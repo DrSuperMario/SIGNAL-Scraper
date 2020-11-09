@@ -4,9 +4,6 @@ from email.mime.text import MIMEText
 from datetime import datetime
 
 import logging
-import os 
-
-logging.basicConfig(filename=os.path.normpath('log/scraper.log'))
 
 
 def send_email(messages, subject, password):
