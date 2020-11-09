@@ -1,5 +1,4 @@
 import asyncio
-import smtplib
 import logging
 from datetime import datetime
 #import os

@@ -158,7 +158,7 @@ class Connect():
 
             return df
 
-        except ValueError or NoneType:
+        except ValueError or None:
             logging.error(f"{str(datetime.now())} Valueerror from cryptocoinlist")
             return backupCoinList()
 
@@ -182,8 +182,8 @@ class Connect():
             return "Values dont match with eachother"
         
         if(reqToSend):
-            req = RequestAPI(data=df)
-            return req.analyseData()
+            req = RequestAPI()
+            return req.sendPost(data=df)
         return df
 
     #Collect metal prices

@@ -13,6 +13,5 @@ time_passage = 12000
 date_as = str(datetime.now())
 
 conn5 = Connect.news(url=URL[4],header=HEADERS['agent_desktop'],reqToSend=True)
-conn = Connect.crypto(url=URL[1],header=HEADERS['agent_desktop'])
 
-print(conn)
+print(conn5)

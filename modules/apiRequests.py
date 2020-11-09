@@ -1,5 +1,4 @@
 import requests as req
-from datetime import datetime
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pandas as pd
@@ -11,34 +10,36 @@ SIA = SentimentIntensityAnalyzer()
 
 class RequestAPI():
 
-    def __init__(self, url=None, apiloc=Constants.API_ADDRESS.value, data=None):
+    def __init__(self, url=None, apiloc=Constants.API_ADDRESS.value):
         
         self.url = url
         self.apiloc = apiloc
-        self.data = data
 
-    def analyseData(self):
+    def sendPost(self ,data):
+
         polarity = []
-        for x in range(len(self.data)):
-            polarity.append(SIA.polarity_scores(self.data['headLine'][x]))
-        df = pd.DataFrame(polarity, columns=['neg','neu','pos'])
-        return df
-
-
-    @classmethod    
-    def sendPost(cls, dataToSend):
-        for x in range(len(cls.dataToSend)):
-            data = req.post(cls.apiloc + str(x) , data = {
-                            "newsArticle":dataToSend['newsHeadline'][x],
+        for x in range(len(data)):
+            polarity.append(SIA.polarity_scores(data['headLine'][x]))
+        
+        dataToSend = pd.DataFrame(polarity, columns=['neg','neu','pos'])
+        dataToSend.reset_index(drop=True, inplace=True)
+        data.reset_index(drop=True, inplace=True)
+        dataToSend = pd.concat([data, dataToSend], axis=1)
+        
+        for x in range(len(dataToSend)):
+            data = req.post(f"http://{self.apiloc}/postnews/" + dataToSend['headLine'][x][:-1].replace(" ","-").replace(",","").replace("\"","-").replace("\'","").lower() , data = {
+                           "newsArticle":dataToSend['headLine'][x],
+                           "newsArticleWWW":dataToSend['www'][x],
                             "newsPolarityNeg":dataToSend['neg'][x],
                             "newsPolarityPos":dataToSend['pos'][x],
                             "newsPolarityNeu":dataToSend['neu'][x]
         })
-        return "Data Sent",200
 
-    @classmethod
-    def getPost(cls):
-        data = req.get(cls.apiloc)
+        return "Data Sent",201
+
+   
+    def getPost(self):
+        data = req.get(f"http://{self.apiloc}/newslist")
         return data.json
 
 

@@ -1,6 +1,7 @@
 from smtplib import SMTPAuthenticationError, SMTP_SSL , ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from datetime import datetime
 
 import logging
 import os 
@@ -30,4 +31,4 @@ def send_email(messages, subject, password):
             server.login(sender_mail, password)
             server.sendmail(sender_mail, reciver_mail, message.as_string())
     except SMTPAuthenticationError:
-        logging.error(f"{str(datetime.now())} E-Mail no sent, logging error")
+        logging.error(f"{str(datetime.now())} E-Mail not sent, logging error")
