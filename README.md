@@ -1,6 +1,6 @@
 # Crypto , Forex, News scraper
-## Scraper tha will run in asynchronous matter to store data in SQLite
-## DB files will be stored in saved folder
+ Scraper tha will run in asynchronous matter to store data in SQLite
+ DB files will be stored in saved folder
 
 
 ## Scraper.py - main module for data scraper.
