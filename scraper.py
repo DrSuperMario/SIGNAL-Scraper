@@ -3,6 +3,7 @@ import logging
 from datetime import datetime
 import os
 
+#Log file location
 logging.basicConfig(filename=os.path.normpath('log/scraper.log'))
 
 import pandas as pd
@@ -12,22 +13,32 @@ from connection.var import *
 from db import createDb
 from smtp import send_email
 
-
+#initalize some params
 TIME_LOOP = True
 time_passage = Constants.LOOP_TIME.value
 
+"""
+Main module for data scraper.
+Using asyncio module to time and thread proccesses
+
+Params:
+
+    TIME_LOOP - boolean for controlling the while loop
+    iime_passage - Time passed between every scraping
+    
+"""
 
 async def cryptoConnection(delay):
-
+    #connecting to a crypto source
     conn = Connect.crypto(url=URL[1],header=HEADERS['agent_desktop'])
-
+    #creating ad database in SQLLite
     cryptoConn, dbName = createDb("CryptoTable")  
     conn.to_sql(dbName, cryptoConn, if_exists='append')
     try:
 
         send_email(messages='Information Collected from Crypto Source',
                      subject=str(datetime.now()), password=PASSWD)
-    
+    #Error handling for exceptions
     except EnvironmentError:
         logging.error(f"{str(datetime.now())}Mail not sent , error 40000 from CryptoConnectionr")
         print("Error occured with SMTP authentication")
@@ -38,7 +49,7 @@ async def cryptoConnection(delay):
 
 
 async def newsConnection(delay):
-
+    #Connection for news scraper
     conn = Connect.news(url=URL[4], header=HEADERS['agent_smartphone'], reqToSend=True)
     newsConn, dbName = createDb("newsTable")  
     conn.to_sql(dbName, newsConn, if_exists='append')
@@ -75,7 +86,7 @@ async def forexConnection(delay):
     await asyncio.sleep(delay)
 
 async def main():
-
+    #main function to release asynchronous functions
     await cryptoConnection(time_passage)
     await newsConnection(time_passage)
     await forexConnection(Constants.LOOP_END_TIME.value)
@@ -84,7 +95,7 @@ async def main():
 if __name__=="__main__":
 
     while True:
-
+        #running the whole scraper
         try:
 
             asyncio.run(main())

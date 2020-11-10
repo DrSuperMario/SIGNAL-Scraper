@@ -5,6 +5,18 @@ from datetime import datetime
 
 import logging
 
+"""
+Module for email logging
+
+send_email() - email sending main function
+
+Params:
+
+    messages - message body to send
+    subject - subject of the emal
+    password - password for the SMTP server
+    
+"""
 
 def send_email(messages, subject, password):
     port = 465

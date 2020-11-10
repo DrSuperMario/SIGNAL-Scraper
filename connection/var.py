@@ -1,6 +1,28 @@
 from enum import Enum
 
+"""
+Library where alla the variables are held
 
+Constants(enum) - using python enumerate to not randomly owerwite vars. 
+
+Params:
+    LOOP_TIME  - time how long the sleep should be between each iteration
+    LOOP_END_TIME - time between the las loop
+    API_ADDRESS - URL or IP for sending data to API
+    
+    URL - URLs for diffrent sources to scrape data
+    PARSER - parser to be used with beautifulsoup
+    PASSWD - Password to be used with the send_mail()
+    HEADERS - diffrent header to choose from to make a requests
+
+    ConnectionVar_crypto---->
+    ConnectionVar_forex ------->  dicts for tags to be search from scraped pages
+    connectionVar_news----->
+
+    fixedCoinListVar - list of crypto coins that needed to be replaced
+    coinsToBeFixed - new list items that will replace the old for the scraper
+    
+"""
 
 class Constants(Enum):
 

@@ -22,6 +22,26 @@ from modules.apiRequests import RequestAPI
 
 class Connect():
 
+    """
+    module for connecting diffrent connection elements together
+
+    forex() - for scraping forex data
+    crypto()  - for scraping crypto data
+    news()  -  for scraping news data
+    
+    params: 
+
+        url - passing right URL from connection.var
+        header - header to send with a requests
+    
+    for news source:
+
+        reqToSend - a boolean for sending data to API
+
+    Will implement preciOus metal quote scraper in a later release
+
+    """
+
     #start connection initialization
     def makeConnection(url, header):
         #check if connection can be made and no errors are raised
@@ -85,7 +105,7 @@ class Connect():
                 makeSoup = soup(data, PARSER)
                 df = pd.DataFrame(index=[x.get_text().replace("\n","").replace("\xa0","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-proper-name'})],
                                     columns=['DATE','PRICE','PRICE_CAP', 'VOLUME24','CIRCULATION'])
-
+                #build dataframe for the backup source
                 df['DATE'] = datetime.strftime(datetime.now(), '%m-%d-%Y, %H:%M')
                 df['PRICE'] = [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-price views-align-right'})]
                 df['PRICE_CAP'] = [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-market-cap views-align-right hidden-xs'})]
@@ -180,13 +200,14 @@ class Connect():
             send_email(messages=f"Dafaframe valueError information not collected ftom finviz time: {str(datetime.now())}", 
                         subject="Dataframe ValueError", password=PASSWD)
             return "Values dont match with eachother"
-        
+        #check if user would like to send data to API
         if(reqToSend):
             RequestAPI().sendPost(data=df)
         
         return df
 
     #Collect metal prices
+    #Not jet implemented SOON
     def preciousMetals(url, header):
 
         data = Connect.makeConnection(url, header)
