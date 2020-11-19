@@ -18,3 +18,11 @@ index.html
 debug.log
 log/smtp.log
 fin_reader.ipynb
+.ipynb_checkpoints/test-checkpoint.ipynb
+FinViz.ipynb
+test.ipynb
+chromedriver.exe
+debug.log
+FinViz.ipynb
+geckodriver.log
+test.html

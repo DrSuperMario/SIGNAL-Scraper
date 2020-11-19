@@ -46,7 +46,7 @@ class Connect():
     def makeConnection(url, header):
         #check if connection can be made and no errors are raised
         try:
-            conn = requests.get(url,headers={'User-Agent':header})
+            conn = requests.get(url,headers={'User-Agent':header}, timeout=(3.05, 60))
         except requests.exceptions.ConnectionError:
             logging.error("Invalid URL")
             return "Invalid URL", 404
@@ -174,7 +174,7 @@ class Connect():
                 logging.error(f"{str(datetime.now())} Assertion error from coinlist")
                 send_email(messages=f"Information not Collected from coinmarketcap.com time: {str(datetime.now())}",
                              subject="Something went BOOM", password=PASSWD)
-                return "Assertion Error From CryptoCoinList"
+                return backupCoinList()
 
             return df
 
