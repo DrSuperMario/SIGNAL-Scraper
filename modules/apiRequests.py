@@ -1,6 +1,7 @@
 import requests as req
 import logging
 from datetime import datetime
+from uuid import uuid4
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pandas as pd
@@ -41,20 +42,23 @@ class RequestAPI():
         #comparing lenghts 
         assert(len(polarity) == len(data))
 
-        dataToSend = pd.DataFrame(polarity, columns=['neg','neu','pos'])
+        dataToSend = pd.DataFrame(polarity, columns=['neg','neu','pos','date'])
+        dataToSend['date'] = data.index.to_list()
         dataToSend.reset_index(drop=True, inplace=True)
         data.reset_index(drop=True, inplace=True)
         dataToSend = pd.concat([data, dataToSend], axis=1)
 
+
         try:
             #error hanfling if connection isnt made with a server
             for x in range(len(dataToSend)):
-                data = req.post(f"http://{self.apiloc}/postnews/" + dataToSend['headLine'][x][:-1].replace(" ","-").replace(",","").replace("\"","-").replace("\'","").lower() , data = {
+                data = req.post(f"http://{self.apiloc}/news/" + str(uuid4()) , data = {
                                 "newsArticle":dataToSend['headLine'][x],
                                 "newsArticleWWW":dataToSend['www'][x],
                                 "newsPolarityNeg":dataToSend['neg'][x],
                                 "newsPolarityPos":dataToSend['pos'][x],
-                                "newsPolarityNeu":dataToSend['neu'][x]
+                                "newsPolarityNeu":dataToSend['neu'][x],
+                                "creationDate":dataToSend['date'][x]
             })
 
             return "Data Sent",201
