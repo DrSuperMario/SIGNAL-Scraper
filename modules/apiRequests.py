@@ -43,7 +43,7 @@ class RequestAPI():
             dataToSend = data
 
             _id = "1x5678Tr24Xpn677Ss"
-            delete = req.delete(f"http://{self.apiloc}/news/{_id}")
+            delete = req.delete(f"http://{self.apiloc}/crypto/{_id}")
 
             for x in range(len(dataToSend)):
                     
