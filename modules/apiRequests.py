@@ -34,7 +34,29 @@ class RequestAPI():
         self.url = url
         self.apiloc = apiloc
 
-    def sendPost(self ,data):
+    def sendPost(self ,data, type=str(None)):
+
+        if type=="crypto".lower():
+            
+            data['NAME'] = data.index.to_list()
+            data.reset_index(drop=True, inplace=True)
+            dataToSend = data
+
+            _id = "1x5678Tr24Xpn677Ss"
+            delete = req.delete(f"http://{self.apiloc}/news/{_id}")
+
+            for x in range(len(dataToSend)):
+                    
+                data = req.post(f"http://{self.apiloc}/crypto/" + str(uuid4()), json = {
+                                "cryptoName":dataToSend['NAME'][x],
+                                "cryptoDate":dataToSend['DATE'][x],
+                                "cryptoPrice":dataToSend['PRICE'][x],
+                                "cryptoPriceCap":dataToSend['PRICE_CAP'][x],
+                                "cryptoVolume":dataToSend['VOLUME24'][x],
+                                "cryptoCirculation":dataToSend['CIRCULATION'][x]
+            })
+            
+            return "data sent",201
 
         polarity = []
         for x in range(len(data)):
@@ -51,8 +73,12 @@ class RequestAPI():
 
         try:
             #error hanfling if connection isnt made with a server
+            _id = "1x5678Tr24Xpn677Ss"
+            delete = req.delete(f"http://{self.apiloc}/news/{_id}")
+
             for x in range(len(dataToSend)):
-                data = req.post(f"http://{self.apiloc}/news/" + str(uuid4()) , data = {
+                
+                data = req.post(f"http://{self.apiloc}/news/" + str(uuid4()), data = {
                                 "newsArticle":dataToSend['headLine'][x],
                                 "newsArticleWWW":dataToSend['www'][x],
                                 "newsPolarityNeg":dataToSend['neg'][x],

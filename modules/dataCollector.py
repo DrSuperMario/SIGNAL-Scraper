@@ -92,7 +92,7 @@ class Connect():
 
     
     #Connection function for cryptomarkets
-    def crypto(url, header):
+    def crypto(url, header, reqToSend=False):
 
         #not good repeating code  somebody call police 
         data = Connect.makeConnection(url, header)
@@ -115,6 +115,9 @@ class Connect():
                 
                 send_email(messages=f"Information Collected from backupCoinList time: {str(datetime.now())}",
                             subject="Something went BOOM", password=PASSWD)
+                
+                if(reqToSend):
+                    RequestAPI().sendPost(data=df, type="crypto")
 
                 return df
 
