@@ -34,7 +34,7 @@ class RequestAPI():
         self.url = url
         self.apiloc = apiloc
 
-    def sendPost(self ,data, type=str(None)):
+    def sendPost(self ,data, type=None):
 
         if type=="crypto".lower():
             
@@ -75,7 +75,8 @@ class RequestAPI():
             #error hanfling if connection isnt made with a server
             _id = "1x5678Tr24Xpn677Ss"
             delete = req.delete(f"http://{self.apiloc}/news/{_id}")
-
+          
+         
             for x in range(len(dataToSend)):
                 
                 data = req.post(f"http://{self.apiloc}/news/" + str(uuid4()), data = {
@@ -86,7 +87,7 @@ class RequestAPI():
                                 "newsPolarityNeu":dataToSend['neu'][x],
                                 "creationDate":dataToSend['date'][x]
             })
-
+            
             return "Data Sent",201
 
         except req.exceptions.ConnectionError:
