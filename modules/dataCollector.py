@@ -2,6 +2,7 @@ from datetime import datetime
 import requests
 import re
 import logging
+from textwrap import dedent
 #import os
 
 import pandas as pd 
@@ -111,10 +112,10 @@ class Connect():
                                     columns=['DATE','PRICE','PRICE_CAP', 'VOLUME24','CIRCULATION'])
                 #build dataframe for the backup source
                 df['DATE'] = datetime.strftime(datetime.now(), '%m-%d-%Y, %H:%M')
-                df['PRICE'] = [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-price views-align-right'})]
-                df['PRICE_CAP'] = [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-market-cap views-align-right hidden-xs'})]
-                df['VOLUME24'] =  [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-volume views-align-right hidden-xs'})]
-                df['CIRCULATION'] = [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-circulating-supply views-align-right'})]
+                df['PRICE'] = [dedent(x.get_text().replace("\n","").replace("        ","")) for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-price views-align-right'})]
+                df['PRICE_CAP'] = [dedent(x.get_text().replace("\n","").replace("        ","")) for x in makeSoup.find_all('td',{'class':'views-field views-field-field-market-cap views-align-right hidden-xs'})]
+                df['VOLUME24'] =  [dedent(x.get_text().replace("\n","").replace("        ","")) for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-volume views-align-right hidden-xs'})]
+                df['CIRCULATION'] = [dedent(x.get_text().replace("\n","").replace("        ","")) for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-circulating-supply views-align-right'})]
                 
                 if(send_notification):
                     send_email(messages=f"Information Collected from backupCoinList time: {str(datetime.now())}",
