@@ -34,9 +34,10 @@ class Connect():
         url - passing right URL from connection.var
         header - header to send with a requests
     
-    for news source:
+    for sources:
 
-        reqToSend - a boolean for sending data to API
+        reqToSend - boolean for sending data to API
+        send_notification - boolean for sending notifications to email
 
     Will implement preciOus metal quote scraper in a later release
 
@@ -67,7 +68,7 @@ class Connect():
                 return "Something made OOPS", 404
 
     #connection function for forex
-    def forex(url, header):
+    def forex(url, header, reqToSend=False, send_notification=False):
         
         data = Connect.makeConnection(url, header)
         makeSoup = soup(data, PARSER)
@@ -84,15 +85,18 @@ class Connect():
             
         except ValueError:
             logging.error("ValueERROR in forex scraping")
-            send_email(messages=f"Dafaframe valueError information not collected ftom forex time: {str(datetime.now())}", 
-                        subject="Dataframe ValueError", password=PASSWD)
+
+            if(send_notification):
+                send_email(messages=f"Dafaframe valueError information not collected ftom forex time: {str(datetime.now())}", 
+                            subject="Dataframe ValueError", password=PASSWD)
+
             return "Values dont match with eachother"
 
         return df
 
     
     #Connection function for cryptomarkets
-    def crypto(url, header, reqToSend=False):
+    def crypto(url, header, reqToSend=False, send_notification=False):
 
         #not good repeating code  somebody call police 
         data = Connect.makeConnection(url, header)
@@ -112,9 +116,9 @@ class Connect():
                 df['VOLUME24'] =  [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-volume views-align-right hidden-xs'})]
                 df['CIRCULATION'] = [x.get_text().replace("\n","").replace("        ","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-circulating-supply views-align-right'})]
                 
-                
-                send_email(messages=f"Information Collected from backupCoinList time: {str(datetime.now())}",
-                            subject="Something went BOOM", password=PASSWD)
+                if(send_notification):
+                    send_email(messages=f"Information Collected from backupCoinList time: {str(datetime.now())}",
+                                subject="Something went BOOM", password=PASSWD)
                 
                 if(reqToSend):
                     RequestAPI().sendPost(data=df, type="crypto")
@@ -175,8 +179,11 @@ class Connect():
             except AssertionError:
                 #if encounters assertion error then it will automaticly senda a notice
                 logging.error(f"{str(datetime.now())} Assertion error from coinlist")
-                send_email(messages=f"Information not Collected from coinmarketcap.com time: {str(datetime.now())}",
-                             subject="Something went BOOM", password=PASSWD)
+
+                if(send_notification):
+                    send_email(messages=f"Information not Collected from coinmarketcap.com time: {str(datetime.now())}",
+                                subject="Something went BOOM", password=PASSWD)
+
                 return backupCoinList()
 
             return df
@@ -187,7 +194,7 @@ class Connect():
 
     
     #Connectionfunction for news markets
-    def news(url, header, reqToSend=False):
+    def news(url, header, reqToSend=False, send_notification=False):
 
         data = Connect.makeConnection(url, header)
         makeSoup = soup(data, PARSER)
@@ -200,8 +207,11 @@ class Connect():
         #Check if data is excact and if not then send an email
         except ValueError:
             logging.error("Value error from newsSource")
-            send_email(messages=f"Dafaframe valueError information not collected ftom finviz time: {str(datetime.now())}", 
-                        subject="Dataframe ValueError", password=PASSWD)
+
+            if(send_notification):
+                send_email(messages=f"Dafaframe valueError information not collected ftom finviz time: {str(datetime.now())}", 
+                            subject="Dataframe ValueError", password=PASSWD)
+
             return "Values dont match with eachother"
         #check if user would like to send data to API
         if(reqToSend):

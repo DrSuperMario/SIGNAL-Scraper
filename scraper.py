@@ -34,17 +34,10 @@ async def cryptoConnection(delay):
     #creating ad database in SQLLite
     cryptoConn, dbName = createDb("CryptoTable")  
     conn.to_sql(dbName, cryptoConn, if_exists='append')
-    try:
-
-        send_email(messages='Information Collected from Crypto Source',
-                     subject=str(datetime.now()), password=PASSWD)
-    #Error handling for exceptions
-    except EnvironmentError:
-        logging.error(f"{str(datetime.now())}Mail not sent , error 40000 from CryptoConnectionr")
-        print("Error occured with SMTP authentication")
 
     logging.info("Crypto collected")
     cryptoConn.close()
+    
     await asyncio.sleep(delay)
 
 
@@ -53,17 +46,10 @@ async def newsConnection(delay):
     conn = Connect.news(url=URL[4], header=HEADERS['agent_smartphone'], reqToSend=True)
     newsConn, dbName = createDb("newsTable")  
     conn.to_sql(dbName, newsConn, if_exists='append')
-    try:
-
-        send_email(messages='Information Collected from News sources', 
-                    subject=str(datetime.now()), password=PASSWD)
-
-    except EnvironmentError:
-        logging.error(f"{str(datetime.now())} Mail not sent , error 40000 from newsConnection")
-        print("Error occured with SMTP authentication")
 
     logging.info("News collected")
     newsConn.close()
+
     await asyncio.sleep(delay)
 
 async def forexConnection(delay):
@@ -72,17 +58,10 @@ async def forexConnection(delay):
     conn = Connect.forex(url=URL[6], header=HEADERS['agent_desktop'])
     forexConn, dbName = createDb("forexTable")  
     conn.to_sql(dbName, forexConn, if_exists='append')
-    try:
-
-        send_email(messages='Information Collected from Forex sources', 
-                    subject=str(datetime.now()), password=PASSWD)
-
-    except EnvironmentError:
-        logging.error(f"{str(datetime.now())} Mail not sent , error 40000 from ForexConnection")
-        print("Error occured with SMTP authentication")
 
     logging.info("Forex collected")
     forexConn.close()
+
     await asyncio.sleep(delay)
 
 async def main():
