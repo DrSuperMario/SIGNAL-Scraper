@@ -58,44 +58,71 @@ class RequestAPI():
             
             return "data sent",201
 
-        polarity = []
-        for x in range(len(data)):
-            polarity.append(SIA.polarity_scores(data['headLine'][x]))
-        #comparing lenghts 
-        assert(len(polarity) == len(data))
+        elif type=="news".lower():
 
-        dataToSend = pd.DataFrame(polarity, columns=['neg','neu','pos','date'])
-        dataToSend['date'] = data.index.to_list()
-        dataToSend.reset_index(drop=True, inplace=True)
-        data.reset_index(drop=True, inplace=True)
-        dataToSend = pd.concat([data, dataToSend], axis=1)
+            polarity = []
+            for x in range(len(data)):
+                polarity.append(SIA.polarity_scores(data['headLine'][x]))
+            #comparing lenghts 
+            assert(len(polarity) == len(data))
+
+            dataToSend = pd.DataFrame(polarity, columns=['neg','neu','pos','date'])
+            dataToSend['date'] = data.index.to_list()
+            dataToSend.reset_index(drop=True, inplace=True)
+            data.reset_index(drop=True, inplace=True)
+            dataToSend = pd.concat([data, dataToSend], axis=1)
 
 
-        try:
-            #error hanfling if connection isnt made with a server
-            _id = "1x5678Tr24Xpn677Ss"
-            delete = req.delete(f"http://{self.apiloc}/news/{_id}")
-          
-         
-            for x in range(len(dataToSend)):
+            try:
+                #error hanfling if connection isnt made with a server
+                _id = "1x5678Tr24Xpn677Ss"
+                req.delete(f"http://{self.apiloc}/news/{_id}")
+            
+            
+                for x in range(len(dataToSend)):
+                    
+                    data = req.post(f"http://{self.apiloc}/news/" + str(uuid4()), data = {
+                                    "newsArticle":dataToSend['headLine'][x],
+                                    "newsArticleWWW":dataToSend['www'][x],
+                                    "newsPolarityNeg":dataToSend['neg'][x],
+                                    "newsPolarityPos":dataToSend['pos'][x],
+                                    "newsPolarityNeu":dataToSend['neu'][x],
+                                    "creationDate":dataToSend['date'][x]
+                })
                 
-                data = req.post(f"http://{self.apiloc}/news/" + str(uuid4()), data = {
-                                "newsArticle":dataToSend['headLine'][x],
-                                "newsArticleWWW":dataToSend['www'][x],
-                                "newsPolarityNeg":dataToSend['neg'][x],
-                                "newsPolarityPos":dataToSend['pos'][x],
-                                "newsPolarityNeu":dataToSend['neu'][x],
-                                "creationDate":dataToSend['date'][x]
+                return "Data Sent",201
+
+            except req.exceptions.ConnectionError:
+                send_email(messages='Information Not sent to API', 
+                        subject=str(datetime.now()), password=PASSWD)
+                logging.error(f"{datetime.now()} error sending news data to API")
+                return "Connection not made", 404
+
+        elif type=="forex":
+            
+            #data['NAME'] = data.index.to_list()
+            #data.reset_index(drop=True, inplace=True)
+            dataToSend = data
+
+            _id = "1x5678Tr24Xpn677Ss"
+            req.delete(f"http://{self.apiloc}/forex/{_id}")
+
+            for x in range(len(dataToSend)):
+                    
+                data = req.post(f"http://{self.apiloc}/forex/" + dataToSend.index[x], json = {
+                                "forexName":dataToSend['LongName'][x],
+                                "forexChange":dataToSend['CHG%'][x],
+                                "forexHigh":dataToSend['High'][x],
+                                "forexBid":dataToSend['Bid'][x],
+                                "forexLow":dataToSend['Low'][x],
+                                "forexOpen":dataToSend['Open'][x]
             })
             
-            return "Data Sent",201
+            return "data sent",201
 
-        except req.exceptions.ConnectionError:
-            send_email(messages='Information Not sent to API', 
-                    subject=str(datetime.now()), password=PASSWD)
-            logging.error(f"{datetime.now()} error sending news data to API")
-            return "Connection not made", 404
-   
+        else:
+            return "Type not set . select type (news, forex, crypto)"
+
     def getPost(self):
         data = req.get(f"http://{self.apiloc}/newslist")
         return data.json
