@@ -92,6 +92,8 @@ class Connect():
                             subject="Dataframe ValueError", password=PASSWD)
 
             return "Values dont match with eachother"
+        if(reqToSend):
+            RequestAPI().sendPost(data=df, source_type="forex")
 
         return df
 
@@ -122,7 +124,7 @@ class Connect():
                                 subject="Something went BOOM", password=PASSWD)
                 
                 if(reqToSend):
-                    RequestAPI().sendPost(data=df, type="crypto")
+                    RequestAPI().sendPost(data=df, source_type="crypto")
 
                 return df
 
@@ -216,7 +218,7 @@ class Connect():
             return "Values dont match with eachother"
         #check if user would like to send data to API
         if(reqToSend):
-            RequestAPI().sendPost(data=df)
+            RequestAPI().sendPost(data=df, source_type='news')
         
         return df
 

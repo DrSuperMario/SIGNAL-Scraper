@@ -34,9 +34,9 @@ class RequestAPI():
         self.url = url
         self.apiloc = apiloc
 
-    def sendPost(self ,data, type=None):
+    def sendPost(self ,data, source_type=None):
 
-        if type=="crypto".lower():
+        if source_type=="crypto".lower():
             
             data['NAME'] = data.index.to_list()
             data.reset_index(drop=True, inplace=True)
@@ -58,7 +58,7 @@ class RequestAPI():
             
             return "data sent",201
 
-        elif type=="news".lower():
+        elif source_type=="news".lower():
 
             polarity = []
             for x in range(len(data)):
@@ -76,7 +76,7 @@ class RequestAPI():
             try:
                 #error hanfling if connection isnt made with a server
                 _id = "1x5678Tr24Xpn677Ss"
-                req.delete(f"http://{self.apiloc}/news/{_id}")
+                delete = req.delete(f"http://{self.apiloc}/news/{_id}")
             
             
                 for x in range(len(dataToSend)):
@@ -98,14 +98,14 @@ class RequestAPI():
                 logging.error(f"{datetime.now()} error sending news data to API")
                 return "Connection not made", 404
 
-        elif type=="forex":
+        elif source_type=="forex".lower():
             
             #data['NAME'] = data.index.to_list()
             #data.reset_index(drop=True, inplace=True)
             dataToSend = data
 
             _id = "1x5678Tr24Xpn677Ss"
-            req.delete(f"http://{self.apiloc}/forex/{_id}")
+            delete = req.delete(f"http://{self.apiloc}/forex/{_id}")
 
             for x in range(len(dataToSend)):
                     
