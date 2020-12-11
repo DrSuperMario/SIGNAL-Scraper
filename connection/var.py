@@ -28,7 +28,7 @@ class Constants(Enum):
 
     LOOP_TIME = 1
     LOOP_END_TIME = 2
-    API_ADDRESS = "127.0.0.1:5000"
+    API_ADDRESS = "brinenewsapi.herokuapp.com"
 
 
 
