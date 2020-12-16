@@ -30,7 +30,7 @@ Params:
 
 async def cryptoConnection(delay):
     #connecting to a crypto source
-    conn = Connect.crypto(url=URL[1],header=HEADERS['agent_desktop'])
+    conn = Connect.crypto(url=URL[1],header=HEADERS['agent_desktop'], reqToSend=True, send_notification=False)
     #creating ad database in SQLLite
     cryptoConn, dbName = createDb("CryptoTable")  
     conn.to_sql(dbName, cryptoConn, if_exists='append')
@@ -43,7 +43,7 @@ async def cryptoConnection(delay):
 
 async def newsConnection(delay):
     #Connection for news scraper
-    conn = Connect.news(url=URL[4], header=HEADERS['agent_smartphone'], reqToSend=True)
+    conn = Connect.news(url=URL[4], header=HEADERS['agent_smartphone'], reqToSend=True, send_notification=False)
     newsConn, dbName = createDb("newsTable")  
     conn.to_sql(dbName, newsConn, if_exists='append')
 
@@ -55,7 +55,7 @@ async def newsConnection(delay):
 async def forexConnection(delay):
 
     #Forex connection
-    conn = Connect.forex(url=URL[6], header=HEADERS['agent_desktop'])
+    conn = Connect.forex(url=URL[6], header=HEADERS['agent_desktop'], reqToSend=True, send_notification=False)
     forexConn, dbName = createDb("forexTable")  
     conn.to_sql(dbName, forexConn, if_exists='append')
 
