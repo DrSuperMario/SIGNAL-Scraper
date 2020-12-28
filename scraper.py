@@ -12,6 +12,7 @@ from modules.dataCollector import Connect
 from connection.var import *
 from db import createDb
 from smtp import send_email
+from modules.dms import send_ping
 
 #initalize some params
 TIME_LOOP = True
@@ -37,7 +38,9 @@ async def cryptoConnection(delay):
 
     logging.info("Crypto collected")
     cryptoConn.close()
-    
+    #send ping to DMS after collecting
+    send_ping()
+
     await asyncio.sleep(delay)
 
 
@@ -49,6 +52,8 @@ async def newsConnection(delay):
 
     logging.info("News collected")
     newsConn.close()
+    #send ping to DMS after collecting
+    send_ping()
 
     await asyncio.sleep(delay)
 
@@ -61,6 +66,8 @@ async def forexConnection(delay):
 
     logging.info("Forex collected")
     forexConn.close()
+    #send ping to DMS after collecting
+    send_ping()
 
     await asyncio.sleep(delay)
 

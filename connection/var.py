@@ -9,6 +9,8 @@ Params:
     LOOP_TIME  - time how long the sleep should be between each iteration
     LOOP_END_TIME - time between the las loop
     API_ADDRESS - URL or IP for sending data to API
+    FALLBACK_ADDR - URL or IP to run a dead mans switch on if something should fail
+    FALLBACK_PORT - port to use with the dead man switch
     
     URL - URLs for diffrent sources to scrape data
     PARSER - parser to be used with beautifulsoup
@@ -29,6 +31,8 @@ class Constants(Enum):
     LOOP_TIME = 1
     LOOP_END_TIME = 2
     API_ADDRESS = "brinenewsapi.herokuapp.com"
+    FALLBACK_ADDR = "127.0.0.1"
+    FALLBACK_PORT = 65432
 
 
 
