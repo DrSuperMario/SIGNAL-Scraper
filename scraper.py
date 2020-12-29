@@ -17,6 +17,7 @@ from modules.dms import send_ping
 #initalize some params
 TIME_LOOP = True
 time_passage = Constants.LOOP_TIME.value
+_ALLOW_FALLBACK = True
 
 """
 Main module for data scraper.
@@ -29,6 +30,7 @@ Params:
     
 """
 
+
 async def cryptoConnection(delay):
     #connecting to a crypto source
     conn = Connect.crypto(url=URL[1],header=HEADERS['agent_desktop'], reqToSend=True, send_notification=False)
@@ -39,7 +41,8 @@ async def cryptoConnection(delay):
     logging.info("Crypto collected")
     cryptoConn.close()
     #send ping to DMS after collecting
-    send_ping()
+    if(_ALLOW_FALLBACK):
+        send_ping()
 
     await asyncio.sleep(delay)
 
@@ -53,7 +56,8 @@ async def newsConnection(delay):
     logging.info("News collected")
     newsConn.close()
     #send ping to DMS after collecting
-    send_ping()
+    if(_ALLOW_FALLBACK):
+        send_ping()
 
     await asyncio.sleep(delay)
 
@@ -67,7 +71,8 @@ async def forexConnection(delay):
     logging.info("Forex collected")
     forexConn.close()
     #send ping to DMS after collecting
-    send_ping()
+    if(_ALLOW_FALLBACK):
+        send_ping()
 
     await asyncio.sleep(delay)
 

@@ -327,3 +327,109 @@ INFO:sqlalchemy.engine.base.Engine:((0, 'US STOCKS-Wall Street climbs to record 
 INFO:sqlalchemy.engine.base.Engine:COMMIT
 INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
 INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-12-29 18:04:16.004236 Assertion error from coinlist
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/CryptoTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/CryptoTable_data.db) data" ("index", "DATE", "PRICE", "PRICE_CAP", "VOLUME24", "CIRCULATION", "NAME") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:((0, '12-29-2020, 18:04', '$26,681.00', '$495,853,273,794', '$38,123,504,667', '18,584,500', 'Bitcoin '), (1, '12-29-2020, 18:04', '$720.82', '$82,198,170,638', '$19,215,736,636', '114,033,593', 'Ethereum '), (2, '12-29-2020, 18:04', '$1.00', '$20,892,168,396', '$55,811,640,506', '20,847,867,881', 'Tether '), (3, '12-29-2020, 18:04', '$0.18', '$8,222,218,115', '$6,683,113,369', '45,425,790,652', 'XRP '), (4, '12-29-2020, 18:04', '$125.06', '$8,279,879,193', '$5,797,315,242', '66,196,337', 'Litecoin '), (5, '12-29-2020, 18:04', '$344.05', '$6,412,170,232', '$4,460,519,759', '18,612,358', 'Bitcoin Cash '), (6, '12-29-2020, 18:04', '$6.43', '$6,132,587,089', '$1,181,314,892', '947,492,522', 'Polkadot '), (7, '12-29-2020, 18:04', '$0.19', '$5,875,687,269', '$2,401,116,414', '31,112,484,646', 'Cardano ')  ... displaying 10 of 81 total bound parameter sets ...  (79, '12-29-2020, 18:04', '$0.00', '$94,790,225', '$156,923', '0', 'DxChain Token '), (80, '12-29-2020, 18:04', '$1.00', '$136,465,296', '$46,717,078', '136,418,888', 'HUSD '))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/newsTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/newsTable_data.db) data" ("index", "headLine", www) VALUES (?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:((0, 'Stocks pare gains after hitting record highs, Nasdaq dips', 'https://finance.yahoo.com/news/stock-market-news-live-updates-december-29-2020-231720425.html'), (1, "EMERGING MARKETS-Brazil's real jumps, stocks hit record on U.S. stimulus hopes", 'https://www.reuters.com/article/emerging-markets-latam/emerging-markets-brazils-real-jumps-stocks-hit-record-on-u-s-stimulus-hopes-idUSL4N2J922C'), (2, 'TREASURIES-U.S. yields flat to higher ahead of Senate vote on bigger relief checks', 'https://www.reuters.com/article/usa-bonds/treasuries-u-s-yields-flat-to-higher-ahead-of-senate-vote-on-bigger-relief-checks-idUSL1N2J90RM'), (3, 'Apple Hits Record After December Surge Sends It Past Amazon', 'https://www.bloomberg.com/news/articles/2020-12-29/apple-hits-record-after-december-surge-propels-stock-past-amazon?srnd=markets-vp'), (4, 'Scientific adviser urges further coronavirus restrictions to prevent "catastrophe" in England', 'http://cnn.it/2L12mA2'), (5, 'These are the 20 worst-performing S&P 500 stocks of 2020 — analysts see double-digit rebounds for 6 of them in 2021', 'https://www.marketwatch.com/story/these-are-the-20-worst-performing-sp-500-stocks-of-2020-analysts-see-double-digit-rebounds-for-6-of-them-in-2021-2020-12-29'), (6, 'Spain will keep a register of those who refuse the coronavirus vaccine', 'https://www.cnn.com/2020/12/29/europe/spain-vaccine-covid-registry-intl/index.html'), (7, 'CANADA STOCKS-TSX falls as materials sector drags', 'https://www.reuters.com/article/canada-stocks/canada-stocks-tsx-falls-as-materials-sector-drags-idUSL4N2J923Y')  ... displaying 10 of 89 total bound parameter sets ...  (87, "Brexit 'big bang' to trigger tectonic trading rift in Europe", 'https://www.reuters.com/article/britain-eu-markets-trading/brexit-big-bang-to-trigger-tectonic-trading-rift-in-europe-idUSL8N2IY4MT'), (88, 'GRAPHIC-A historic oil price collapse, with worries headed into 2021', 'https://www.reuters.com/article/global-oil-yearend/graphic-a-historic-oil-price-collapse-with-worries-headed-into-2021-idUSL4N2IY3NS'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/forexTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/forexTable_data.db) data" ("index", "LongName", "CHG%", "High", "Bid", "Low", "Open") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('EURGBP', 'Euro vs British Pound', '0.09%', '0.9083', '0.9083', '0.9057', '0.9075'), ('EURJPY', 'Euro vs Japanese Yen', '0.19%', '126.9480', '126.9480', '126.8106', '126.7510'), ('EURUSD', 'Euro vs US Dollar', '0.29%', '1.2254', '1.2254', '1.2235', '1.2221'), ('GBPAUD', 'British Pound vs Australian Dollar', '-0.16%', '1.7716', '1.7716', '1.7716', '1.7745'), ('GBPCAD', 'British Pound vs Canadian Dollar', '-0.07%', '1.7282', '1.7282', '1.7259', '1.7294'), ('GBPCHF', 'British Pound vs Swiss Franc', '-0.23%', '1.1933', '1.1933', '1.1921', '1.1962'), ('GBPEUR', 'British Pound vs Euro', '-0.09%', '1.1009', '1.1009', '1.0996', '1.1020'), ('GBPJPY', 'British Pound vs Japanese Yen', '0.06%', '139.7410', '139.7410', '139.6305', '139.6740')  ... displaying 10 of 18 total bound parameter sets ...  ('USDGBP', 'US Dollar vs British Pound', '-0.20%', '0.7412', '0.7412', '0.7395', '0.7427'), ('USDJPY', 'US Dollar vs Japanese Yen', '-0.13%', '103.5540', '103.5540', '103.5140', '103.6930'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-12-29 20:31:58.613282 Assertion error from coinlist
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/CryptoTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/CryptoTable_data.db) data" ("index", "DATE", "PRICE", "PRICE_CAP", "VOLUME24", "CIRCULATION", "NAME") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:((0, '12-29-2020, 20:32', '$26,693.00', '$496,307,884,242', '$37,533,379,988', '18,584,556', 'Bitcoin '), (1, '12-29-2020, 20:32', '$722.54', '$82,472,044,402', '$18,126,151,312', '114,034,859', 'Ethereum '), (2, '12-29-2020, 20:32', '$1.00', '$20,919,416,684', '$57,941,874,730', '20,847,867,881', 'Tether '), (3, '12-29-2020, 20:32', '$0.24', '$10,457,209,714', '$10,243,059,839', '45,425,790,652', 'XRP '), (4, '12-29-2020, 20:32', '$123.99', '$8,220,561,015', '$6,009,906,260', '66,197,037', 'Litecoin '), (5, '12-29-2020, 20:32', '$343.48', '$6,406,380,645', '$4,541,248,562', '18,612,427', 'Bitcoin Cash '), (6, '12-29-2020, 20:32', '$6.82', '$6,356,739,390', '$1,336,017,800', '947,793,679', 'Polkadot '), (7, '12-29-2020, 20:32', '$0.18', '$5,711,393,904', '$2,437,942,192', '31,112,484,646', 'Cardano ')  ... displaying 10 of 81 total bound parameter sets ...  (79, '12-29-2020, 20:32', '$0.00', '$94,790,225', '$156,923', '0', 'DxChain Token '), (80, '12-29-2020, 20:32', '$1.00', '$131,630,938', '$51,098,456', '131,306,279', 'HUSD '))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-12-29 20:35:15.138027 Assertion error from coinlist
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/CryptoTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/CryptoTable_data.db) data" ("index", "DATE", "PRICE", "PRICE_CAP", "VOLUME24", "CIRCULATION", "NAME") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:((0, '12-29-2020, 20:35', '$26,725.00', '$496,082,114,424', '$37,623,304,418', '18,584,556', 'Bitcoin '), (1, '12-29-2020, 20:35', '$723.38', '$82,490,649,125', '$18,325,610,200', '114,035,026', 'Ethereum '), (2, '12-29-2020, 20:35', '$1.00', '$20,919,416,684', '$57,941,874,730', '20,847,867,881', 'Tether '), (3, '12-29-2020, 20:35', '$0.24', '$10,689,527,818', '$10,568,107,996', '45,425,790,652', 'XRP '), (4, '12-29-2020, 20:35', '$124.26', '$8,208,051,710', '$6,021,328,187', '66,197,062', 'Litecoin '), (5, '12-29-2020, 20:35', '$344.57', '$6,413,284,243', '$4,556,180,548', '18,612,440', 'Bitcoin Cash '), (6, '12-29-2020, 20:35', '$6.98', '$6,356,739,390', '$1,374,597,007', '947,793,679', 'Polkadot '), (7, '12-29-2020, 20:35', '$0.18', '$5,700,462,716', '$2,435,975,382', '31,112,484,646', 'Cardano ')  ... displaying 10 of 81 total bound parameter sets ...  (79, '12-29-2020, 20:35', '$0.00', '$94,790,225', '$156,923', '0', 'DxChain Token '), (80, '12-29-2020, 20:35', '$1.00', '$131,630,938', '$51,509,685', '131,306,279', 'HUSD '))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-12-29 20:36:47.094301 Assertion error from coinlist
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/CryptoTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/CryptoTable_data.db) data" ("index", "DATE", "PRICE", "PRICE_CAP", "VOLUME24", "CIRCULATION", "NAME") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:((0, '12-29-2020, 20:36', '$26,725.00', '$496,082,114,424', '$37,623,304,418', '18,584,556', 'Bitcoin '), (1, '12-29-2020, 20:36', '$723.38', '$82,490,649,125', '$18,325,610,200', '114,035,026', 'Ethereum '), (2, '12-29-2020, 20:36', '$1.00', '$20,919,416,684', '$57,941,874,730', '20,847,867,881', 'Tether '), (3, '12-29-2020, 20:36', '$0.24', '$10,689,527,818', '$10,568,107,996', '45,425,790,652', 'XRP '), (4, '12-29-2020, 20:36', '$124.26', '$8,208,051,710', '$6,021,328,187', '66,197,062', 'Litecoin '), (5, '12-29-2020, 20:36', '$344.57', '$6,413,284,243', '$4,556,180,548', '18,612,440', 'Bitcoin Cash '), (6, '12-29-2020, 20:36', '$6.98', '$6,356,739,390', '$1,374,597,007', '947,793,679', 'Polkadot '), (7, '12-29-2020, 20:36', '$0.18', '$5,700,462,716', '$2,435,975,382', '31,112,484,646', 'Cardano ')  ... displaying 10 of 81 total bound parameter sets ...  (79, '12-29-2020, 20:36', '$0.00', '$94,790,225', '$156,923', '0', 'DxChain Token '), (80, '12-29-2020, 20:36', '$1.00', '$131,630,938', '$51,509,685', '131,306,279', 'HUSD '))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/newsTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/newsTable_data.db) data" ("index", "headLine", www) VALUES (?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:((0, 'Home prices surge by most in over 6 years', 'https://www.foxbusiness.com/markets/case-shiller-index-home-prices-surge-most-2014'), (1, 'INTERVIEW-Lebanon can stretch reserves for subsidies another six months, PM says', 'https://www.reuters.com/article/lebanon-crisis-diab/interview-lebanon-can-stretch-reserves-for-subsidies-another-six-months-pm-says-idUSL8N2J92HN'), (2, 'Pfizer and BioNTech to supply additional 100 million COVID vaccine doses to EU in 2021', 'http://feeds.marketwatch.com/~r/marketwatch/marketpulse/~3/SNP06fkL3aQ/story.aspx'), (3, 'U.S. Diet Guidelines Sidestep Scientific Advice to Cut Sugar and Alcohol', 'https://www.nytimes.com/2020/12/29/health/dietary-guidelines-alcohol-sugar.html'), (4, 'Stocks turn negative after hitting record highs as hopes for more stimulus evaporate', 'https://finance.yahoo.com/news/stock-market-news-live-updates-december-29-2020-231720425.html'), (5, 'UPDATE 4-Ant weighs financial holding company to placate regulators, sources say', 'https://www.reuters.com/article/china-ant-group/update-4-ant-weighs-financial-holding-company-to-placate-regulators-sources-say-idUSL1N2J9051'), (6, 'UPDATE 1-Fed extends Main Street loan program as last-minute applications surge', 'https://www.reuters.com/article/usa-fed-mainstreet/update-1-fed-extends-main-street-loan-program-as-last-minute-applications-surge-idUSL1N2J90XD'), (7, 'S&P 500, Dow at record levels on fiscal aid relief, vaccine optimism', 'https://www.reuters.com/article/us-usa-stocks/sp-500-dow-at-record-levels-on-fiscal-aid-relief-vaccine-optimism-idUSKBN29312T')  ... displaying 10 of 89 total bound parameter sets ...  (87, 'FOREX/BONDS-Euro cruises higher as dollar skids again', 'https://www.reuters.com/article/global-forex/forex-bonds-euro-cruises-higher-as-dollar-skids-again-idUSL1N2J90CZ'), (88, 'UPDATE 1-European stocks extend gains as Brexit deal boosts UK markets', 'https://www.reuters.com/article/europe-stocks/update-1-european-stocks-extend-gains-as-brexit-deal-boosts-uk-markets-idUSL4N2J91DL'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/forexTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/forexTable_data.db) data" ("index", "LongName", "CHG%", "High", "Bid", "Low", "Open") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('EURGBP', 'Euro vs British Pound', '0.04%', '0.9078', '0.9078', '0.9057', '0.9076'), ('EURJPY', 'Euro vs Japanese Yen', '0.09%', '126.8300', '126.8300', '126.7082', '126.7510'), ('EURUSD', 'Euro vs US Dollar', '0.19%', '1.2243', '1.2243', '1.2235', '1.2220'), ('GBPAUD', 'British Pound vs Australian Dollar', '-0.11%', '1.7725', '1.7725', '1.7702', '1.7745'), ('GBPCAD', 'British Pound vs Canadian Dollar', '-0.08%', '1.7279', '1.7279', '1.7255', '1.7292'), ('GBPCHF', 'British Pound vs Swiss Franc', '-0.26%', '1.1930', '1.1930', '1.1921', '1.1962'), ('GBPEUR', 'British Pound vs Euro', '-0.04%', '1.1014', '1.1014', '1.0996', '1.1020'), ('GBPJPY', 'British Pound vs Japanese Yen', '0.01%', '139.6770', '139.6770', '139.6085', '139.6720')  ... displaying 10 of 18 total bound parameter sets ...  ('USDGBP', 'US Dollar vs British Pound', '-0.15%', '0.7415', '0.7415', '0.7395', '0.7427'), ('USDJPY', 'US Dollar vs Japanese Yen', '-0.14%', '103.5470', '103.5470', '103.4550', '103.6930'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2020-12-29 20:37:26.048806 Assertion error from coinlist
+ERROR:root:2020-12-29 20:37:28.399840 Valueerror from cryptocoinlist
+ERROR:root:2020-12-29 20:37:29.745392 E-Mail not sent, logging error
+ERROR:root:2020-12-29 20:37:30.346130 Assertion error from coinlist
+ERROR:root:2020-12-29 20:37:31.089079 Valueerror from cryptocoinlist
+ERROR:root:2020-12-29 20:37:32.367606 E-Mail not sent, logging error

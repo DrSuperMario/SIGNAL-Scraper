@@ -31,8 +31,8 @@ class Constants(Enum):
     LOOP_TIME = 1
     LOOP_END_TIME = 2
     API_ADDRESS = "brinenewsapi.herokuapp.com"
-    FALLBACK_ADDR = "127.0.0.1"
-    FALLBACK_PORT = 65432
+    FALLBACK_ADDR = "165.227.149.157"
+    FALLBACK_PORT = 5001
 
 
 
