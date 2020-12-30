@@ -101,11 +101,7 @@ class Connect():
     #Connection function for cryptomarkets
     def crypto(url, header, reqToSend=False, send_notification=False):
 
-        #not good repeating code  somebody call police 
-        data = Connect.makeConnection(url, header)
-        makeSoup = soup(data, PARSER)
-
-        #if the first site fails automaticly scrape from anathor
+            #if the first site fails automaticly scrape from anathor
         def backupCoinList():
             try:    
                 data = Connect.makeConnection(url=URL[7], header=HEADERS['agent_desktop'])
@@ -131,6 +127,13 @@ class Connect():
             except ValueError:
                 logging.error("Backup info not collected from coinlist")
                 return "BackUp information not collected"
+
+        #not good repeating code  somebody call police 
+        data = Connect.makeConnection(url, header)
+        try:
+            makeSoup = soup(data, PARSER)
+        except TypeError:
+            return backupCoinList()  
 
         #Function for checking and rearrenging coinlist
         def getCoinListNames(parsedData):
