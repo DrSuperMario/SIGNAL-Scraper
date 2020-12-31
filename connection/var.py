@@ -11,7 +11,10 @@ Params:
     API_ADDRESS - URL or IP for sending data to API
     FALLBACK_ADDR - URL or IP to run a dead mans switch on if something should fail
     FALLBACK_PORT - port to use with the dead man switch
-    
+
+    ALLOW_FALLBACK - Boolean to activate DMS
+    SEND_NOTIFICATION - Boolean True if you would like to get an email notification
+    SEND_TO_API - Boolean True if Data is to be send to API
     URL - URLs for diffrent sources to scrape data
     PARSER - parser to be used with beautifulsoup
     PASSWD - Password to be used with the send_mail()
@@ -33,8 +36,11 @@ class Constants(Enum):
     API_ADDRESS = "brinenewsapi.herokuapp.com"
     FALLBACK_ADDR = "165.227.149.157"
     FALLBACK_PORT = 5001
-
-
+    
+PASSWD = "<blank>"
+SEND_NOTIFICATION = False
+SEND_TO_API = True
+ALLOW_FALLBACK = True
 
 URL = ("https://www.tradingview.com/markets/currencies/rates-all/",
        "https://coinmarketcap.com/",
@@ -48,7 +54,7 @@ URL = ("https://www.tradingview.com/markets/currencies/rates-all/",
 
 PARSER = "html.parser"
 
-PASSWD = "<blank>"
+
 
 HEADERS = {
     'agent_desktop':

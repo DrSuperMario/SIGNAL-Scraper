@@ -17,7 +17,7 @@ from modules.dms import send_ping
 #initalize some params
 TIME_LOOP = True
 time_passage = Constants.LOOP_TIME.value
-_ALLOW_FALLBACK = True
+
 
 """
 Main module for data scraper.
@@ -33,7 +33,12 @@ Params:
 
 async def cryptoConnection(delay):
     #connecting to a crypto source
-    conn = Connect.crypto(url=URL[1],header=HEADERS['agent_desktop'], reqToSend=True, send_notification=False)
+    conn = Connect.crypto(
+                          url=URL[1],
+                          header=HEADERS['agent_desktop'], 
+                          reqToSend=SEND_TO_API, 
+                          send_notification=SEND_NOTIFICATION
+                )
     #creating ad database in SQLLite
     cryptoConn, dbName = createDb("CryptoTable")  
     conn.to_sql(dbName, cryptoConn, if_exists='append')
@@ -41,7 +46,7 @@ async def cryptoConnection(delay):
     logging.info("Crypto collected")
     cryptoConn.close()
     #send ping to DMS after collecting
-    if(_ALLOW_FALLBACK):
+    if(ALLOW_FALLBACK):
         send_ping()
 
     await asyncio.sleep(delay)
@@ -49,14 +54,19 @@ async def cryptoConnection(delay):
 
 async def newsConnection(delay):
     #Connection for news scraper
-    conn = Connect.news(url=URL[4], header=HEADERS['agent_smartphone'], reqToSend=True, send_notification=False)
+    conn = Connect.news(
+                        url=URL[4],
+                        header=HEADERS['agent_smartphone'], 
+                        reqToSend=SEND_TO_API, 
+                        send_notification=SEND_NOTIFICATION
+                )
     newsConn, dbName = createDb("newsTable")  
     conn.to_sql(dbName, newsConn, if_exists='append')
 
     logging.info("News collected")
     newsConn.close()
     #send ping to DMS after collecting
-    if(_ALLOW_FALLBACK):
+    if(ALLOW_FALLBACK):
         send_ping()
 
     await asyncio.sleep(delay)
@@ -64,14 +74,19 @@ async def newsConnection(delay):
 async def forexConnection(delay):
 
     #Forex connection
-    conn = Connect.forex(url=URL[6], header=HEADERS['agent_desktop'], reqToSend=True, send_notification=False)
+    conn = Connect.forex(
+                         url=URL[6], 
+                         header=HEADERS['agent_desktop'], 
+                         reqToSend=SEND_TO_API, 
+                         send_notification=SEND_NOTIFICATION
+                )
     forexConn, dbName = createDb("forexTable")  
     conn.to_sql(dbName, forexConn, if_exists='append')
 
     logging.info("Forex collected")
     forexConn.close()
     #send ping to DMS after collecting
-    if(_ALLOW_FALLBACK):
+    if(ALLOW_FALLBACK):
         send_ping()
 
     await asyncio.sleep(delay)

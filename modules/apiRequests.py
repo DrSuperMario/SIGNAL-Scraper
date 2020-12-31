@@ -5,6 +5,7 @@ from uuid import uuid4
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pandas as pd
+from urllib3.exceptions import MaxRetryError, NewConnectionError
 
 from smtp import send_email
 from connection.var import *
@@ -92,9 +93,15 @@ class RequestAPI():
                 
                 return "Data Sent",201
 
-            except req.exceptions.ConnectionError:
+            except req.exceptions.ConnectionError or MaxRetryError:
                 send_email(messages='Information Not sent to API', 
-                        subject=str(datetime.now()), password=PASSWD)
+                        subject=f"{str(datetime.now())} API Connection", password=PASSWD)
+                logging.error(f"{datetime.now()} error sending news data to API")
+                return "Connection not made", 404
+
+            except NewConnectionError:
+                send_email(messages='Information Not sent to API New Conenction error', 
+                        subject=f"{str(datetime.now())} API Connection Error", password=PASSWD)
                 logging.error(f"{datetime.now()} error sending news data to API")
                 return "Connection not made", 404
 
@@ -103,22 +110,35 @@ class RequestAPI():
             #data['NAME'] = data.index.to_list()
             #data.reset_index(drop=True, inplace=True)
             dataToSend = data
-
-            _id = "1x5678Tr24Xpn677Ss"
-            delete = req.delete(f"http://{self.apiloc}/forex/{_id}")
-
-            for x in range(len(dataToSend)):
-                    
-                data = req.post(f"http://{self.apiloc}/forex/" + dataToSend.index[x], json = {
-                                "forexName":dataToSend['LongName'][x],
-                                "forexChange":dataToSend['CHG%'][x],
-                                "forexHigh":dataToSend['High'][x],
-                                "forexBid":dataToSend['Bid'][x],
-                                "forexLow":dataToSend['Low'][x],
-                                "forexOpen":dataToSend['Open'][x]
-            })
             
-            return "data sent",201
+            try:
+                _id = "1x5678Tr24Xpn677Ss"
+                delete = req.delete(f"http://{self.apiloc}/forex/{_id}")
+
+                for x in range(len(dataToSend)):
+                        
+                    data = req.post(f"http://{self.apiloc}/forex/" + dataToSend.index[x], json = {
+                                    "forexName":dataToSend['LongName'][x],
+                                    "forexChange":dataToSend['CHG%'][x],
+                                    "forexHigh":dataToSend['High'][x],
+                                    "forexBid":dataToSend['Bid'][x],
+                                    "forexLow":dataToSend['Low'][x],
+                                    "forexOpen":dataToSend['Open'][x]
+                })
+                
+                return "data sent",201
+
+            except req.exceptions.ConnectionError or MaxRetryError:
+                send_email(messages='Information Not sent to API', 
+                        subject=f"{str(datetime.now())} API Connection", password=PASSWD)
+                logging.error(f"{datetime.now()} error sending news data to API")
+                return "Connection not made", 404
+                
+            except NewConnectionError:
+                send_email(messages='Information Not sent to API New Conenction error', 
+                        subject=f"{str(datetime.now())} API Connection Error", password=PASSWD)
+                logging.error(f"{datetime.now()} error sending news data to API")
+                return "Connection not made", 404
 
         else:
             return "Type not set . select type (news, forex, crypto)"
