@@ -42,20 +42,32 @@ class RequestAPI():
             data['NAME'] = data.index.to_list()
             data.reset_index(drop=True, inplace=True)
             dataToSend = data
+            try:
+                _id = "1x5678Tr24Xpn677Ss"
+                delete = req.delete(f"http://{self.apiloc}/crypto/{_id}")
 
-            _id = "1x5678Tr24Xpn677Ss"
-            delete = req.delete(f"http://{self.apiloc}/crypto/{_id}")
+                for x in range(len(dataToSend)):
+                        
+                    data = req.post(f"http://{self.apiloc}/crypto/" + str(uuid4()), json = {
+                                    "cryptoName":dataToSend['NAME'][x],
+                                    "cryptoDate":dataToSend['DATE'][x],
+                                    "cryptoPrice":dataToSend['PRICE'][x],
+                                    "cryptoPriceCap":dataToSend['PRICE_CAP'][x],
+                                    "cryptoVolume":dataToSend['VOLUME24'][x],
+                                    "cryptoCirculation":dataToSend['CIRCULATION'][x]
+                })
 
-            for x in range(len(dataToSend)):
-                    
-                data = req.post(f"http://{self.apiloc}/crypto/" + str(uuid4()), json = {
-                                "cryptoName":dataToSend['NAME'][x],
-                                "cryptoDate":dataToSend['DATE'][x],
-                                "cryptoPrice":dataToSend['PRICE'][x],
-                                "cryptoPriceCap":dataToSend['PRICE_CAP'][x],
-                                "cryptoVolume":dataToSend['VOLUME24'][x],
-                                "cryptoCirculation":dataToSend['CIRCULATION'][x]
-            })
+            except req.exceptions.ConnectionError or MaxRetryError:
+                send_email(messages='Information Not sent to API: Cryptolist', 
+                        subject=f"{str(datetime.now())} API Connection Crypto", password=PASSWD)
+                logging.error(f"{datetime.now()} error sending news data to API Cryptolist")
+                return "Connection not made", 404
+
+            except NewConnectionError:
+                send_email(messages='Information Not sent to API New Conenction error: Cryptolist', 
+                        subject=f"{str(datetime.now())} API Connection Error Crypto", password=PASSWD)
+                logging.error(f"{datetime.now()} error sending news data to API Cryptolist")
+                return "Connection not made", 404
             
             return "data sent",201
 
@@ -94,16 +106,17 @@ class RequestAPI():
                 return "Data Sent",201
 
             except req.exceptions.ConnectionError or MaxRetryError:
-                send_email(messages='Information Not sent to API', 
-                        subject=f"{str(datetime.now())} API Connection", password=PASSWD)
-                logging.error(f"{datetime.now()} error sending news data to API")
+                send_email(messages='Information Not sent to API: Newslist', 
+                        subject=f"{str(datetime.now())} API Connection News", password=PASSWD)
+                logging.error(f"{datetime.now()} error sending news data to API Newslist")
                 return "Connection not made", 404
 
             except NewConnectionError:
-                send_email(messages='Information Not sent to API New Conenction error', 
-                        subject=f"{str(datetime.now())} API Connection Error", password=PASSWD)
-                logging.error(f"{datetime.now()} error sending news data to API")
+                send_email(messages='Information Not sent to API New Conenction error: Newslist', 
+                        subject=f"{str(datetime.now())} API Connection Error News", password=PASSWD)
+                logging.error(f"{datetime.now()} error sending news data to API Newslist")
                 return "Connection not made", 404
+           
 
         elif source_type=="forex".lower():
             
@@ -129,15 +142,15 @@ class RequestAPI():
                 return "data sent",201
 
             except req.exceptions.ConnectionError or MaxRetryError:
-                send_email(messages='Information Not sent to API', 
-                        subject=f"{str(datetime.now())} API Connection", password=PASSWD)
-                logging.error(f"{datetime.now()} error sending news data to API")
+                send_email(messages='Information Not sent to API: Forexlist', 
+                        subject=f"{str(datetime.now())} API Connection Forex", password=PASSWD)
+                logging.error(f"{datetime.now()} error sending news data to API Forexlist")
                 return "Connection not made", 404
-                
+
             except NewConnectionError:
-                send_email(messages='Information Not sent to API New Conenction error', 
-                        subject=f"{str(datetime.now())} API Connection Error", password=PASSWD)
-                logging.error(f"{datetime.now()} error sending news data to API")
+                send_email(messages='Information Not sent to API New Conenction error: Forexlist', 
+                        subject=f"{str(datetime.now())} API Connection Error Forex", password=PASSWD)
+                logging.error(f"{datetime.now()} error sending news data to API Forexlist")
                 return "Connection not made", 404
 
         else:
