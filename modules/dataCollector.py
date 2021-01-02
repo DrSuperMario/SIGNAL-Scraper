@@ -72,7 +72,16 @@ class Connect():
     def forex(url, header, reqToSend=False, send_notification=False):
         
         data = Connect.makeConnection(url, header)
-        makeSoup = soup(data, PARSER)
+        
+        try:
+            makeSoup = soup(data, PARSER)
+
+        except TypeError:
+            logging.error("Info not collected from Forexsource")
+            send_email(messages=f"Information not Collected from ForexList time: {str(datetime.now())}",
+                        subject="Something went BOOM with forex", password=PASSWD)
+            makeSoup = None
+        
 
         try:
             df = pd.DataFrame(index=[makeSoup.find('td', {"id":f"0_{x+1}"}).get_text().replace("\n","").replace(" ","") for x in range(0,18)],
@@ -105,7 +114,15 @@ class Connect():
         def backupCoinList():
             try:    
                 data = Connect.makeConnection(url=URL[7], header=HEADERS['agent_desktop'])
-                makeSoup = soup(data, PARSER)
+                try:
+                    makeSoup = soup(data, PARSER)
+
+                except TypeError:
+                    logging.error("Backup info not collected from coinlist")
+                    send_email(messages=f"Information not Collected from backupCoinList time: {str(datetime.now())}",
+                                subject="Something went BOOM with backup", password=PASSWD)
+                    makeSoup = None
+                
                 df = pd.DataFrame(index=[x.get_text().replace("\n","").replace("\xa0","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-proper-name'})],
                                     columns=['DATE','PRICE','PRICE_CAP', 'VOLUME24','CIRCULATION'])
                 #build dataframe for the backup source
@@ -117,7 +134,7 @@ class Connect():
                 
                 if(send_notification):
                     send_email(messages=f"Information Collected from backupCoinList time: {str(datetime.now())}",
-                                subject="Something went BOOM", password=PASSWD)
+                                subject="Information collectd", password=PASSWD)
                 
                 if(reqToSend):
                     RequestAPI().sendPost(data=df, source_type="crypto")
@@ -203,8 +220,16 @@ class Connect():
     def news(url, header, reqToSend=False, send_notification=False):
 
         data = Connect.makeConnection(url, header)
-        makeSoup = soup(data, PARSER)
-        
+        try:
+            makeSoup = soup(data, PARSER)
+
+        except TypeError:
+            logging.error("Info not collected from Newslist")
+            send_email(messages=f"Information not Collected from NewsList time: {str(datetime.now())}",
+                        subject="Something went BOOM with news", password=PASSWD)
+            makeSoup = None
+            
+
         try:
             df = pd.DataFrame(index=[x.get_text() for x in makeSoup.find_all('td',{'class':'nn-date'})[1:90]],
                             columns=['headLine','www'])
