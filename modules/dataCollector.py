@@ -50,10 +50,14 @@ class Connect():
     def makeConnection(url, header):
         #check if connection can be made and no errors are raised
         try:
-            conn = requests.get(url,headers={'User-Agent':header}, timeout=(3.05, 60))
+            conn = requests.get(url,headers={'User-Agent':header}, timeout=(3.05, 90))
         except requests.exceptions.ConnectionError:
             logging.error("Invalid URL")
             return "Invalid URL", 404
+        except requests.exceptions.ReadTimeout or ReadTimeoutError:
+            logging.info("ReadTimeoutError")
+            conn = requests.get(url,headers={'User-Agent':header}, timeout=None)
+
         #checking id the status code is 200
         if conn.status_code == requests.codes.ok:
             return conn.content
