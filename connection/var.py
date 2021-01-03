@@ -36,11 +36,18 @@ class Constants(Enum):
     API_ADDRESS = "brinenewsapi.herokuapp.com"
     FALLBACK_ADDR = "165.227.149.157"
     FALLBACK_PORT = 5001
-    
-PASSWD = "<blank>"
+
+#GLOBAL SETTINGS
 SEND_NOTIFICATION = False
 SEND_TO_API = True
 ALLOW_FALLBACK = True
+
+#Smtp settings
+PASSWD = "<blank>" # server password
+EMAIL_PORT = 465 #server port
+SMTP_SERVER = 'smtp.gmail.com' #server aadress
+SENDER_EMAIL = 'muukmario@gmail.com' #email
+RECIVER_EMAIL = 'mario@pythonslack.com' #reciver email
 
 URL = ("https://www.tradingview.com/markets/currencies/rates-all/",
        "https://coinmarketcap.com/",

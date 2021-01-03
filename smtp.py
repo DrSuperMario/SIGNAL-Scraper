@@ -3,6 +3,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import datetime
 
+from connection.var import *
+
 import logging
 
 """
@@ -19,14 +21,10 @@ Params:
 """
 
 def send_email(messages, subject, password):
-    port = 465
-    smtp_server = 'smtp.gmail.com'
-    sender_mail = 'muukmario@gmail.com'
-    reciver_mail = 'mario@pythonslack.com'
     
     message = MIMEMultipart()
-    message['From'] = sender_mail
-    message['To'] = reciver_mail
+    message['From'] = SENDER_EMAIL
+    message['To'] = RECIVER_EMAIL
     message['Subject'] = subject
 
     part = MIMEText(messages, "plain")
@@ -36,8 +34,8 @@ def send_email(messages, subject, password):
     context = ssl.create_default_context()
 
     try:
-        with SMTP_SSL(smtp_server, port, context=context) as server:
-            server.login(sender_mail, password)
-            server.sendmail(sender_mail, reciver_mail, message.as_string())
+        with SMTP_SSL(SMTP_SERVER, EMAIL_PORT, context=context) as server:
+            server.login(SENDER_EMAIL, password)
+            server.sendmail(SENDER_EMAIL, RECIVER_EMAIL, message.as_string())
     except SMTPAuthenticationError:
         logging.error(f"{str(datetime.now())} E-Mail not sent, logging error")
