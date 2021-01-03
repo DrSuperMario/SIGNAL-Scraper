@@ -1,4 +1,5 @@
 from datetime import datetime
+from socket import socket
 import requests
 import re
 import logging
@@ -6,7 +7,8 @@ from textwrap import dedent
 #import os
 
 import pandas as pd 
-from bs4 import BeautifulSoup as soup 
+from bs4 import BeautifulSoup as soup
+from urllib3.exceptions import ReadTimeoutError 
 
 
 from connection.var import *
@@ -67,6 +69,12 @@ class Connect():
                 send_email(messages=f"Information not Collected time: {str(datetime.now())}", 
                             subject="Something went BOOM", password=PASSWD)
                 return "Something made OOPS", 404
+            except requests.exceptions.ReadTimeout or ReadTimeoutError:
+                logging.error("HTTP Connection not made ReadTimeOut")
+                send_email(messages=f"Information not Collected time: {str(datetime.now())}", 
+                            subject="Something went BOOM. ReadTimeOut", password=PASSWD)
+                return "Something made OOPS", 404
+            
 
     #connection function for forex
     def forex(url, header, reqToSend=False, send_notification=False):
