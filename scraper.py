@@ -91,10 +91,33 @@ async def forexConnection(delay):
 
     await asyncio.sleep(delay)
 
+async def stockConnection(delay):
+    #connecting to a crypto source
+    conn = Connect.stock(
+                          url=URL[9],
+                          header=HEADERS['agent_desktop'], 
+                          reqToSend=SEND_TO_API, 
+                          send_notification=SEND_NOTIFICATION
+                )
+    #creating ad database in SQLLite
+    stockConn, dbName = createDb("StockTable")  
+    conn.to_sql(dbName, stockConn, if_exists='append')
+
+    logging.info("Stock collected")
+    stockConn.close()
+    #send ping to DMS after collecting
+    if(ALLOW_FALLBACK):
+        send_ping()
+
+    await asyncio.sleep(delay)
+
+
+
 async def main():
     #main function to release asynchronous functions
     await cryptoConnection(time_passage)
     await newsConnection(time_passage)
+    await stockConnection(time_passage)
     await forexConnection(Constants.LOOP_END_TIME.value)
 
 

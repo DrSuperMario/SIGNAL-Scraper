@@ -262,6 +262,51 @@ class Connect():
         
         return df
 
+
+    def stock(url, header, reqToSend=False, send_notification=False):
+
+        data = Connect.makeConnection(url, header)
+        try:
+            makeSoup = soup(data, PARSER)
+
+        except TypeError:
+            logging.error("Info not collected from Stocklist")
+            send_email(messages=f"Information not Collected from StockList time: {str(datetime.now())}",
+                        subject="Something went BOOM with stock", password=PASSWD)
+            makeSoup = None
+        
+        def find_elements(to_search =''):
+            yield re.findall(r'pid-\d+-'+to_search,str(makeSoup))
+            
+        def find_pc():
+            yield re.findall(r'bold greenFont pid-\d+-\bpc\b|bold redFont pid-\d+-\bpc\b|bold blackFont pid-\d+-\bpc\b',
+                                str(makeSoup.find_all('td')),re.M)
+        def find_pcp():
+            yield re.findall(r'bold greenFont pid-\d+-\bpcp\b|bold redFont pid-\d+-\bpcp\b|bold blackFont pid-\d+-\bpcp\b',
+                                str(makeSoup.find_all('td')),re.M)
+        
+        try:
+            df = pd.DataFrame(index=[i.get_text() for i in makeSoup.find_all('td',{'class':'bold left plusIconTd noWrap elp'})],
+                                            columns=["Low","Last","High","Chg","Chg%"])
+            df['Low'] = [j.get_text() for j in [makeSoup.find_all('td',{'class':i}) for i in find_elements(to_search='low')][0][:45]]
+            df['Last'] = [j.get_text() for j in [makeSoup.find_all('td',{'class':i}) for i in find_elements(to_search='last')][0][:45]]
+            df['High'] = [j.get_text() for j in [makeSoup.find_all('td',{'class':i}) for i in find_elements(to_search='high')][0][:45]]
+            df['Chg'] = [j.get_text() for j in [makeSoup.find_all('td',{'class':i}) for i in find_pc()][0]]
+            df['Chg%'] = [j.get_text() for j in [makeSoup.find_all('td',{'class':i}) for i in find_pcp()][0]]
+        
+        except ValueError:
+            logging.error("Value error from StockSource")
+
+            if(send_notification):
+                send_email(messages=f"Dafaframe valueError information not collected ftom stocklist time: {str(datetime.now())}", 
+                            subject="Dataframe ValueError", password=PASSWD)
+
+            return "Values dont match with eachother"
+        #check if user would like to send data to API
+        if(reqToSend):
+            RequestAPI().sendPost(data=df, source_type='stock')
+        
+        return df
     #Collect metal prices
     #Not jet implemented SOON
     def preciousMetals(url, header):

@@ -57,7 +57,8 @@ URL = ("https://www.tradingview.com/markets/currencies/rates-all/",
        "https://www.coingecko.com/en/coins/all",
        "https://uk.advfn.com/forex/live-prices",
        "https://goldprice.org/cryptocurrency-price",
-       "https://www.kitco.com/market/")
+       "https://www.kitco.com/market/",
+       "https://www.investing.com/indices/major-indices")
 
 PARSER = "html.parser"
 

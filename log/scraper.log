@@ -499,3 +499,89 @@ INFO:sqlalchemy.engine.base.Engine:((0, '12-30-2020, 11:36', '$27,824.00', '$517
 INFO:sqlalchemy.engine.base.Engine:COMMIT
 INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
 INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2021-01-03 22:49:25.642514 Assertion error from coinlist
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/CryptoTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/CryptoTable_data.db) data" ("index", "DATE", "PRICE", "PRICE_CAP", "VOLUME24", "CIRCULATION", "NAME") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:((0, '01-03-2021, 22:49', '$33,748.00', '$627,723,297,570', '$67,609,888,206', '18,589,668', 'Bitcoin '), (1, '01-03-2021, 22:49', '$955.03', '$109,661,896,652', '$36,184,579,987', '114,103,782', 'Ethereum '), (2, '01-03-2021, 22:49', '$1.01', '$21,458,371,233', '$88,837,917,357', '21,335,137,197', 'Tether '), (3, '01-03-2021, 22:49', '$154.62', '$10,300,417,387', '$10,429,703,324', '66,233,843', 'Litecoin '), (4, '01-03-2021, 22:49', '$0.23', '$10,241,651,751', '$4,162,291,931', '45,425,790,652', 'XRP '), (5, '01-03-2021, 22:49', '$9.71', '$9,357,460,204', '$1,865,011,268', '949,633,517', 'Polkadot '), (6, '01-03-2021, 22:49', '$406.07', '$7,600,985,395', '$6,272,343,826', '18,616,958', 'Bitcoin Cash '), (7, '01-03-2021, 22:49', '$0.20', '$6,154,393,344', '$1,972,268,876', '31,112,484,646', 'Cardano ')  ... displaying 10 of 84 total bound parameter sets ...  (82, '01-03-2021, 22:49', '$0.00', '$94,790,225', '$156,923', '0', 'DxChain Token '), (83, '01-03-2021, 22:49', '$0.31', '$142,614,376', '$1,062,427', '452,552,412', 'MaidSafeCoin '))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:DMS failed , connection refused
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/newsTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/newsTable_data.db) data" ("index", "headLine", www) VALUES (?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:((0, 'They Seem to Think the Next Four Years Will Be Normal', 'https://www.nytimes.com/2021/01/03/business/media/punchbowl-playbook-capitol-hill-politics.html'), (1, 'Teachers on TV? Schools Try Creative Strategy to Narrow Digital Divide', 'https://www.nytimes.com/2021/01/03/technology/teachers-on-tv.html'), (2, 'Georgia Senate runoffs, December jobs report: What to know this week', 'https://finance.yahoo.com/news/georgia-senate-runoff-elections-december-jobs-report-what-to-know-in-the-week-ahead-161734507.html'), (3, 'Investors bullish on stocks, hoping for a brighter 2021', 'https://www.foxbusiness.com/markets/investors-bullish-on-stocks-hoping-for-a-brighter-2021'), (4, "Tesla's annual sales up 36% but comes short of delivery goal", 'https://www.foxbusiness.com/markets/teslas-annual-sales-up-36-but-comes-short-of-delivery-goal'), (5, 'Hotel owners are still reeling from the coronavirus pandemic', 'https://www.foxbusiness.com/markets/hotel-owners-are-still-reeling-from-the-coronavirus-pandemic'), (6, "China warns of retaliation for NYSE's delisting of companies", 'https://www.foxbusiness.com/markets/china-warns-of-retaliation-for-nyses-delisting-of-companies'), (7, 'Shirley Young, Businesswoman and Cultural Diplomat to China, Dies at 85', 'https://www.nytimes.com/2021/01/03/obituaries/shirley-young-dead.html')  ... displaying 10 of 89 total bound parameter sets ...  (87, 'Indian shares start 2021 on all-time high; IT rises', 'https://www.reuters.com/article/india-stocks/indian-shares-start-2021-on-all-time-high-it-rises-idUSL4N2JC03B'), (88, 'UPDATE 2-NYSE starts process of delisting 3 Chinese telco companies', 'https://www.reuters.com/article/usa-china-nyse-delisting/update-2-nyse-starts-process-of-delisting-3-chinese-telco-companies-idUSL1N2JC02S'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:DMS failed , connection refused
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/StockTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA temp.table_info("Scraped Engine(sqlite:///saved/StockTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:
+CREATE TABLE "Scraped Engine(sqlite:///saved/StockTable_data.db) data" (
+	"index" TEXT, 
+	"Low" TEXT, 
+	"Last" TEXT, 
+	"High" TEXT, 
+	"Chg" TEXT, 
+	"Chg%" TEXT
+)
+
+
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:CREATE INDEX "ix_Scraped Engine(sqlite:///saved/StockTable_data.db) data_index" ON "Scraped Engine(sqlite:///saved/StockTable_data.db) data" ("index")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/StockTable_data.db) data" ("index", "Low", "Last", "High", "Chg", "Chg%") VALUES (?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('Dow Jones', '30,344.50', '30,606.48', '30,637.47', '+196.92', '+0.65%'), ('S&P 500', '3,726.88', '3,756.07', '3,760.20', '+24.03', '+0.64%'), ('Nasdaq', '12,821.23', '12,888.28', '12,902.07', '+18.28', '+0.14%'), ('Small Cap 2000', '1,963.26', '1,974.86', '1,981.41', '-5.14', '-0.26%'), ('S&P 500 VIX', '21.24', '22.75', '23.25', '0.00', '0.00%'), ('S&P/TSX', '17,428.66', '17,433.36', '17,556.54', '-112.45', '-0.64%'), ('Bovespa', '118,919.43', '119,017.24', '120,149.85', '-391.91', '-0.33%'), ('S&P/BMV IPC', '44,016.59', '44,066.88', '44,650.92', '-627.08', '-1.40%')  ... displaying 10 of 45 total bound parameter sets ...  ('Karachi 100', '43,755.38', '44,434.80', '44,874.86', '+679.42', '+1.55%'), ('HNX 30', '314.74', '323.41', '323.49', '+6.88', '+2.17%'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:DMS failed , connection refused
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/forexTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/forexTable_data.db) data" ("index", "LongName", "CHG%", "High", "Bid", "Low", "Open") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:(('EURGBP', 'Euro vs British Pound', '-0.86%', '0.8939', '0.8939', '0.8943', '0.9025'), ('EURJPY', 'Euro vs Japanese Yen', '0.80%', '126.2781', '126.2781', '125.2817', '125.2817'), ('EURUSD', 'Euro vs US Dollar', '0.81%', '1.2231', '1.2231', '1.2134', '1.2134'), ('GBPAUD', 'British Pound vs Australian Dollar', '1.29%', '1.7668', '1.7668', '1.7478', '1.7478'), ('GBPCAD', 'British Pound vs Canadian Dollar', '1.16%', '1.7391', '1.7391', '1.7198', '1.7198'), ('GBPCHF', 'British Pound vs Swiss Franc', '-1.69%', '1.2050', '1.2050', '1.2077', '1.2285'), ('GBPEUR', 'British Pound vs Euro', '-0.48%', '1.1166', '1.1166', '1.1177', '1.1230'), ('GBPJPY', 'British Pound vs Japanese Yen', '1.67%', '141.1291', '141.1291', '138.8155', '138.8155')  ... displaying 10 of 18 total bound parameter sets ...  ('USDGBP', 'US Dollar vs British Pound', '0.00%', '0.7313', '0.7313', '0.7313', '0.7314'), ('USDJPY', 'US Dollar vs Japanese Yen', '-0.04%', '103.0690', '103.0690', '103.2015', '103.2400'))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:DMS failed , connection refused
+ERROR:root:2021-01-03 22:50:14.806164 Assertion error from coinlist
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:PRAGMA main.table_info("Scraped Engine(sqlite:///saved/CryptoTable_data.db) data")
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:BEGIN (implicit)
+INFO:sqlalchemy.engine.base.Engine:INSERT INTO "Scraped Engine(sqlite:///saved/CryptoTable_data.db) data" ("index", "DATE", "PRICE", "PRICE_CAP", "VOLUME24", "CIRCULATION", "NAME") VALUES (?, ?, ?, ?, ?, ?, ?)
+INFO:sqlalchemy.engine.base.Engine:((0, '01-03-2021, 22:50', '$33,748.00', '$627,723,297,570', '$67,609,888,206', '18,589,668', 'Bitcoin '), (1, '01-03-2021, 22:50', '$955.03', '$109,661,896,652', '$36,184,579,987', '114,103,782', 'Ethereum '), (2, '01-03-2021, 22:50', '$1.01', '$21,458,371,233', '$88,837,917,357', '21,335,137,197', 'Tether '), (3, '01-03-2021, 22:50', '$154.62', '$10,300,417,387', '$10,429,703,324', '66,233,843', 'Litecoin '), (4, '01-03-2021, 22:50', '$0.23', '$10,241,651,751', '$4,162,291,931', '45,425,790,652', 'XRP '), (5, '01-03-2021, 22:50', '$9.71', '$9,357,460,204', '$1,865,011,268', '949,633,517', 'Polkadot '), (6, '01-03-2021, 22:50', '$406.07', '$7,600,985,395', '$6,272,343,826', '18,616,958', 'Bitcoin Cash '), (7, '01-03-2021, 22:50', '$0.20', '$6,154,393,344', '$1,972,268,876', '31,112,484,646', 'Cardano ')  ... displaying 10 of 84 total bound parameter sets ...  (82, '01-03-2021, 22:50', '$0.00', '$94,790,225', '$156,923', '0', 'DxChain Token '), (83, '01-03-2021, 22:50', '$0.31', '$142,614,376', '$1,062,427', '452,552,412', 'MaidSafeCoin '))
+INFO:sqlalchemy.engine.base.Engine:COMMIT
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+ERROR:root:2021-01-03 22:50:31.171476 E-Mail not sent, logging error
+ERROR:root:2021-01-03 22:50:32.889194 E-Mail not sent, logging error
