@@ -106,7 +106,12 @@ class Connect():
             df['Open'] = [makeSoup.find('td', {"id":f"6_{x+1}"}).get_text() for x in range(0,18)]
             
         except ValueError:
-            logging.error("ValueERROR in forex scraping")
+            logging.error("Forex: ValueERROR")
+            df = None
+        
+        except AttributeError:
+            logging.error("Forex: NoneType has no attribute get_text")
+            df = None
 
             if(send_notification):
                 send_email(messages=f"Dafaframe valueError information not collected ftom forex time: {str(datetime.now())}", 

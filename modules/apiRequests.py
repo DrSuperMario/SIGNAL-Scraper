@@ -152,6 +152,40 @@ class RequestAPI():
                         subject=f"{str(datetime.now())} API Connection Error Forex", password=PASSWD)
                 logging.error(f"{datetime.now()} error sending news data to API Forexlist")
                 return "Connection not made", 404
+        
+        elif source_type=='stock'.lower():
+            dataToSend = data
+
+            try:
+                _id = "1x5678Tr24Xpn677Ss"
+                delete = req.delete(f"http://{self.apiloc}/stock/{_id}")
+
+                for x in range(len(dataToSend)):
+                        
+                    data = req.post(f"http://{self.apiloc}/stock/" + dataToSend.index[x], json = {
+                                    "stockName":dataToSend.index[x],
+                                    "stockLow":dataToSend['Low'][x],
+                                    "stockLast":dataToSend['Last'][x],
+                                    "stockHigh":dataToSend['High'][x],
+                                    "stockChg":dataToSend['Chg'][x],
+                                    "stockChgp":dataToSend['Chg%'][x]
+                })
+                
+                return "data sent",201
+
+            except req.exceptions.ConnectionError or MaxRetryError:
+                send_email(messages='Information Not sent to API: Forexlist', 
+                        subject=f"{str(datetime.now())} API Connection Forex", password=PASSWD)
+                logging.error(f"{datetime.now()} error sending news data to API Forexlist")
+                return "Connection not made", 404
+
+            except NewConnectionError:
+                send_email(messages='Information Not sent to API New Conenction error: Forexlist', 
+                        subject=f"{str(datetime.now())} API Connection Error Forex", password=PASSWD)
+                logging.error(f"{datetime.now()} error sending news data to API Forexlist")
+                return "Connection not made", 404
+        
+
 
         else:
             return "Type not set . select type (news, forex, crypto)"
