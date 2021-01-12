@@ -2,11 +2,10 @@ import asyncio
 import logging
 from datetime import datetime
 import os
+import time
 
 #Log file location
 logging.basicConfig(filename=os.path.normpath('log/scraper.log'))
-
-import pandas as pd
 
 from modules.dataCollector import Connect
 from connection.var import *
@@ -40,8 +39,8 @@ async def cryptoConnection(delay):
                           send_notification=SEND_NOTIFICATION
                 )
     #creating ad database in SQLLite
-    cryptoConn, dbName = createDb("CryptoTable")  
-    conn.to_sql(dbName, cryptoConn, if_exists='append')
+    cryptoConn, _ = createDb("CryptoTable")  
+    conn.to_sql(f"cryptoTable_data {datetime.strftime(datetime.now(), '%Y.%m.%d %H:%M')}", cryptoConn, if_exists='append')
 
     logging.info("Crypto collected")
     cryptoConn.close()
@@ -60,11 +59,12 @@ async def newsConnection(delay):
                         reqToSend=SEND_TO_API, 
                         send_notification=SEND_NOTIFICATION
                 )
-    newsConn, dbName = createDb("newsTable")  
-    conn.to_sql(dbName, newsConn, if_exists='append')
+    if(time.strftime("%H:%M", time.gmtime()) == Constants.TIME_TO_COLLECT.value):
+        newsConn, _ = createDb("newsTable")    
+        conn.to_sql(f"newsTable_data {datetime.strftime(datetime.now(), '%Y.%m.%d')}", newsConn, if_exists='append')
+        newsConn.close()
 
     logging.info("News collected")
-    newsConn.close()
     #send ping to DMS after collecting
     if(ALLOW_FALLBACK):
         send_ping()
@@ -80,8 +80,8 @@ async def forexConnection(delay):
                          reqToSend=SEND_TO_API, 
                          send_notification=SEND_NOTIFICATION
                 )
-    forexConn, dbName = createDb("forexTable")  
-    conn.to_sql(dbName, forexConn, if_exists='append')
+    forexConn, _ = createDb("forexTable")  
+    conn.to_sql(f"forexTable_data {datetime.strftime(datetime.now(), '%Y.%m.%d %H:%M')}", forexConn, if_exists='append')
 
     logging.info("Forex collected")
     forexConn.close()
@@ -100,8 +100,8 @@ async def stockConnection(delay):
                           send_notification=SEND_NOTIFICATION
                 )
     #creating ad database in SQLLite
-    stockConn, dbName = createDb("StockTable")  
-    conn.to_sql(dbName, stockConn, if_exists='append')
+    stockConn, _ = createDb("StockTable")  
+    conn.to_sql(f"stockTable_data {datetime.strftime(datetime.now(), '%Y.%m.%d %H:%M')}", stockConn, if_exists='append')
 
     logging.info("Stock collected")
     stockConn.close()

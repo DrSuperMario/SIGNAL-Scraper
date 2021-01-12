@@ -1,5 +1,4 @@
 from datetime import datetime
-from socket import socket
 import requests
 import re
 import logging
