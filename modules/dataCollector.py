@@ -236,15 +236,21 @@ class Connect():
     def news(url, header, reqToSend=False, send_notification=False):
 
         data = Connect.makeConnection(url, header)
-        try:
-            makeSoup = soup(data, PARSER)
 
-        except TypeError:
-            logging.error("Info not collected from Newslist")
-            send_email(messages=f"Information not Collected from NewsList time: {str(datetime.now())}",
-                        subject="Something went BOOM with news", password=PASSWD)
-            makeSoup = None
-            
+        if(data != None):
+
+            try:
+                makeSoup = soup(data, PARSER)
+
+            except TypeError:
+                logging.error("Info not collected from Newslist")
+                send_email(messages=f"Information not Collected from NewsList time: {str(datetime.now())}",
+                            subject="Something went BOOM with news", password=PASSWD)
+                return None
+        else:
+            logging.info("Falling back")
+            return None
+                
 
         try:
             df = pd.DataFrame(index=[x.get_text() for x in makeSoup.find_all('td',{'class':'nn-date'})[1:90]],
