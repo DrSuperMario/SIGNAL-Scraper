@@ -59,10 +59,13 @@ async def newsConnection(delay):
                         reqToSend=SEND_TO_API, 
                         send_notification=SEND_NOTIFICATION
                 )
-    if(time.strftime("%H:%M", time.gmtime()) == Constants.TIME_TO_COLLECT.value):
-        newsConn, _ = createDb("newsTable")    
-        conn.to_sql(f"newsTable_data {datetime.strftime(datetime.now(), '%Y.%m.%d')}", newsConn, if_exists='append')
-        newsConn.close()
+    #
+    #Check if date is valid
+    #and select if it is
+    #
+    newsConn, _ = createDb("newsTable")    
+    conn.to_sql(f"newsTable_data {datetime.strftime(datetime.now(), '%Y.%m.%d')}", newsConn, if_exists='append')
+    newsConn.close()
 
     logging.info("News collected")
     #send ping to DMS after collecting
