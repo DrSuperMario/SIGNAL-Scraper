@@ -3,7 +3,14 @@ import logging
 from datetime import datetime
 from uuid import uuid4
 
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
+try:
+    from nltk.sentiment.vader import SentimentIntensityAnalyzer
+except LookupError:
+    import nltk
+    nltk.download('vader_lexicon')
+    from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+
 import pandas as pd
 from urllib3.exceptions import MaxRetryError, NewConnectionError
 
