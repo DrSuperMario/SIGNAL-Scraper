@@ -276,14 +276,21 @@ class Connect():
     def stock(url, header, reqToSend=False, send_notification=False):
 
         data = Connect.makeConnection(url, header)
-        try:
-            makeSoup = soup(data, PARSER)
 
-        except TypeError:
-            logging.error("Info not collected from Stocklist")
-            send_email(messages=f"Information not Collected from StockList time: {str(datetime.now())}",
-                        subject="Something went BOOM with stock", password=PASSWD)
-            makeSoup = None
+        if(data != None):
+
+            try:
+                makeSoup = soup(data, PARSER)
+
+            except TypeError:
+                logging.error("Info not collected from Stocklist")
+                send_email(messages=f"Information not Collected from StockList time: {str(datetime.now())}",
+                            subject="Something went BOOM with stock", password=PASSWD)
+                makeSoup = None
+        else:
+            logging.error("Falling back stockdata not collected ")
+            return None
+                
         
         def find_elements(to_search =''):
             yield re.findall(r'pid-\d+-'+to_search,str(makeSoup))
