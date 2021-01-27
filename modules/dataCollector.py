@@ -91,7 +91,7 @@ class Connect():
             logging.error("Info not collected from Forexsource")
             send_email(messages=f"Information not Collected from ForexList time: {str(datetime.now())}",
                         subject="Something went BOOM with forex", password=PASSWD)
-            makeSoup = None
+            return None
         
 
         try:
@@ -106,11 +106,11 @@ class Connect():
             
         except ValueError:
             logging.error("Forex: ValueERROR")
-            df = None
+            return None
         
         except AttributeError:
             logging.error("Forex: NoneType has no attribute get_text")
-            df = None
+         
 
             if(send_notification):
                 send_email(messages=f"Dafaframe valueError information not collected ftom forex time: {str(datetime.now())}", 
@@ -137,7 +137,7 @@ class Connect():
                     logging.error("Backup info not collected from coinlist")
                     send_email(messages=f"Information not Collected from backupCoinList time: {str(datetime.now())}",
                                 subject="Something went BOOM with backup", password=PASSWD)
-                    makeSoup = None
+                    return None
                 
                 df = pd.DataFrame(index=[x.get_text().replace("\n","").replace("\xa0","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-proper-name'})],
                                     columns=['DATE','PRICE','PRICE_CAP', 'VOLUME24','CIRCULATION'])
@@ -177,22 +177,17 @@ class Connect():
             return fixedCoinList
         #Rearrange and update coinlist
         def reArrangeCoinList(coinsToArrange):
-
             count = -1
             countTwo = -1
             names = getCoinListNames(makeSoup)
             #coins to be rearranged
             for x in names:
-
                 count += 1
-
                 for l in fixedCoinListVar:
-
                     search = re.fullmatch(l,x)
                     if search:
                         countTwo += 1
                         names[count] = coinsToArrange[countTwo]
-
             return names
 
         try:
