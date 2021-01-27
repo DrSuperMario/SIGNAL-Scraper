@@ -116,7 +116,7 @@ class Connect():
                 send_email(messages=f"Dafaframe valueError information not collected ftom forex time: {str(datetime.now())}", 
                             subject="Dataframe ValueError", password=PASSWD)
 
-            return "Values dont match with eachother"
+            return None
         if(reqToSend):
             RequestAPI().sendPost(data=df, source_type="forex")
 
@@ -159,7 +159,7 @@ class Connect():
 
             except ValueError:
                 logging.error("Backup info not collected from coinlist")
-                return "BackUp information not collected"
+                return None
 
         #not good repeating code  somebody call police 
         data = Connect.makeConnection(url, header)
@@ -265,7 +265,7 @@ class Connect():
                 send_email(messages=f"Dafaframe valueError information not collected ftom finviz time: {str(datetime.now())}", 
                             subject="Dataframe ValueError", password=PASSWD)
 
-            return "Values dont match with eachother"
+            return None
         #check if user would like to send data to API
         if(reqToSend):
             RequestAPI().sendPost(data=df, source_type='news')
@@ -318,7 +318,7 @@ class Connect():
                 send_email(messages=f"Dafaframe valueError information not collected ftom stocklist time: {str(datetime.now())}", 
                             subject="Dataframe ValueError", password=PASSWD)
 
-            return "Values dont match with eachother"
+            return None
         #check if user would like to send data to API
         if(reqToSend):
             RequestAPI().sendPost(data=df, source_type='stock')
