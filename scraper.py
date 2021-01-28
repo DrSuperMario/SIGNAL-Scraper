@@ -1,12 +1,12 @@
 import asyncio
+import os
 import logging
 from datetime import datetime
-import os
-import time
 
-#Log file location
 logging.basicConfig(filename=os.path.normpath('log/scraper.log'), 
-                    format='%(asctime)s %(message)s')
+                    format='%(asctime)s %(message)s', 
+                    encoding='utf-8', 
+                    level=logging.INFO)
 
 from modules.dataCollector import Connect
 from connection.var import *
@@ -48,7 +48,7 @@ async def cryptoConnection(delay):
     if(ALLOW_FALLBACK):
         send_ping()
     
-    logging.info("Crypto collected")
+    #logging.info("Crypto collected")
     await asyncio.sleep(delay)
 
 
@@ -72,7 +72,7 @@ async def newsConnection(delay):
     if(ALLOW_FALLBACK):
         send_ping()
 
-    logging.info("News collected")
+    #logging.info("News collected")
     await asyncio.sleep(delay)
 
 async def forexConnection(delay):
@@ -92,7 +92,7 @@ async def forexConnection(delay):
     if(ALLOW_FALLBACK):
         send_ping()
     
-    logging.info("Forex collected")
+    #logging.info("Forex collected")
     await asyncio.sleep(delay)
 
 async def stockConnection(delay):
@@ -112,7 +112,7 @@ async def stockConnection(delay):
     if(ALLOW_FALLBACK):
         send_ping()
 
-    logging.info("Stock collected")
+    #logging.info("Stock collected")
     await asyncio.sleep(delay)
 
 
@@ -137,7 +137,7 @@ if __name__=="__main__":
             #print(f'Run canceled on {datetime.now()}')
             TIME_LOOP = False
 
-            logging.info("Progrm terminated")
+            #logging.info("Progrm terminated")
 
             send_email(messages='Program finished', 
                     subject=str(datetime.now()), password=PASSWD)

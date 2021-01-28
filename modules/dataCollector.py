@@ -3,7 +3,8 @@ import requests
 import re
 import logging
 from textwrap import dedent
-#import os
+
+#Log file location
 
 import pandas as pd 
 from bs4 import BeautifulSoup as soup
@@ -120,6 +121,7 @@ class Connect():
         if(reqToSend):
             RequestAPI().sendPost(data=df, source_type="forex")
 
+        logging.info("Forex collected")
         return df
 
     
@@ -159,6 +161,9 @@ class Connect():
                 
                 if(reqToSend):
                     RequestAPI().sendPost(data=df, source_type="crypto")
+
+
+                logging.info("Crypto collected")
 
                 return df
 
@@ -269,6 +274,8 @@ class Connect():
         #check if user would like to send data to API
         if(reqToSend):
             RequestAPI().sendPost(data=df, source_type='news')
+
+        logging.info("News collected")
         
         return df
 
@@ -322,7 +329,9 @@ class Connect():
         #check if user would like to send data to API
         if(reqToSend):
             RequestAPI().sendPost(data=df, source_type='stock')
-        
+
+        logging.info("Stock collected")
+
         return df
     #Collect metal prices
     #Not jet implemented SOON
