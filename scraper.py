@@ -5,7 +5,8 @@ import os
 import time
 
 #Log file location
-logging.basicConfig(filename=os.path.normpath('log/scraper.log'))
+logging.basicConfig(filename=os.path.normpath('log/scraper.log'), 
+                    format='%(asctime)s %(message)s')
 
 from modules.dataCollector import Connect
 from connection.var import *
