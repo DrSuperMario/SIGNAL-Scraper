@@ -130,13 +130,18 @@ class Connect():
         def backupCoinList():
             try:    
                 data = Connect.makeConnection(url=URL[7], header=HEADERS['agent_desktop'])
-                try:
-                    makeSoup = soup(data, PARSER)
 
-                except TypeError:
-                    logging.error("Backup info not collected from coinlist")
-                    send_email(messages=f"Information not Collected from backupCoinList time: {str(datetime.now())}",
-                                subject="Something went BOOM with backup", password=PASSWD)
+                if(data != None):
+                    try:
+                        makeSoup = soup(data, PARSER)
+
+                    except TypeError:
+                        logging.error("Backup info not collected from coinlist")
+                        send_email(messages=f"Information not Collected from backupCoinList time: {str(datetime.now())}",
+                                    subject="Something went BOOM with backup", password=PASSWD)
+                        return None
+                else:
+                    logging.error("Falling back from backupCoinlist")
                     return None
                 
                 df = pd.DataFrame(index=[x.get_text().replace("\n","").replace("\xa0","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-proper-name'})],
