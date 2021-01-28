@@ -217,7 +217,7 @@ class Connect():
 
             except AssertionError:
                 #if encounters assertion error then it will automaticly senda a notice
-                logging.error(f"{str(datetime.now())} Assertion error from coinlist")
+                logging.error("Assertion error from coinlist")
 
                 if(send_notification):
                     send_email(messages=f"Information not Collected from coinmarketcap.com time: {str(datetime.now())}",
@@ -228,7 +228,7 @@ class Connect():
             return df
 
         except ValueError or None:
-            logging.error(f"{str(datetime.now())} Valueerror from cryptocoinlist")
+            logging.error("Valueerror from cryptocoinlist")
             return backupCoinList()
 
     

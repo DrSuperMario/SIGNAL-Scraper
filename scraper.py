@@ -43,12 +43,12 @@ async def cryptoConnection(delay):
     cryptoConn, _ = createDb("CryptoTable")  
     conn.to_sql(f"cryptoTable_data {datetime.strftime(datetime.now(), '%Y.%m.%d %H:%M')}", cryptoConn, if_exists='append')
 
-    logging.info("Crypto collected")
     cryptoConn.close()
     #send ping to DMS after collecting
     if(ALLOW_FALLBACK):
         send_ping()
-
+    
+    logging.info("Crypto collected")
     await asyncio.sleep(delay)
 
 
@@ -68,11 +68,11 @@ async def newsConnection(delay):
     conn.to_sql(f"newsTable_data {datetime.strftime(datetime.now(), '%Y.%m.%d')}", newsConn, if_exists='append')
     newsConn.close()
 
-    logging.info("News collected")
     #send ping to DMS after collecting
     if(ALLOW_FALLBACK):
         send_ping()
 
+    logging.info("News collected")
     await asyncio.sleep(delay)
 
 async def forexConnection(delay):
@@ -87,12 +87,12 @@ async def forexConnection(delay):
     forexConn, _ = createDb("forexTable")  
     conn.to_sql(f"forexTable_data {datetime.strftime(datetime.now(), '%Y.%m.%d %H:%M')}", forexConn, if_exists='append')
 
-    logging.info("Forex collected")
     forexConn.close()
     #send ping to DMS after collecting
     if(ALLOW_FALLBACK):
         send_ping()
-
+    
+    logging.info("Forex collected")
     await asyncio.sleep(delay)
 
 async def stockConnection(delay):
@@ -107,12 +107,12 @@ async def stockConnection(delay):
     stockConn, _ = createDb("StockTable")  
     conn.to_sql(f"stockTable_data {datetime.strftime(datetime.now(), '%Y.%m.%d %H:%M')}", stockConn, if_exists='append')
 
-    logging.info("Stock collected")
     stockConn.close()
     #send ping to DMS after collecting
     if(ALLOW_FALLBACK):
         send_ping()
 
+    logging.info("Stock collected")
     await asyncio.sleep(delay)
 
 
@@ -137,7 +137,7 @@ if __name__=="__main__":
             #print(f'Run canceled on {datetime.now()}')
             TIME_LOOP = False
 
-            logging.info(f"{str(datetime.now())} Progrm terminated")
+            logging.info("Progrm terminated")
 
             send_email(messages='Program finished', 
                     subject=str(datetime.now()), password=PASSWD)

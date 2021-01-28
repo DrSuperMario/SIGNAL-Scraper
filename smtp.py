@@ -38,4 +38,4 @@ def send_email(messages, subject, password):
             server.login(SENDER_EMAIL, password)
             server.sendmail(SENDER_EMAIL, RECIVER_EMAIL, message.as_string())
     except SMTPAuthenticationError:
-        logging.error(f"{str(datetime.now())} E-Mail not sent, logging error")
+        logging.error("E-Mail not sent, logging error")
