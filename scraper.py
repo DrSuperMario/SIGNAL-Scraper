@@ -5,7 +5,6 @@ from datetime import datetime
 
 logging.basicConfig(filename=os.path.normpath('log/scraper.log'), 
                     format='%(asctime)s %(message)s', 
-                    encoding='utf-8', 
                     level=logging.INFO)
 
 from modules.dataCollector import Connect

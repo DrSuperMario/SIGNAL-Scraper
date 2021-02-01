@@ -51,11 +51,13 @@ class Connect():
         #check if connection can be made and no errors are raised
         try:
             conn = requests.get(url,headers={'User-Agent':header}, timeout=(3.05, 90))
-        except requests.exceptions.ConnectionError:
-            logging.error("Invalid URL")
+        except requests.exceptions.ConnectionError as rec:
+
+            logging.error("ERROR connecting to URL " + rec.__name__)
             return "Invalid URL", 404
-        except requests.exceptions.ReadTimeout or ReadTimeoutError:
-            logging.info("ReadTimeoutError")
+        except requests.exceptions.ReadTimeout or ReadTimeoutError as rt:
+
+            logging.error("ERROR connecting to URL " + rt.__name__)
             conn = requests.get(url,headers={'User-Agent':header}, timeout=None)
 
         #checking id the status code is 200
@@ -67,14 +69,16 @@ class Connect():
                 conn = requests.get(URL[4], headers={'User-Agent':HEADERS['agent_desktop']})
                 return conn.content
             #just if someting goes horribly wrong
-            except requests.exceptions.HTTPError:
+            except requests.exceptions.HTTPError as reh:
+
                 #send an email to let me know if there was OOPS
-                logging.error("HTTP Connection not made")
+                logging.error("ERROR HTTP Connection not made " + reh.__name__)
                 send_email(messages=f"Information not Collected time: {str(datetime.now())}", 
                             subject="Something went BOOM", password=PASSWD)
                 return "Something made OOPS", 404
-            except requests.exceptions.ReadTimeout or ReadTimeoutError:
-                logging.error("HTTP Connection not made ReadTimeOut")
+            except requests.exceptions.ReadTimeout or ReadTimeoutError as rt:
+
+                logging.error("ERROR HTTP Connection not made ReadTimeOut " + rt.__name__)
                 send_email(messages=f"Information not Collected time: {str(datetime.now())}", 
                             subject="Something went BOOM. ReadTimeOut", password=PASSWD)
                 return "Something made OOPS", 404
@@ -88,8 +92,9 @@ class Connect():
         try:
             makeSoup = soup(data, PARSER)
 
-        except TypeError:
-            logging.error("Info not collected from Forexsource")
+        except TypeError as te:
+
+            logging.error("ERROR Info not collected from Forexsource " + te.__name__)
             send_email(messages=f"Information not Collected from ForexList time: {str(datetime.now())}",
                         subject="Something went BOOM with forex", password=PASSWD)
             return None
@@ -105,12 +110,12 @@ class Connect():
             df['Low'] = [makeSoup.find('td', {"id":f"5_{x+1}"}).get_text() for x in range(0,18)]
             df['Open'] = [makeSoup.find('td', {"id":f"6_{x+1}"}).get_text() for x in range(0,18)]
             
-        except ValueError:
-            logging.error("Forex: ValueERROR")
+        except ValueError as ve:
+            logging.error("ERROR Forex: " + ve.__name__)
             return None
         
-        except AttributeError:
-            logging.error("Forex: NoneType has no attribute get_text")
+        except AttributeError as ae:
+            logging.error("ERROR Forex: " + ae.__name__)
          
 
             if(send_notification):
@@ -121,7 +126,7 @@ class Connect():
         if(reqToSend):
             RequestAPI().sendPost(data=df, source_type="forex")
 
-        logging.info("Forex collected")
+        logging.info("INFO Forex collected")
         return df
 
     
@@ -137,13 +142,13 @@ class Connect():
                     try:
                         makeSoup = soup(data, PARSER)
 
-                    except TypeError:
-                        logging.error("Backup info not collected from coinlist")
+                    except TypeError as te:
+                        logging.error("ERROR BackupInfo not collected from coinlist " + te.__name__)
                         send_email(messages=f"Information not Collected from backupCoinList time: {str(datetime.now())}",
                                     subject="Something went BOOM with backup", password=PASSWD)
                         return None
                 else:
-                    logging.error("Falling back from backupCoinlist")
+                    logging.error("ERROR Falling back from backupCoinlist data=None")
                     return None
                 
                 df = pd.DataFrame(index=[x.get_text().replace("\n","").replace("\xa0","") for x in makeSoup.find_all('td',{'class':'views-field views-field-field-crypto-proper-name'})],
@@ -163,19 +168,21 @@ class Connect():
                     RequestAPI().sendPost(data=df, source_type="crypto")
 
 
-                logging.info("Crypto collected")
+                logging.info("INFO Crypto collected")
 
                 return df
 
-            except ValueError:
-                logging.error("Backup info not collected from coinlist")
+            except ValueError as ve:
+                logging.error("ERROR BackupInfo not collected from coinlist " + ve.__name__)
                 return None
 
         #not good repeating code  somebody call police 
         data = Connect.makeConnection(url, header)
         try:
             makeSoup = soup(data, PARSER)
-        except TypeError:
+        except TypeError as te:
+
+            logging.error("ERROR Info not collected from cryptoSource " + te.__name__)
             return backupCoinList()  
 
         #Function for checking and rearrenging coinlist
@@ -220,9 +227,9 @@ class Connect():
                 assert(len(df['PRICE']) == len(df))
                 assert(len(df) == 100)
 
-            except AssertionError:
+            except AssertionError as ae:
                 #if encounters assertion error then it will automaticly senda a notice
-                logging.error("Assertion error from coinlist")
+                logging.error("ERROR Assertion error from coinlist " + ae.__name__)
 
                 if(send_notification):
                     send_email(messages=f"Information not Collected from coinmarketcap.com time: {str(datetime.now())}",
@@ -232,8 +239,8 @@ class Connect():
 
             return df
 
-        except ValueError or None:
-            logging.error("Valueerror from cryptocoinlist")
+        except ValueError or None as ve:
+            logging.error("ERROR Valueerror from cryptocoinlist " + ve.__name__)
             return backupCoinList()
 
     
@@ -247,13 +254,13 @@ class Connect():
             try:
                 makeSoup = soup(data, PARSER)
 
-            except TypeError:
-                logging.error("Info not collected from Newslist")
+            except TypeError as te:
+                logging.error("ERROR Info not collected from Newslist " + te.__name__)
                 send_email(messages=f"Information not Collected from NewsList time: {str(datetime.now())}",
                             subject="Something went BOOM with news", password=PASSWD)
                 return None
         else:
-            logging.info("Falling back")
+            logging.error("ERROR Falling back from NewsList data=None")
             return None
                 
 
@@ -263,8 +270,8 @@ class Connect():
             df['headLine'] = [x.get_text() for x in makeSoup.find_all('a',{'class':'nn-tab-link'})[1:90]]
             df['www'] = [x.get('href') for x in makeSoup.find_all('a', {'class':'nn-tab-link'})[1:90]]
         #Check if data is excact and if not then send an email
-        except ValueError:
-            logging.error("Value error from newsSource")
+        except ValueError as ve:
+            logging.error("ERROR Value error from newsSource " + ve.__name__)
 
             if(send_notification):
                 send_email(messages=f"Dafaframe valueError information not collected ftom finviz time: {str(datetime.now())}", 
@@ -275,7 +282,7 @@ class Connect():
         if(reqToSend):
             RequestAPI().sendPost(data=df, source_type='news')
 
-        logging.info("News collected")
+        logging.info("INFO News collected")
         
         return df
 
@@ -289,13 +296,13 @@ class Connect():
             try:
                 makeSoup = soup(data, PARSER)
 
-            except TypeError:
-                logging.error("Info not collected from Stocklist")
+            except TypeError as te:
+                logging.error("ERROR Info not collected from Stocklist " + te.__name__)
                 send_email(messages=f"Information not Collected from StockList time: {str(datetime.now())}",
                             subject="Something went BOOM with stock", password=PASSWD)
                 makeSoup = None
         else:
-            logging.error("Falling back stockdata not collected ")
+            logging.error("ERROR Falling back stockdata not collected data=None")
             return None
                 
         
@@ -318,8 +325,8 @@ class Connect():
             df['Chg'] = [j.get_text() for j in [makeSoup.find_all('td',{'class':i}) for i in find_pc()][0]]
             df['Chg%'] = [j.get_text() for j in [makeSoup.find_all('td',{'class':i}) for i in find_pcp()][0]]
         
-        except ValueError:
-            logging.error("Value error from StockSource")
+        except ValueError as ve:
+            logging.error("ERROR Value error from StockSource " + ve.__name__)
 
             if(send_notification):
                 send_email(messages=f"Dafaframe valueError information not collected ftom stocklist time: {str(datetime.now())}", 
@@ -330,18 +337,7 @@ class Connect():
         if(reqToSend):
             RequestAPI().sendPost(data=df, source_type='stock')
 
-        logging.info("Stock collected")
+        logging.info("INFO Stock collected")
 
         return df
-    #Collect metal prices
-    #Not jet implemented SOON
-    def preciousMetals(url, header):
-
-        data = Connect.makeConnection(url, header)
-        makseSoup = soup(data, PARSER)
-
-    try:
-        pass
-    except ValueError:
-        pass
 
