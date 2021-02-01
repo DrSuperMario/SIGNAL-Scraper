@@ -19,7 +19,7 @@ def send_ping(host=_host, port=_port):
         sock.send(message.encode())
         sock.close()
     except ConnectionRefusedError as cre:
-        logging.error("ERROR DMS failed , connection refused " + cre.__name__)    
+        logging.error("ERROR DMS failed , connection refused " + cre.__doc__)    
     
 if __name__=="__main__":
     send_ping()

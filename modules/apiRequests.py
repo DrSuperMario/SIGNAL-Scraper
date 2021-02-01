@@ -68,13 +68,13 @@ class RequestAPI():
             except req.exceptions.ConnectionError or MaxRetryError as ce:
                 send_email(messages='Information Not sent to API: Cryptolist', 
                         subject=f"{str(datetime.now())} API Connection Crypto", password=PASSWD)
-                logging.error("ERROR sending cryptoData to API Cryptolist " + ce.__name__)
+                logging.error("ERROR sending cryptoData to API Cryptolist " + ce.__doc__)
                 return "Connection not made", 404
 
             except NewConnectionError as nce:
                 send_email(messages='Information Not sent to API New Conenction error: Cryptolist', 
                         subject=f"{str(datetime.now())} API Connection Error Crypto", password=PASSWD)
-                logging.error("ERROR sending cryptoData to API Cryptolist " + nce.__name__)
+                logging.error("ERROR sending cryptoData to API Cryptolist " + nce.__doc__)
                 return "Connection not made", 404
             
             return "data sent",201
@@ -116,13 +116,13 @@ class RequestAPI():
             except req.exceptions.ConnectionError or MaxRetryError as rec:
                 send_email(messages='Information Not sent to API: Newslist', 
                         subject=f"{str(datetime.now())} API Connection News", password=PASSWD)
-                logging.error("ERROR sending newsData to API Newslist " + rec.__name__)
+                logging.error("ERROR sending newsData to API Newslist " + rec.__doc__)
                 return "Connection not made", 404
 
             except NewConnectionError as mce:
                 send_email(messages='Information Not sent to API New Conenction error: Newslist', 
                         subject=f"{str(datetime.now())} API Connection Error News", password=PASSWD)
-                logging.error("ERROR sending newsData to API Newslist " + mce.__name__)
+                logging.error("ERROR sending newsData to API Newslist " + mce.__doc__)
                 return "Connection not made", 404
            
 
@@ -152,13 +152,13 @@ class RequestAPI():
             except req.exceptions.ConnectionError or MaxRetryError as rec:
                 send_email(messages='Information Not sent to API: Forexlist', 
                         subject=f"{str(datetime.now())} API Connection Forex", password=PASSWD)
-                logging.error("ERROR sending forexData to API Forexlist " + rec.__name__)
+                logging.error("ERROR sending forexData to API Forexlist " + rec.__doc__)
                 return "Connection not made", 404
 
             except NewConnectionError as nce:
                 send_email(messages='Information Not sent to API New Conenction error: Forexlist', 
                         subject=f"{str(datetime.now())} API Connection Error Forex", password=PASSWD)
-                logging.error("ERROR sending forexData to API Forexlist " + nce.__name__)
+                logging.error("ERROR sending forexData to API Forexlist " + nce.__doc__)
                 return "Connection not made", 404
         
         elif source_type=='stock'.lower():
@@ -184,13 +184,13 @@ class RequestAPI():
             except req.exceptions.ConnectionError or MaxRetryError as rec:
                 send_email(messages='Information Not sent to API: Forexlist', 
                         subject=f"{str(datetime.now())} API Connection Forex", password=PASSWD)
-                logging.error("ERROR sending forexData to API Forexlist " + rec.__name__)
+                logging.error("ERROR sending forexData to API Forexlist " + rec.__doc__)
                 return "Connection not made", 404
 
             except NewConnectionError as nce:
                 send_email(messages='Information Not sent to API New Conenction error: Forexlist', 
                         subject=f"{str(datetime.now())} API Connection Error Forex", password=PASSWD)
-                logging.error("ERROR sending forexData to API Forexlist " + nce.__name__)
+                logging.error("ERROR sending forexData to API Forexlist " + nce.__doc__)
                 return "Connection not made", 404
         
 

@@ -137,7 +137,7 @@ if __name__=="__main__":
             TIME_LOOP = False
 
             #logging.info("Progrm terminated")
-            logging.info("INFO app terminated by " + ki.__name__)
+            logging.info("INFO app terminated by " + ki.__doc__)
             send_email(messages='Program finished', 
                     subject=str(datetime.now()), password=PASSWD)
         
