@@ -5,7 +5,8 @@ from uuid import uuid4
 
 try:
     from nltk.sentiment.vader import SentimentIntensityAnalyzer
-except LookupError:
+except LookupError as le:
+    logging.error("ERROR vader_lexicon not found " + le.__name__)
     import nltk
     nltk.download('vader_lexicon')
     from nltk.sentiment.vader import SentimentIntensityAnalyzer
@@ -64,16 +65,16 @@ class RequestAPI():
                                     "cryptoCirculation":dataToSend['CIRCULATION'][x]
                 })
 
-            except req.exceptions.ConnectionError or MaxRetryError:
+            except req.exceptions.ConnectionError or MaxRetryError as ce:
                 send_email(messages='Information Not sent to API: Cryptolist', 
                         subject=f"{str(datetime.now())} API Connection Crypto", password=PASSWD)
-                logging.error("error sending news data to API Cryptolist")
+                logging.error("ERROR sending cryptoData to API Cryptolist " + ce.__name__)
                 return "Connection not made", 404
 
-            except NewConnectionError:
+            except NewConnectionError as nce:
                 send_email(messages='Information Not sent to API New Conenction error: Cryptolist', 
                         subject=f"{str(datetime.now())} API Connection Error Crypto", password=PASSWD)
-                logging.error("error sending news data to API Cryptolist")
+                logging.error("ERROR sending cryptoData to API Cryptolist " + nce.__name__)
                 return "Connection not made", 404
             
             return "data sent",201
@@ -112,16 +113,16 @@ class RequestAPI():
                 
                 return "Data Sent",201
 
-            except req.exceptions.ConnectionError or MaxRetryError:
+            except req.exceptions.ConnectionError or MaxRetryError as rec:
                 send_email(messages='Information Not sent to API: Newslist', 
                         subject=f"{str(datetime.now())} API Connection News", password=PASSWD)
-                logging.error("error sending news data to API Newslist")
+                logging.error("ERROR sending newsData to API Newslist " + rec.__name__)
                 return "Connection not made", 404
 
-            except NewConnectionError:
+            except NewConnectionError as mce:
                 send_email(messages='Information Not sent to API New Conenction error: Newslist', 
                         subject=f"{str(datetime.now())} API Connection Error News", password=PASSWD)
-                logging.error("error sending news data to API Newslist")
+                logging.error("ERROR sending newsData to API Newslist " + mce.__name__)
                 return "Connection not made", 404
            
 
@@ -148,16 +149,16 @@ class RequestAPI():
                 
                 return "data sent",201
 
-            except req.exceptions.ConnectionError or MaxRetryError:
+            except req.exceptions.ConnectionError or MaxRetryError as rec:
                 send_email(messages='Information Not sent to API: Forexlist', 
                         subject=f"{str(datetime.now())} API Connection Forex", password=PASSWD)
-                logging.error("error sending news data to API Forexlist")
+                logging.error("ERROR sending forexData to API Forexlist " + rec.__name__)
                 return "Connection not made", 404
 
-            except NewConnectionError:
+            except NewConnectionError as nce:
                 send_email(messages='Information Not sent to API New Conenction error: Forexlist', 
                         subject=f"{str(datetime.now())} API Connection Error Forex", password=PASSWD)
-                logging.error("error sending news data to API Forexlist")
+                logging.error("ERROR sending forexData to API Forexlist " + nce.__name__)
                 return "Connection not made", 404
         
         elif source_type=='stock'.lower():
@@ -180,16 +181,16 @@ class RequestAPI():
                 
                 return "data sent",201
 
-            except req.exceptions.ConnectionError or MaxRetryError:
+            except req.exceptions.ConnectionError or MaxRetryError as rec:
                 send_email(messages='Information Not sent to API: Forexlist', 
                         subject=f"{str(datetime.now())} API Connection Forex", password=PASSWD)
-                logging.error("error sending news data to API Forexlist")
+                logging.error("ERROR sending forexData to API Forexlist " + rec.__name__)
                 return "Connection not made", 404
 
-            except NewConnectionError:
+            except NewConnectionError as nce:
                 send_email(messages='Information Not sent to API New Conenction error: Forexlist', 
                         subject=f"{str(datetime.now())} API Connection Error Forex", password=PASSWD)
-                logging.error("error sending news data to API Forexlist")
+                logging.error("ERROR sending forexData to API Forexlist " + nce.__name__)
                 return "Connection not made", 404
         
 

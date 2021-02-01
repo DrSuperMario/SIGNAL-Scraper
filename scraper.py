@@ -132,12 +132,12 @@ if __name__=="__main__":
 
             asyncio.run(main())
 
-        except KeyboardInterrupt:
+        except KeyboardInterrupt as ki:
             #print(f'Run canceled on {datetime.now()}')
             TIME_LOOP = False
 
             #logging.info("Progrm terminated")
-
+            logging.info("INFO app terminated by " + ki.__name__)
             send_email(messages='Program finished', 
                     subject=str(datetime.now()), password=PASSWD)
         
