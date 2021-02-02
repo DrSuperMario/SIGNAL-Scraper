@@ -77,6 +77,8 @@ class RequestAPI():
                 logging.error("ERROR sending cryptoData to API Cryptolist " + nce.__doc__)
                 return "Connection not made", 404
             
+            
+            logging.info("INFO Data sent to CryptoAPI")
             return "data sent",201
 
         elif source_type=="news".lower():
@@ -110,7 +112,8 @@ class RequestAPI():
                                     "newsPolarityNeu":dataToSend['neu'][x],
                                     "creationDate":dataToSend['date'][x]
                 })
-                
+
+                logging.info("INFO Data sent to NewsAPI")
                 return "Data Sent",201
 
             except req.exceptions.ConnectionError or MaxRetryError as rec:
@@ -146,7 +149,8 @@ class RequestAPI():
                                     "forexLow":dataToSend['Low'][x],
                                     "forexOpen":dataToSend['Open'][x]
                 })
-                
+
+                logging.info("INFO Data sent to ForexAPI")
                 return "data sent",201
 
             except req.exceptions.ConnectionError or MaxRetryError as rec:
@@ -179,6 +183,7 @@ class RequestAPI():
                                     "stockChgp":dataToSend['Chg%'][x]
                 })
                 
+                logging.info("INFO Data sent to StockAPI")
                 return "data sent",201
 
             except req.exceptions.ConnectionError or MaxRetryError as rec:

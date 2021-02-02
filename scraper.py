@@ -46,7 +46,7 @@ async def cryptoConnection(delay):
     #send ping to DMS after collecting
     if(ALLOW_FALLBACK):
         send_ping()
-    
+    print(f"CryptoData collected at: {datetime.now():%Y-%m-%d %H:%M}")
     #logging.info("Crypto collected")
     await asyncio.sleep(delay)
 
@@ -72,6 +72,7 @@ async def newsConnection(delay):
         send_ping()
 
     #logging.info("News collected")
+    print(f"NewsData collected at: {datetime.now():%Y-%m-%d %H:%M}")
     await asyncio.sleep(delay)
 
 async def forexConnection(delay):
@@ -92,6 +93,7 @@ async def forexConnection(delay):
         send_ping()
     
     #logging.info("Forex collected")
+    print(f"ForexData collected at: {datetime.now():%Y-%m-%d %H:%M}")
     await asyncio.sleep(delay)
 
 async def stockConnection(delay):
@@ -112,6 +114,7 @@ async def stockConnection(delay):
         send_ping()
 
     #logging.info("Stock collected")
+    print(f"StockData collected at: {datetime.now():%Y-%m-%d %H:%M}")
     await asyncio.sleep(delay)
 
 

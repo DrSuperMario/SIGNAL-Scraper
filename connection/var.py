@@ -31,7 +31,7 @@ Params:
 
 class Constants(Enum):
 
-    LOOP_TIME = 10
+    LOOP_TIME = 1
     LOOP_END_TIME = 2
     API_ADDRESS = "brinenewsapi.herokuapp.com"
     FALLBACK_ADDR = "165.227.149.157"
