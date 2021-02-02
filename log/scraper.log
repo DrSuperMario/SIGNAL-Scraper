@@ -1,5 +1,68 @@
-2021-02-01 19:29:15,497 ERROR Assertion error from coinlist Assertion failed.
-2021-02-01 19:29:35,631 INFO Crypto collected
-2021-02-01 19:30:07,143 INFO News collected
-2021-02-01 19:30:28,329 INFO Stock collected
-2021-02-01 19:30:40,450 INFO app terminated by Program interrupted by user.
+2021-02-01 19:53:31,490 ERROR Assertion error from coinlist Assertion failed.
+2021-02-01 19:54:30,526 INFO Crypto collected
+2021-02-01 20:03:22,227 INFO News collected
+2021-02-01 20:12:16,238 INFO Stock collected
+2021-02-01 20:20:47,277 INFO Forex collected
+2021-02-01 20:25:48,330 ERROR Assertion error from coinlist Assertion failed.
+2021-02-01 20:26:13,738 INFO Crypto collected
+2021-02-01 20:35:01,969 INFO News collected
+2021-02-01 20:43:44,070 INFO Stock collected
+2021-02-01 20:52:08,063 INFO Forex collected
+2021-02-01 20:57:09,083 ERROR Assertion error from coinlist Assertion failed.
+2021-02-01 20:57:30,305 INFO Crypto collected
+2021-02-01 21:06:06,273 INFO News collected
+2021-02-01 21:14:38,931 INFO Stock collected
+2021-02-01 21:23:02,764 INFO Forex collected
+2021-02-01 21:28:04,173 ERROR Assertion error from coinlist Assertion failed.
+2021-02-01 21:28:18,703 INFO Crypto collected
+2021-02-01 21:37:08,667 INFO News collected
+2021-02-01 21:45:40,865 INFO Stock collected
+2021-02-01 21:54:04,874 INFO Forex collected
+2021-02-01 21:59:05,926 ERROR Assertion error from coinlist Assertion failed.
+2021-02-01 21:59:18,761 INFO Crypto collected
+2021-02-01 22:07:54,127 INFO News collected
+2021-02-01 22:16:27,008 INFO Stock collected
+2021-02-01 22:24:52,023 INFO Forex collected
+2021-02-01 22:29:53,032 ERROR Assertion error from coinlist Assertion failed.
+2021-02-01 22:30:10,939 INFO Crypto collected
+2021-02-01 22:38:45,951 INFO News collected
+2021-02-01 22:47:18,974 INFO Stock collected
+2021-02-01 22:55:42,777 INFO Forex collected
+2021-02-01 23:00:43,757 ERROR Assertion error from coinlist Assertion failed.
+2021-02-01 23:00:57,278 INFO Crypto collected
+2021-02-01 23:09:41,097 INFO News collected
+2021-02-01 23:18:13,358 INFO Stock collected
+2021-02-01 23:26:37,059 INFO Forex collected
+2021-02-01 23:31:38,073 ERROR Assertion error from coinlist Assertion failed.
+2021-02-01 23:31:56,338 INFO Crypto collected
+2021-02-01 23:40:31,440 INFO News collected
+2021-02-01 23:49:03,458 INFO Stock collected
+2021-02-01 23:57:27,301 INFO Forex collected
+2021-02-02 00:02:28,777 ERROR Assertion error from coinlist Assertion failed.
+2021-02-02 00:02:41,539 INFO Crypto collected
+2021-02-02 00:11:16,164 INFO News collected
+2021-02-02 00:19:52,526 INFO Stock collected
+2021-02-02 00:28:16,230 INFO Forex collected
+2021-02-02 00:33:17,447 ERROR Assertion error from coinlist Assertion failed.
+2021-02-02 00:33:30,731 INFO Crypto collected
+2021-02-02 00:42:05,601 INFO News collected
+2021-02-02 00:50:37,815 INFO Stock collected
+2021-02-02 00:59:01,355 INFO Forex collected
+2021-02-02 01:04:02,945 ERROR Assertion error from coinlist Assertion failed.
+2021-02-02 01:04:22,222 INFO Crypto collected
+2021-02-02 01:12:57,109 INFO News collected
+2021-02-02 01:21:29,488 INFO Stock collected
+2021-02-02 01:29:53,210 INFO Forex collected
+2021-02-02 01:34:54,238 ERROR Assertion error from coinlist Assertion failed.
+2021-02-02 01:35:07,218 INFO Crypto collected
+2021-02-02 01:43:43,695 INFO News collected
+2021-02-02 01:52:17,165 INFO Stock collected
+2021-02-02 02:00:40,885 INFO Forex collected
+2021-02-02 02:05:41,908 ERROR Assertion error from coinlist Assertion failed.
+2021-02-02 02:06:10,156 INFO Crypto collected
+2021-02-02 02:15:00,940 INFO News collected
+2021-02-02 02:23:33,854 INFO Stock collected
+2021-02-02 02:31:57,911 INFO Forex collected
+2021-02-02 02:36:58,943 ERROR Assertion error from coinlist Assertion failed.
+2021-02-02 02:37:13,009 INFO Crypto collected
+2021-02-02 12:32:18,874 INFO app terminated by Program interrupted by user.
