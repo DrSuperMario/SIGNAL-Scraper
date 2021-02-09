@@ -66,3 +66,437 @@
 2021-02-02 02:36:58,943 ERROR Assertion error from coinlist Assertion failed.
 2021-02-02 02:37:13,009 INFO Crypto collected
 2021-02-02 12:32:18,874 INFO app terminated by Program interrupted by user.
+2021-02-08 19:53:55,831 ERROR Assertion error from coinlist Assertion failed.
+2021-02-08 19:54:27,631 INFO Data sent to CryptoAPI
+2021-02-08 19:54:27,632 INFO Crypto collected
+2021-02-08 19:54:56,314 INFO Data sent to NewsAPI
+2021-02-08 19:54:56,315 INFO News collected
+2021-02-08 19:55:25,689 INFO Data sent to StockAPI
+2021-02-08 19:55:25,689 INFO Stock collected
+2021-02-08 19:55:36,845 INFO Data sent to ForexAPI
+2021-02-08 19:55:36,845 INFO Forex collected
+2021-02-08 19:55:39,830 ERROR Assertion error from coinlist Assertion failed.
+2021-02-08 19:56:04,118 INFO Data sent to CryptoAPI
+2021-02-08 19:56:04,119 INFO Crypto collected
+2021-02-08 19:56:37,425 INFO app terminated by Program interrupted by user.
+2021-02-08 19:56:38,323 ERROR E-Mail not sent, logging error <method-wrapper '__repr__' of SMTPAuthenticationError object at 0xffff95a1f4c0>
+2021-02-08 19:56:38,704 INFO app terminated by Program interrupted by user.
+2021-02-08 19:57:45,478 ERROR Assertion error from coinlist Assertion failed.
+2021-02-08 19:58:13,364 INFO Data sent to CryptoAPI
+2021-02-08 19:58:13,365 INFO Crypto collected
+2021-02-08 20:07:01,494 INFO Data sent to NewsAPI
+2021-02-08 20:07:01,495 INFO News collected
+2021-02-08 20:15:46,727 INFO Data sent to StockAPI
+2021-02-08 20:15:46,727 INFO Stock collected
+2021-02-08 20:24:12,914 INFO Data sent to ForexAPI
+2021-02-08 20:24:12,915 INFO Forex collected
+2021-02-08 20:29:14,018 ERROR Assertion error from coinlist Assertion failed.
+2021-02-08 20:29:28,677 INFO Data sent to CryptoAPI
+2021-02-08 20:29:28,677 INFO Crypto collected
+2021-02-08 20:38:12,006 INFO Data sent to NewsAPI
+2021-02-08 20:38:12,007 INFO News collected
+2021-02-08 20:46:46,088 INFO Data sent to StockAPI
+2021-02-08 20:46:46,088 INFO Stock collected
+2021-02-08 20:55:10,152 INFO Data sent to ForexAPI
+2021-02-08 20:55:10,152 INFO Forex collected
+2021-02-08 21:00:11,267 ERROR Assertion error from coinlist Assertion failed.
+2021-02-08 21:00:30,858 INFO Data sent to CryptoAPI
+2021-02-08 21:00:30,858 INFO Crypto collected
+2021-02-08 21:09:07,213 INFO Data sent to NewsAPI
+2021-02-08 21:09:07,214 INFO News collected
+2021-02-08 21:17:41,388 INFO Data sent to StockAPI
+2021-02-08 21:17:41,389 INFO Stock collected
+2021-02-08 21:26:05,151 INFO Data sent to ForexAPI
+2021-02-08 21:26:05,152 INFO Forex collected
+2021-02-08 21:31:06,257 ERROR Assertion error from coinlist Assertion failed.
+2021-02-08 21:31:19,904 INFO Data sent to CryptoAPI
+2021-02-08 21:31:19,905 INFO Crypto collected
+2021-02-08 21:39:56,885 INFO Data sent to NewsAPI
+2021-02-08 21:39:56,886 INFO News collected
+2021-02-08 21:48:29,169 INFO Data sent to StockAPI
+2021-02-08 21:48:29,169 INFO Stock collected
+2021-02-08 21:56:52,984 INFO Data sent to ForexAPI
+2021-02-08 21:56:52,985 INFO Forex collected
+2021-02-08 22:01:54,077 ERROR Assertion error from coinlist Assertion failed.
+2021-02-08 22:02:13,577 INFO Data sent to CryptoAPI
+2021-02-08 22:02:13,578 INFO Crypto collected
+2021-02-08 22:10:55,794 INFO Data sent to NewsAPI
+2021-02-08 22:10:55,795 INFO News collected
+2021-02-08 22:19:28,375 INFO Data sent to StockAPI
+2021-02-08 22:19:28,375 INFO Stock collected
+2021-02-08 22:27:52,466 INFO Data sent to ForexAPI
+2021-02-08 22:27:52,467 INFO Forex collected
+2021-02-08 22:32:53,451 ERROR Assertion error from coinlist Assertion failed.
+2021-02-08 22:33:06,420 INFO Data sent to CryptoAPI
+2021-02-08 22:33:06,421 INFO Crypto collected
+2021-02-08 22:41:43,749 INFO Data sent to NewsAPI
+2021-02-08 22:41:43,750 INFO News collected
+2021-02-08 22:50:16,136 INFO Data sent to StockAPI
+2021-02-08 22:50:16,137 INFO Stock collected
+2021-02-08 22:58:39,861 INFO Data sent to ForexAPI
+2021-02-08 22:58:39,862 INFO Forex collected
+2021-02-08 23:03:40,892 ERROR Assertion error from coinlist Assertion failed.
+2021-02-08 23:03:56,576 INFO Data sent to CryptoAPI
+2021-02-08 23:03:56,576 INFO Crypto collected
+2021-02-08 23:12:31,978 INFO Data sent to NewsAPI
+2021-02-08 23:12:31,979 INFO News collected
+2021-02-08 23:21:04,855 INFO Data sent to StockAPI
+2021-02-08 23:21:04,855 INFO Stock collected
+2021-02-08 23:29:28,448 INFO Data sent to ForexAPI
+2021-02-08 23:29:28,449 INFO Forex collected
+2021-02-08 23:34:29,514 ERROR Assertion error from coinlist Assertion failed.
+2021-02-08 23:34:42,561 INFO Data sent to CryptoAPI
+2021-02-08 23:34:42,561 INFO Crypto collected
+2021-02-08 23:43:18,269 INFO Data sent to NewsAPI
+2021-02-08 23:43:18,270 INFO News collected
+2021-02-08 23:51:50,384 INFO Data sent to StockAPI
+2021-02-08 23:51:50,385 INFO Stock collected
+2021-02-09 00:00:14,321 INFO Data sent to ForexAPI
+2021-02-09 00:00:14,321 INFO Forex collected
+2021-02-09 00:05:15,302 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 00:05:28,266 INFO Data sent to CryptoAPI
+2021-02-09 00:05:28,267 INFO Crypto collected
+2021-02-09 00:14:03,778 INFO Data sent to NewsAPI
+2021-02-09 00:14:03,779 INFO News collected
+2021-02-09 00:22:36,421 INFO Data sent to StockAPI
+2021-02-09 00:22:36,422 INFO Stock collected
+2021-02-09 00:31:00,385 INFO Data sent to ForexAPI
+2021-02-09 00:31:00,386 INFO Forex collected
+2021-02-09 00:36:01,636 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 00:36:19,010 INFO Data sent to CryptoAPI
+2021-02-09 00:36:19,011 INFO Crypto collected
+2021-02-09 00:44:55,505 INFO Data sent to NewsAPI
+2021-02-09 00:44:55,505 INFO News collected
+2021-02-09 00:53:28,249 INFO Data sent to StockAPI
+2021-02-09 00:53:28,249 INFO Stock collected
+2021-02-09 01:01:52,071 INFO Data sent to ForexAPI
+2021-02-09 01:01:52,072 INFO Forex collected
+2021-02-09 01:06:53,251 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 01:07:07,182 INFO Data sent to CryptoAPI
+2021-02-09 01:07:07,183 INFO Crypto collected
+2021-02-09 01:15:43,984 INFO Data sent to NewsAPI
+2021-02-09 01:15:43,985 INFO News collected
+2021-02-09 01:24:16,049 INFO Data sent to StockAPI
+2021-02-09 01:24:16,049 INFO Stock collected
+2021-02-09 01:32:39,843 INFO Data sent to ForexAPI
+2021-02-09 01:32:39,844 INFO Forex collected
+2021-02-09 01:37:40,913 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 01:37:54,009 INFO Data sent to CryptoAPI
+2021-02-09 01:37:54,010 INFO Crypto collected
+2021-02-09 01:46:30,474 INFO Data sent to NewsAPI
+2021-02-09 01:46:30,475 INFO News collected
+2021-02-09 01:55:02,684 INFO Data sent to StockAPI
+2021-02-09 01:55:02,685 INFO Stock collected
+2021-02-09 02:03:28,999 INFO Data sent to ForexAPI
+2021-02-09 02:03:28,999 INFO Forex collected
+2021-02-09 02:08:30,074 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 02:08:43,818 INFO Data sent to CryptoAPI
+2021-02-09 02:08:43,819 INFO Crypto collected
+2021-02-09 02:17:19,344 INFO Data sent to NewsAPI
+2021-02-09 02:17:19,344 INFO News collected
+2021-02-09 02:25:51,433 INFO Data sent to StockAPI
+2021-02-09 02:25:51,434 INFO Stock collected
+2021-02-09 02:34:21,537 INFO Data sent to ForexAPI
+2021-02-09 02:34:21,538 INFO Forex collected
+2021-02-09 02:39:25,023 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 02:39:38,081 INFO Data sent to CryptoAPI
+2021-02-09 02:39:38,082 INFO Crypto collected
+2021-02-09 02:48:20,056 INFO Data sent to NewsAPI
+2021-02-09 02:48:20,057 INFO News collected
+2021-02-09 02:56:52,560 INFO Data sent to StockAPI
+2021-02-09 02:56:52,560 INFO Stock collected
+2021-02-09 03:05:16,824 INFO Data sent to ForexAPI
+2021-02-09 03:05:16,825 INFO Forex collected
+2021-02-09 03:10:18,154 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 03:10:31,628 INFO Data sent to CryptoAPI
+2021-02-09 03:10:31,628 INFO Crypto collected
+2021-02-09 03:19:06,387 INFO Data sent to NewsAPI
+2021-02-09 03:19:06,388 INFO News collected
+2021-02-09 03:27:38,596 INFO Data sent to StockAPI
+2021-02-09 03:27:38,597 INFO Stock collected
+2021-02-09 03:36:02,418 INFO Data sent to ForexAPI
+2021-02-09 03:36:02,419 INFO Forex collected
+2021-02-09 03:41:03,451 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 03:41:17,926 INFO Data sent to CryptoAPI
+2021-02-09 03:41:17,927 INFO Crypto collected
+2021-02-09 03:49:52,820 INFO Data sent to NewsAPI
+2021-02-09 03:49:52,821 INFO News collected
+2021-02-09 03:58:25,489 INFO Data sent to StockAPI
+2021-02-09 03:58:25,490 INFO Stock collected
+2021-02-09 04:06:49,145 INFO Data sent to ForexAPI
+2021-02-09 04:06:49,146 INFO Forex collected
+2021-02-09 04:11:50,231 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 04:12:04,705 INFO Data sent to CryptoAPI
+2021-02-09 04:12:04,706 INFO Crypto collected
+2021-02-09 04:20:40,026 INFO Data sent to NewsAPI
+2021-02-09 04:20:40,027 INFO News collected
+2021-02-09 04:29:12,181 INFO Data sent to StockAPI
+2021-02-09 04:29:12,181 INFO Stock collected
+2021-02-09 04:37:35,984 INFO Data sent to ForexAPI
+2021-02-09 04:37:35,985 INFO Forex collected
+2021-02-09 04:42:37,057 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 04:42:50,472 INFO Data sent to CryptoAPI
+2021-02-09 04:42:50,473 INFO Crypto collected
+2021-02-09 04:51:28,629 INFO Data sent to NewsAPI
+2021-02-09 04:51:28,630 INFO News collected
+2021-02-09 05:00:02,132 INFO Data sent to StockAPI
+2021-02-09 05:00:02,133 INFO Stock collected
+2021-02-09 05:08:26,135 INFO Data sent to ForexAPI
+2021-02-09 05:08:26,136 INFO Forex collected
+2021-02-09 05:13:27,222 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 05:13:44,732 INFO Data sent to CryptoAPI
+2021-02-09 05:13:44,732 INFO Crypto collected
+2021-02-09 05:22:20,013 INFO Data sent to NewsAPI
+2021-02-09 05:22:20,014 INFO News collected
+2021-02-09 05:30:52,807 INFO Data sent to StockAPI
+2021-02-09 05:30:52,808 INFO Stock collected
+2021-02-09 05:39:16,627 INFO Data sent to ForexAPI
+2021-02-09 05:39:16,627 INFO Forex collected
+2021-02-09 05:44:17,860 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 05:44:32,073 INFO Data sent to CryptoAPI
+2021-02-09 05:44:32,074 INFO Crypto collected
+2021-02-09 05:53:09,221 INFO Data sent to NewsAPI
+2021-02-09 05:53:09,222 INFO News collected
+2021-02-09 06:01:41,776 INFO Data sent to StockAPI
+2021-02-09 06:01:41,777 INFO Stock collected
+2021-02-09 06:10:05,604 INFO Data sent to ForexAPI
+2021-02-09 06:10:05,605 INFO Forex collected
+2021-02-09 06:15:06,872 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 06:15:20,937 INFO Data sent to CryptoAPI
+2021-02-09 06:15:20,938 INFO Crypto collected
+2021-02-09 06:23:56,428 INFO Data sent to NewsAPI
+2021-02-09 06:23:56,429 INFO News collected
+2021-02-09 06:32:29,060 INFO Data sent to StockAPI
+2021-02-09 06:32:29,060 INFO Stock collected
+2021-02-09 06:40:52,965 INFO Data sent to ForexAPI
+2021-02-09 06:40:52,966 INFO Forex collected
+2021-02-09 06:45:54,016 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 06:46:13,747 INFO Data sent to CryptoAPI
+2021-02-09 06:46:13,747 INFO Crypto collected
+2021-02-09 06:54:49,871 INFO Data sent to NewsAPI
+2021-02-09 06:54:49,872 INFO News collected
+2021-02-09 07:03:22,926 INFO Data sent to StockAPI
+2021-02-09 07:03:22,926 INFO Stock collected
+2021-02-09 07:11:47,710 INFO Data sent to ForexAPI
+2021-02-09 07:11:47,711 INFO Forex collected
+2021-02-09 07:16:48,767 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 07:17:03,279 INFO Data sent to CryptoAPI
+2021-02-09 07:17:03,279 INFO Crypto collected
+2021-02-09 07:25:39,020 INFO Data sent to NewsAPI
+2021-02-09 07:25:39,021 INFO News collected
+2021-02-09 07:34:12,428 INFO Data sent to StockAPI
+2021-02-09 07:34:12,428 INFO Stock collected
+2021-02-09 07:42:36,553 INFO Data sent to ForexAPI
+2021-02-09 07:42:36,554 INFO Forex collected
+2021-02-09 07:47:37,701 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 07:48:10,873 INFO Data sent to CryptoAPI
+2021-02-09 07:48:10,874 INFO Crypto collected
+2021-02-09 07:56:50,501 INFO Data sent to NewsAPI
+2021-02-09 07:56:50,502 INFO News collected
+2021-02-09 08:05:22,919 INFO Data sent to StockAPI
+2021-02-09 08:05:22,920 INFO Stock collected
+2021-02-09 08:13:46,627 INFO Data sent to ForexAPI
+2021-02-09 08:13:46,627 INFO Forex collected
+2021-02-09 08:18:47,684 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 08:19:03,909 INFO Data sent to CryptoAPI
+2021-02-09 08:19:03,910 INFO Crypto collected
+2021-02-09 08:27:39,035 INFO Data sent to NewsAPI
+2021-02-09 08:27:39,036 INFO News collected
+2021-02-09 08:36:11,834 INFO Data sent to StockAPI
+2021-02-09 08:36:11,834 INFO Stock collected
+2021-02-09 08:44:35,604 INFO Data sent to ForexAPI
+2021-02-09 08:44:35,605 INFO Forex collected
+2021-02-09 08:49:36,729 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 08:49:50,265 INFO Data sent to CryptoAPI
+2021-02-09 08:49:50,265 INFO Crypto collected
+2021-02-09 08:58:26,180 INFO Data sent to NewsAPI
+2021-02-09 08:58:26,181 INFO News collected
+2021-02-09 09:06:58,895 INFO Data sent to StockAPI
+2021-02-09 09:06:58,896 INFO Stock collected
+2021-02-09 09:15:22,661 INFO Data sent to ForexAPI
+2021-02-09 09:15:22,662 INFO Forex collected
+2021-02-09 09:20:23,706 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 09:20:45,445 INFO Data sent to CryptoAPI
+2021-02-09 09:20:45,446 INFO Crypto collected
+2021-02-09 09:29:23,295 INFO Data sent to NewsAPI
+2021-02-09 09:29:23,295 INFO News collected
+2021-02-09 09:37:55,607 INFO Data sent to StockAPI
+2021-02-09 09:37:55,607 INFO Stock collected
+2021-02-09 09:46:24,737 INFO Data sent to ForexAPI
+2021-02-09 09:46:24,737 INFO Forex collected
+2021-02-09 09:51:25,810 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 09:51:52,809 INFO Data sent to CryptoAPI
+2021-02-09 09:51:52,810 INFO Crypto collected
+2021-02-09 10:00:34,722 INFO Data sent to NewsAPI
+2021-02-09 10:00:34,723 INFO News collected
+2021-02-09 10:09:53,801 INFO Data sent to StockAPI
+2021-02-09 10:09:53,802 INFO Stock collected
+2021-02-09 10:18:18,230 INFO Data sent to ForexAPI
+2021-02-09 10:18:18,231 INFO Forex collected
+2021-02-09 10:23:19,512 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 10:23:36,471 INFO Data sent to CryptoAPI
+2021-02-09 10:23:36,471 INFO Crypto collected
+2021-02-09 10:32:13,253 INFO Data sent to NewsAPI
+2021-02-09 10:32:13,254 INFO News collected
+2021-02-09 10:40:46,733 INFO Data sent to StockAPI
+2021-02-09 10:40:46,733 INFO Stock collected
+2021-02-09 10:49:11,860 INFO Data sent to ForexAPI
+2021-02-09 10:49:11,861 INFO Forex collected
+2021-02-09 10:54:13,206 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 10:54:31,568 INFO Data sent to CryptoAPI
+2021-02-09 10:54:31,568 INFO Crypto collected
+2021-02-09 11:03:18,710 INFO Data sent to NewsAPI
+2021-02-09 11:03:18,711 INFO News collected
+2021-02-09 11:11:52,735 INFO Data sent to StockAPI
+2021-02-09 11:11:52,736 INFO Stock collected
+2021-02-09 11:20:16,899 INFO Data sent to ForexAPI
+2021-02-09 11:20:16,899 INFO Forex collected
+2021-02-09 11:25:18,484 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 11:25:40,423 INFO Data sent to CryptoAPI
+2021-02-09 11:25:40,424 INFO Crypto collected
+2021-02-09 11:34:22,137 INFO Data sent to NewsAPI
+2021-02-09 11:34:22,138 INFO News collected
+2021-02-09 11:42:54,567 INFO Data sent to StockAPI
+2021-02-09 11:42:54,567 INFO Stock collected
+2021-02-09 11:51:26,573 INFO Data sent to ForexAPI
+2021-02-09 11:51:26,574 INFO Forex collected
+2021-02-09 11:56:27,640 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 11:56:41,162 INFO Data sent to CryptoAPI
+2021-02-09 11:56:41,162 INFO Crypto collected
+2021-02-09 12:05:21,884 INFO Data sent to NewsAPI
+2021-02-09 12:05:21,885 INFO News collected
+2021-02-09 12:13:54,743 INFO Data sent to StockAPI
+2021-02-09 12:13:54,744 INFO Stock collected
+2021-02-09 12:22:21,107 INFO Data sent to ForexAPI
+2021-02-09 12:22:21,108 INFO Forex collected
+2021-02-09 12:27:22,258 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 12:27:39,742 INFO Data sent to CryptoAPI
+2021-02-09 12:27:39,743 INFO Crypto collected
+2021-02-09 12:36:31,567 INFO Data sent to NewsAPI
+2021-02-09 12:36:31,568 INFO News collected
+2021-02-09 12:45:08,685 INFO Data sent to StockAPI
+2021-02-09 12:45:08,686 INFO Stock collected
+2021-02-09 12:53:33,237 INFO Data sent to ForexAPI
+2021-02-09 12:53:33,237 INFO Forex collected
+2021-02-09 12:58:34,306 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 12:58:58,043 INFO Data sent to CryptoAPI
+2021-02-09 12:58:58,043 INFO Crypto collected
+2021-02-09 13:07:51,418 INFO Data sent to NewsAPI
+2021-02-09 13:07:51,419 INFO News collected
+2021-02-09 13:16:24,498 INFO Data sent to StockAPI
+2021-02-09 13:16:24,499 INFO Stock collected
+2021-02-09 13:24:51,684 INFO Data sent to ForexAPI
+2021-02-09 13:24:51,685 INFO Forex collected
+2021-02-09 13:29:52,778 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 13:30:35,783 INFO Data sent to CryptoAPI
+2021-02-09 13:30:35,784 INFO Crypto collected
+2021-02-09 13:39:12,542 INFO Data sent to NewsAPI
+2021-02-09 13:39:12,543 INFO News collected
+2021-02-09 13:47:46,320 INFO Data sent to StockAPI
+2021-02-09 13:47:46,321 INFO Stock collected
+2021-02-09 13:56:17,597 INFO Data sent to ForexAPI
+2021-02-09 13:56:17,598 INFO Forex collected
+2021-02-09 14:01:18,760 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 14:01:35,507 INFO Data sent to CryptoAPI
+2021-02-09 14:01:35,508 INFO Crypto collected
+2021-02-09 14:10:11,654 INFO Data sent to NewsAPI
+2021-02-09 14:10:11,655 INFO News collected
+2021-02-09 14:18:51,117 INFO Data sent to StockAPI
+2021-02-09 14:18:51,118 INFO Stock collected
+2021-02-09 14:27:20,363 INFO Data sent to ForexAPI
+2021-02-09 14:27:20,364 INFO Forex collected
+2021-02-09 14:32:21,717 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 14:32:54,349 INFO Data sent to CryptoAPI
+2021-02-09 14:32:54,350 INFO Crypto collected
+2021-02-09 14:41:42,362 INFO Data sent to NewsAPI
+2021-02-09 14:41:42,363 INFO News collected
+2021-02-09 14:50:44,267 INFO Data sent to StockAPI
+2021-02-09 14:50:44,267 INFO Stock collected
+2021-02-09 14:59:19,441 INFO Data sent to ForexAPI
+2021-02-09 14:59:19,442 INFO Forex collected
+2021-02-09 15:04:20,538 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 15:05:30,298 INFO Data sent to CryptoAPI
+2021-02-09 15:05:30,299 INFO Crypto collected
+2021-02-09 15:14:51,014 INFO Data sent to NewsAPI
+2021-02-09 15:14:51,015 INFO News collected
+2021-02-09 15:23:46,087 INFO Data sent to StockAPI
+2021-02-09 15:23:46,088 INFO Stock collected
+2021-02-09 15:32:27,185 INFO Data sent to ForexAPI
+2021-02-09 15:32:27,186 INFO Forex collected
+2021-02-09 15:37:28,867 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 15:38:27,158 INFO Data sent to CryptoAPI
+2021-02-09 15:38:27,159 INFO Crypto collected
+2021-02-09 15:48:25,498 INFO Data sent to NewsAPI
+2021-02-09 15:48:25,499 INFO News collected
+2021-02-09 15:57:27,426 INFO Data sent to StockAPI
+2021-02-09 15:57:27,427 INFO Stock collected
+2021-02-09 16:06:18,177 INFO Data sent to ForexAPI
+2021-02-09 16:06:18,178 INFO Forex collected
+2021-02-09 16:11:19,400 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 16:12:57,281 INFO Data sent to CryptoAPI
+2021-02-09 16:12:57,282 INFO Crypto collected
+2021-02-09 16:21:34,676 INFO Data sent to NewsAPI
+2021-02-09 16:21:34,677 INFO News collected
+2021-02-09 16:30:15,123 INFO Data sent to StockAPI
+2021-02-09 16:30:15,124 INFO Stock collected
+2021-02-09 16:38:51,401 INFO Data sent to ForexAPI
+2021-02-09 16:38:51,402 INFO Forex collected
+2021-02-09 16:43:52,594 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 16:44:14,742 INFO Data sent to CryptoAPI
+2021-02-09 16:44:14,743 INFO Crypto collected
+2021-02-09 16:52:58,811 INFO Data sent to NewsAPI
+2021-02-09 16:52:58,812 INFO News collected
+2021-02-09 17:01:32,410 INFO Data sent to StockAPI
+2021-02-09 17:01:32,411 INFO Stock collected
+2021-02-09 17:09:57,687 INFO Data sent to ForexAPI
+2021-02-09 17:09:57,687 INFO Forex collected
+2021-02-09 17:14:58,728 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 17:15:28,573 INFO Data sent to CryptoAPI
+2021-02-09 17:15:28,574 INFO Crypto collected
+2021-02-09 17:24:19,418 INFO Data sent to NewsAPI
+2021-02-09 17:24:19,419 INFO News collected
+2021-02-09 17:33:01,018 INFO Data sent to StockAPI
+2021-02-09 17:33:01,019 INFO Stock collected
+2021-02-09 17:41:31,491 INFO Data sent to ForexAPI
+2021-02-09 17:41:31,492 INFO Forex collected
+2021-02-09 17:46:32,564 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 17:47:12,731 INFO Data sent to CryptoAPI
+2021-02-09 17:47:12,732 INFO Crypto collected
+2021-02-09 17:55:57,933 INFO Data sent to NewsAPI
+2021-02-09 17:55:57,934 INFO News collected
+2021-02-09 18:04:56,167 INFO Data sent to StockAPI
+2021-02-09 18:04:56,167 INFO Stock collected
+2021-02-09 18:13:21,089 INFO Data sent to ForexAPI
+2021-02-09 18:13:21,090 INFO Forex collected
+2021-02-09 18:18:22,179 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 18:18:54,078 INFO Data sent to CryptoAPI
+2021-02-09 18:18:54,079 INFO Crypto collected
+2021-02-09 18:27:38,393 INFO Data sent to NewsAPI
+2021-02-09 18:27:38,395 INFO News collected
+2021-02-09 18:36:31,225 INFO Data sent to StockAPI
+2021-02-09 18:36:31,225 INFO Stock collected
+2021-02-09 18:45:01,685 INFO Data sent to ForexAPI
+2021-02-09 18:45:01,686 INFO Forex collected
+2021-02-09 18:50:03,007 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 18:50:32,702 INFO Data sent to CryptoAPI
+2021-02-09 18:50:32,703 INFO Crypto collected
+2021-02-09 18:59:17,192 INFO Data sent to NewsAPI
+2021-02-09 18:59:17,193 INFO News collected
+2021-02-09 19:08:15,866 INFO Data sent to StockAPI
+2021-02-09 19:08:15,867 INFO Stock collected
+2021-02-09 19:16:51,378 INFO Data sent to ForexAPI
+2021-02-09 19:16:51,378 INFO Forex collected
+2021-02-09 19:21:52,514 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 19:22:55,326 INFO Data sent to CryptoAPI
+2021-02-09 19:22:55,326 INFO Crypto collected
+2021-02-09 19:31:55,940 INFO Data sent to NewsAPI
+2021-02-09 19:31:55,941 INFO News collected
+2021-02-09 19:40:42,503 INFO Data sent to StockAPI
+2021-02-09 19:40:42,504 INFO Stock collected
+2021-02-09 19:49:07,934 INFO Data sent to ForexAPI
+2021-02-09 19:49:07,935 INFO Forex collected
+2021-02-09 19:54:08,998 ERROR Assertion error from coinlist Assertion failed.
+2021-02-09 19:54:33,801 INFO Data sent to CryptoAPI
+2021-02-09 19:54:33,802 INFO Crypto collected
+2021-02-09 20:03:22,431 INFO Data sent to NewsAPI
+2021-02-09 20:03:22,431 INFO News collected
